@@ -10846,7 +10846,7 @@ table.dataTable thead .sorting::after {
 
 .accordion .card-header {
   cursor: pointer;
-  background: #7571f9;
+  background: #808080;
   border: 1px solid #EEEEEE; }
 
 .accordion .card-body {
