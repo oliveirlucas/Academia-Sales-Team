@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Criar evento</title>
+    <title>Dashboard</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png">
     <!-- Pignose Calender -->
-    <link href="../../../plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="../plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <!-- Chartist -->
-    <link rel="stylesheet" href="../../../plugins/chartist/css/chartist.min.css">
-    <link rel="stylesheet" href="../../../plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="../plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="../plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
-    <link href="../../../css/style.css" rel="stylesheet">
-	
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-icons.css" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
+
+
+
 
 </head>
 
@@ -46,11 +49,11 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="index.html">
-                    <b class="logo-abbr"><img src="../../../images/logo.png" alt=""> </b>
-                    <span class="logo-compact"><img src="../../../images/logo-compact.png" alt=""></span>
+                <a href="dashboard.html">
+                    <b class="logo-abbr"><img src="../images/logo.png" alt=""> </b>
+                    <span class="logo-compact"><img src="../images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="../../../images/logo-text.png" alt="" width="180" height="20" >
+                        <img src="../images/logo-text.png" alt="" width="180" height="20" >
                     </span>
                 </a>
             </div>
@@ -64,12 +67,6 @@
         ***********************************-->
         <div class="header">    
             <div class="header-content clearfix">
-                
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>
                 <div class="header-left">
                     <div class="input-group icons">
                         <div class="input-group-prepend">
@@ -100,7 +97,7 @@
                                     <ul>
                                         <li class="notification-unread">
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="images/avatar/1.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/1.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Saiful Islam</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -110,7 +107,7 @@
                                         </li>
                                         <li class="notification-unread">
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="images/avatar/2.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/2.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Adam Smith</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -120,7 +117,7 @@
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="images/avatar/3.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/3.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Barak Obama</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -130,7 +127,7 @@
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="images/avatar/4.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/4.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Hilari Clinton</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -213,7 +210,7 @@
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                                 <span class="activity active"></span>
-                                <img src="images/user/1.png" height="40" width="40" alt="">
+                                <img src="../images/user/1.png" height="40" width="40" alt="">
                             </div>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
@@ -251,26 +248,17 @@
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a href="../../../index.html" aria-expanded="false">
+                        <a href="dashboard.html" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-people"></i><span class="nav-text">Cadastro</span>
+                            <i class="icon-people"></i><span class="nav-text">Aluno</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./cadastro-aluno.html">Cadastro Aluno</a></li>
-							<li><a href="./lista-alunos.html">Lista de Alunos</a></li>
-                        </ul>
-                    </li>
-					<li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graduation"></i><span class="nav-text">Graduação</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./pages/criar-evento.html">Criar evento</a></li>
-							<li><a href="./pages/lista-de-eventos.html">Lista de eventos</a></li>
+                            <li><a href="../pages/cadastro-aluno.html">Cadastro Aluno</a></li>
+							<li><a href="../pages/lista-alunos.html">Lista de Alunos</a></li>
                         </ul>
                     </li>
 					<li class="mega-menu mega-menu-sm">
@@ -278,9 +266,8 @@
                             <i class="icon-credit-card"></i><span class="nav-text">Financeiro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./ficha-financeira.html">Ficha financeira</a></li>
-							<li><a href="./lacamento-caixa.html">Lançamento no caixa</a></li>
-							<li><a href="./cancelamento-caixa.html">Cancelamento no caixa</a></li>
+                            <li><a href="../pages/mensalidade.html">Mensalidade</a></li>
+							<li><a href="../pages/ficha-financeira.html">Ficha financeira</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -294,179 +281,139 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-            <!-- row -->
 
-            <div class="container-fluid">
+            <div class="container-fluid mt-3">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
                             <div class="card-body">
-                                <p class="text-muted"><code></code>
-                                </p>
-                                <div id="accordion-two" class="accordion">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1"><i class="fa" aria-hidden="false"></i>Criar Evento</h5>
-                                        </div>
-                                        <div id="collapseOne1" class="collapse" data-parent="#accordion-two">
-                                            <div class="card-body">
-												<form>
-                                        <div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<input type="text" class="form-control input-default" placeholder="Nome do evento" name="evento">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<input type="text" class="form-control input-default" placeholder="Data do evento" name="data">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<input type="text" class="form-control input-default" placeholder="Professor responsável" name="Professor">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<input type="text" class="form-control input-default" placeholder="Valor a ser pago" name="preco">
-												</div>
-											</div>
-										</div>
-										<button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Criar</button>
-										<div class="clearfix"></div>
-                                    </form>
-											</div>
-                                        </div>
-                                    </div>
+                                <h3 class="card-title text-white">Total de alunos</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">110</h2>
+                                    <p class="text-white mb-0">Ativos/Inativos</p>
                                 </div>
-								<br>
-								<form>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Selecione o evento</label>
-													<input type="text" class="form-control input-default" name="nome">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Selecione o aluno</label>
-													<input type="text" class="form-control input-default" name="mudanca">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Alteração de Prajied/Faixa</label>
-													<input type="text" class="form-control input-default" name= "data">
-												</div>
-											</div>
-										</div>
-										<button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Criar</button>
-										<div class="clearfix"></div>
-                                    </form>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                             </div>
                         </div>
                     </div>
-					<div class="col-lg-12">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Alunos ativos</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">45</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Pagamentos em abertos</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">15</h2>
+                                    <p class="text-white mb-0">Mensalidades</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Lucro</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">R$ 1.200</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Bordered Table</h4>
+                                <div class="card-title">
+                                    <h4>Alunos com pendencia financeira</h4>
+                                </div>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered verticle-middle">
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Task</th>
-                                                <th scope="col">Progress</th>
-                                                <th scope="col">Deadline</th>
-                                                <th scope="col">Label</th>
-                                                <th scope="col">Action</th>
+                                                <th>Codigo pagamento</th>
+                                                <th>Nome completo</th>
+                                                <th>Data vencimento</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Air Conditioner</td>
-                                                <td>
-                                                    <div class="progress" style="height: 10px">
-                                                        <div class="progress-bar gradient-1" style="width: 70%;" role="progressbar"><span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div> 
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
                                                 </td>
-                                                <td>Apr 20,2018</td>
-                                                <td><span class="label gradient-1 btn-rounded">70%</span>
-                                                </td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                                </td>
+                                                <td>January 22</td>
                                             </tr>
                                             <tr>
-                                                <td>Textiles</td>
-                                                <td>
-                                                    <div class="progress" style="height: 10px">
-                                                        <div class="progress-bar gradient-2" style="width: 70%;" role="progressbar"><span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div> 
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
                                                 </td>
-                                                <td>May 27,2018</td>
-                                                <td><span class="label gradient-2 btn-rounded">70%</span>
-                                                </td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                                </td>
+                                                <td>January 30</td>
                                             </tr>
                                             <tr>
-                                                <td>Milk Powder</td>
-                                                <td>
-                                                    <div class="progress" style="height: 10px">
-                                                        <div class="progress-bar gradient-3" style="width: 70%;" role="progressbar"><span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div> 
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
                                                 </td>
-                                                <td>May 18,2018</td>
-                                                <td><span class="label gradient-3 btn-rounded">70%</span>
+                                                <td>January 25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Alunos/Prajied</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome completo</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Prajied</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
                                                 </td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                                </td>
+                                                <td>January 22</td>
                                             </tr>
                                             <tr>
-                                                <td>Vehicles</td>
-                                                <td>
-                                                    <div class="progress" style="height: 10px">
-                                                        <div class="progress-bar gradient-4" style="width: 70%;" role="progressbar"><span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div> 
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
                                                 </td>
-                                                <td>Mar 27,2018</td>
-                                                <td><span class="label gradient-4 btn-rounded">70%</span>
-                                                </td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                                </td>
+                                                <td>January 30</td>
                                             </tr>
                                             <tr>
-                                                <td>Boats</td>
-                                                <td>
-                                                    <div class="progress" style="height: 10px">
-                                                        <div class="progress-bar gradient-9" style="width: 70%;" role="progressbar"><span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div> 
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
                                                 </td>
-                                                <td>Jun 28,2018</td>
-                                                <td><span class="label gradient-9 btn-rounded">70%</span>
-                                                </td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Boats</td>
-                                                <td>
-                                                    <div class="progress" style="height: 10px">
-                                                        <div class="progress-bar gradient-2" style="width: 70%;" role="progressbar"><span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div> 
-                                                </td>
-                                                <td>Aug 20,2018</td>
-                                                <td><span class="label gradient-2 btn-rounded">70%</span>
-                                                </td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                                </td>
+                                                <td>January 25</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -475,11 +422,102 @@
                         </div>
                     </div>
                 </div>
+
+                
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Alunos ativos</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome completo</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
+                                                </td>
+                                                <td>January 22</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
+                                                </td>
+                                                <td>January 30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
+                                                </td>
+                                                <td>January 25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Alunos inativos</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome completo</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
+                                                </td>
+                                                <td>January 22</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
+                                                </td>
+                                                <td>January 30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
+                                                </td>
+                                                <td>January 25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                </div>
             </div>
             <!-- #/ container -->
         </div>
-		
-                    
         <!--**********************************
             Content body end
         ***********************************-->
@@ -490,7 +528,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                <p>Copyright &copy; Desenvolvido por Academy System</a> 2019</p>
             </div>
         </div>
         <!--**********************************
@@ -504,33 +542,33 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    <script src="../../../plugins/common/common.min.js"></script>
-    <script src="../../../js/custom.min.js"></script>
-    <script src="../../../js/settings.js"></script>
-    <script src="../../../js/gleek.js"></script>
-    <script src="../../../js/styleSwitcher.js"></script>
+    <script src="../plugins/common/common.min.js"></script>
+    <script src="../js/custom.min.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/gleek.js"></script>
+    <script src="../js/styleSwitcher.js"></script>
 
     <!-- Chartjs -->
-    <script src="../../../plugins/chart.js/Chart.bundle.min.js"></script>
+    <script src="../plugins/chart.js/Chart.bundle.min.js"></script>
     <!-- Circle progress -->
-    <script src="../../../plugins/circle-progress/circle-progress.min.js"></script>
+    <script src="../plugins/circle-progress/circle-progress.min.js"></script>
     <!-- Datamap -->
-    <script src="../../../plugins/d3v3/index.js"></script>
-    <script src="../../../plugins/topojson/topojson.min.js"></script>
-    <script src="../../../plugins/datamaps/datamaps.world.min.js"></script>
+    <script src="../plugins/d3v3/index.js"></script>
+    <script src="../plugins/topojson/topojson.min.js"></script>
+    <script src="../plugins/datamaps/datamaps.world.min.js"></script>
     <!-- Morrisjs -->
-    <script src="../../../plugins/raphael/raphael.min.js"></script>
-    <script src="../../../plugins/morris/morris.min.js"></script>
+    <script src="../plugins/raphael/raphael.min.js"></script>
+    <script src="../plugins/morris/morris.min.js"></script>
     <!-- Pignose Calender -->
-    <script src="../../../plugins/moment/moment.min.js"></script>
-    <script src="../../../plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+    <script src="../plugins/moment/moment.min.js"></script>
+    <script src="../plugins/pg-calendar/js/pignose.calendar.min.js"></script>
     <!-- ChartistJS -->
-    <script src="../../../plugins/chartist/js/chartist.min.js"></script>
-    <script src="../../../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+    <script src="../plugins/chartist/js/chartist.min.js"></script>
+    <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
 
 
 
-    <script src="../../../js/dashboard/dashboard-1.js"></script>
+    <script src="../js/dashboard/dashboard-1.js"></script>
 
 </body>
 

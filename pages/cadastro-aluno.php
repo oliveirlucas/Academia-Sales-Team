@@ -1,3 +1,10 @@
+<?php
+
+// Sessão
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +23,7 @@
     <!-- Custom Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style-icons.css" rel="stylesheet">
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
-
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
 
 </head>
 
@@ -48,7 +54,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="../pages/dashboard.html">
+                <a href="dashboard.html">
                     <b class="logo-abbr"><img src="../images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="../images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
@@ -66,20 +72,12 @@
         ***********************************-->
         <div class="header">
             <div class="header-content clearfix">
-
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>
                 <div class="header-left">
                     <div class="input-group icons">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
-                                    class="mdi mdi-magnify"></i></span>
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
                         </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard"
-                            aria-label="Search Dashboard">
+                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
                         <div class="drop-down animated flipInX d-md-none">
                             <form action="#">
                                 <input type="text" class="form-control" placeholder="Search">
@@ -104,8 +102,7 @@
                                     <ul>
                                         <li class="notification-unread">
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img"
-                                                    src="../images/avatar/1.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/1.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Saiful Islam</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -116,8 +113,7 @@
                                         </li>
                                         <li class="notification-unread">
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img"
-                                                    src="../images/avatar/2.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/2.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Adam Smith</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -127,8 +123,7 @@
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img"
-                                                    src="../images/avatar/3.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/3.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Barak Obama</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -139,8 +134,7 @@
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img"
-                                                    src="../images/avatar/4.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/4.jpg" alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Hilari Clinton</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -168,8 +162,7 @@
                                     <ul>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i
-                                                        class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Events near you</h6>
                                                     <span class="notification-text">Within next 5 days</span>
@@ -178,8 +171,7 @@
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
-                                                        class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Event Started</h6>
                                                     <span class="notification-text">One hour ago</span>
@@ -188,8 +180,7 @@
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i
-                                                        class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Event Ended Successfully</h6>
                                                     <span class="notification-text">One hour ago</span>
@@ -198,8 +189,7 @@
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
-                                                        class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Events to Join</h6>
                                                     <span class="notification-text">After two days</span>
@@ -269,16 +259,16 @@
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a href="../pages/dashboard.html" aria-expanded="false">
+                        <a href="./dashboard.html" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-people"></i><span class="nav-text">Cadastro</span>
+                            <i class="icon-people"></i><span class="nav-text">Aluno</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/cadastro-aluno.html">Cadastro Aluno</a></li>
+                            <li><a href="../pages/cadastro-aluno.html">Cadastrar Aluno</a></li>
                             <li><a href="../pages/lista-alunos.html">Lista de Alunos</a></li>
                         </ul>
                     </li>
@@ -303,142 +293,121 @@
         ***********************************-->
         <div class="content-body">
             <!-- row -->
-
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <p class="text-muted"><code></code>
-                                </p>
-                                <div id="accordion-two" class="accordion">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne1"
-                                                aria-expanded="false" aria-controls="collapseOne1"><i class="fa"
-                                                    aria-hidden="false"></i> Pesquisar</h5>
-                                        </div>
-                                        <div id="collapseOne1" class="collapse show" data-parent="#accordion-two">
-                                            <div class="card-body">
-                                                <form>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control input-default"
-                                                                    placeholder="Matricula" name="matricula">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control input-default"
-                                                                    placeholder="Nome completo" name="nome">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control input-default"
-                                                                    placeholder="CPF" name="cpf">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-info btn-fill pull-right"
-                                                        class="alert-dismissible">Buscar</button>
-                                                    <div class="clearfix"></div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <?php
+                                    if (isset($_SESSION['msgcadastro'])) {
+                                        echo $_SESSION['msgcadastro'];
+                                        unset($_SESSION['msgcadastro']);
+                                    }
+                                    ?>
                                 </div>
+                                <h4 class="card-title">Formulário de cadastro do Aluno</h4>
                                 <br>
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="form-group">
-                                                <label>Matricula</label>
-                                                <input type="text" class="form-control input-default" name="matricula">
+                                <div class="basic-form">
+                                    <form action=../php/cadastro-aluno.php method="post">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Nome Completo do aluno</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Nome completo" name="nome">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Telefone Fixo/Celular</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Telefone" name="telefone" maxlength="15" onkeypress="mascara(this)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">E-mail</label>
+                                                    <input type="email" class="form-control input-default" required="required" placeholder="E-mail" name="email">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Nome Completo</label>
-                                                <input type="text" class="form-control input-default" name="nome">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Responsável</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Insira aqui o nome completo do responsável" name="responsavel">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Telefone Fixo/Celular</label>
-                                                <input type="number" class="form-control input-default" name="telefone">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>CPF</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="CPF" name="cpf" maxlength="14" onkeypress="mascaraCpf(this)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>RG/Identidade</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Numero da identidade" name="rg">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Data de nascimento</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Data" name="data" maxlength="10" onkeypress="mascaraData(this)">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">E-mail</label>
-                                                <input type="email" class="form-control input-default" name="email">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Endereço</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Endereço" name="endereco">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Cidade</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Cidade" name="cidade">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Estado</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Estado" name="estado">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>CPF</label>
-                                                <input type="text" class="form-control input-default" name="cpf">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Prajied</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Khan atual" name="nivel">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Status Aluno</label>
+                                                <select class="form-control" name="status">
+                                                    <option selected="selected">Selecione o status</option>
+                                                    <option>Ativo</option>
+                                                    <option>Inativo</option>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>RG/Identidade</label>
-                                                <input type="text" class="form-control input-default" name="rg">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Se o aluno for o proprio responsável insira no campo
+                                                        <b>"Responsável"</b> o texto <b>"Proprio aluno"</b>, caso
+                                                        contrario,
+                                                        insira no campo o <b>nome completo do responsável</b></label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Data de nascimento</label>
-                                                <input type="text" class="form-control input-default" name="data">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Prajied</label>
-                                                <input type="text" class="form-control input-default" name="nivel">
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label>Status Aluno</label>
-                                            <input type="text" class="form-control input-default" name="status">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table header-border">
-                                        <thead>
-                                            <tr>
-                                                <th>Codigo</th>
-                                                <th>Nome do Aluno</th>
-                                                <th>Data gerada</th>
-                                                <th>Data de vencimento</th>
-                                                <th>Valor</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>250435</td>
-                                                <td>Lucas Evangelista de Oliveira</td>
-                                                <td>28/07/2019</td>
-                                                <td>10/08/2019</td>
-                                                <td>R$ 80.00</td>
-                                                <td><span class="label gradient-1 rounded">Pago</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Cadastrar</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -447,8 +416,6 @@
             </div>
             <!-- #/ container -->
         </div>
-
-
         <!--**********************************
             Content body end
         ***********************************-->
@@ -459,8 +426,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Desenvolvido por Academy System</a>
-                    2019</p>
+                <p>Copyright &copy; Desenvolvido por Academy System</a> 2019</p>
             </div>
         </div>
         <!--**********************************
@@ -497,9 +463,35 @@
     <!-- ChartistJS -->
     <script src="../plugins/chartist/js/chartist.min.js"></script>
     <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
-
-
-
+    <script type="text/javascript">
+        function mascara(telefone){ 
+            if(telefone.value.length == 0)
+                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if(telefone.value.length == 3)
+                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+ 
+            if(telefone.value.length == 10)
+                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+        }
+    </script>
+    <script type="text/javascript">
+        function mascaraData(data){ 
+            if(data.value.length == 2)
+                data.value = data.value + '/'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if(data.value.length == 5)
+                data.value = data.value + '/'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+        }
+    </script>
+    <script type="text/javascript">
+        function mascaraCpf(cpf){ 
+            if(cpf.value.length == 3)
+                cpf.value = cpf.value + '.'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if(cpf.value.length == 7)
+                cpf.value = cpf.value + '.'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+            if(cpf.value.length == 11)
+            cpf.value = cpf.value + '-'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+        }
+    </script>
     <script src="../js/dashboard/dashboard-1.js"></script>
 
 </body>
