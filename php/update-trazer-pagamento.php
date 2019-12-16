@@ -15,7 +15,6 @@ function retorna($cod_pag, $connect){
         $valores['valor_pagar'] = 'Pagamento não encontrado';
         $valores['data_abertu'] = 'Pagamento não encontrado';
         $valores['data_venci'] = 'Pagamento não encontrado';
-        $valores['valor_pagar'] = 'Pagamento não encontrado';
 	}
 	return json_encode($valores);
 }

@@ -2,12 +2,12 @@
 session_start();
 include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
-$cod_pagamento = filter_input(INPUT_POST, 'cod_pagamento');
+$cod_pagament = filter_input(INPUT_POST, 'cod_pagament');
 
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "DELETE FROM PAGAMENTO WHERE COD_PAGAMENTO = '$cod_pagamento'";
+$result_usuario = "DELETE FROM PAGAMENTO WHERE COD_PAGAMENTO = '$cod_pagament'";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_affected_rows($connect)) {

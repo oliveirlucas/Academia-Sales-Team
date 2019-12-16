@@ -380,7 +380,7 @@ session_start();
                                         <div id="collapseTwo" class="collapse" data-parent="#accordion-one">
                                             <div class="card-body">
                                                 <div class="basic-form">
-                                                    <form method="POST" action="">
+                                                    <form method="post" action=../php/atualizar-pagamento.php>
                                                         <div class="row">
                                                             <div class="col-md-2">
                                                                 <div class="form-group">
@@ -427,7 +427,7 @@ session_start();
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Cadastrar</button>
+                                                        <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Atualizar</button>
                                                         <div class="clearfix"></div>
                                                     </form>
                                                 </div>
@@ -457,7 +457,48 @@ session_start();
                                                             <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <label>Codigo do pagamento</label>
-                                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_pagamento">
+                                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_pagament">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div class="form-group">
+                                                                    <label>Matricula</label>
+                                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_alun" readonly=“true”>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Aluno</label>
+                                                                    <input type="text" class="form-control input-default" placeholder="Nome do aluno" name="nome_aluno" readonly=“true”>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Valor a
+                                                                        pagar</label>
+                                                                    <input type="text" class="form-control input-default" placeholder="Valor a ser pago" name="valor_pag" readonly=“true”> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <div class="form-group">
+                                                                    <label>Data de abertura</label>
+                                                                    <input type="text" class="form-control input-default" placeholder="Data do lançamento" name="data_abertur" readonly=“true”>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="form-group">
+                                                                    <label>Data de vencimento</label>
+                                                                    <input type="text" class="form-control input-default" placeholder="Data final de pagamento" name="data_venciment" readonly=“true”>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Status do pagamento</label>
+                                                                    <input type="text" class="form-control input-default" placeholder="Status" name="status_atual" readonly=“true”>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -554,6 +595,28 @@ session_start();
                     $data_abertu.val(json.data_abertu);
                     $data_venci.val(json.data_venci);
                     $valor_pagar.val(json.valor_pagar);
+                });
+            });
+        });
+    </script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $("input[name='cod_pagament']").blur(function() {
+                var $cod_alun = $("input[name='cod_alun']");
+                var $nome_aluno = $("input[name='nome_aluno']");
+                var $data_abertur = $("input[name='data_abertur']");
+                var $data_venciment = $("input[name='data_venciment']");
+                var $valor_pag = $("input[name='valor_pag']");
+                var $status_atual = $("input[name='status_atual']");
+                $.getJSON('../php/trazer-pagamento.php', {
+                    cod_pagament: $(this).val()
+                }, function(json) {
+                    $cod_alun.val(json.cod_alun);
+                    $nome_aluno.val(json.nome_aluno);
+                    $data_abertur.val(json.data_abertur);
+                    $data_venciment.val(json.data_venciment);
+                    $valor_pag.val(json.valor_pag);
+                    $status_atual.val(json.status_atual);
                 });
             });
         });
