@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +16,9 @@
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style-icons.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
-	
+
+
+
 
 </head>
 
@@ -48,7 +49,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="../pages/dashboard.html">
+                <a href="dashboard.html">
                     <b class="logo-abbr"><img src="../images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="../images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
@@ -66,12 +67,6 @@
         ***********************************-->
         <div class="header">    
             <div class="header-content clearfix">
-                
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>
                 <div class="header-left">
                     <div class="input-group icons">
                         <div class="input-group-prepend">
@@ -249,30 +244,39 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="nk-sidebar">           
+        <div class="nk-sidebar">
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a href="../pages/dashboard.html" aria-expanded="false">
+                        <a href="../pages/dashboard.php" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-people"></i><span class="nav-text">Aluno</span>
+                            <i class="icon-people"></i><span class="nav-text">Cadastro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/cadastro-aluno.html">Cadastro Aluno</a></li>
-							<li><a href="../pages/lista-alunos.html">Lista de Alunos</a></li>
+                            <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
+                            <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
                         </ul>
                     </li>
-					<li class="mega-menu mega-menu-sm">
+                    <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-credit-card"></i><span class="nav-text">Financeiro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/mensalidade.html">Mensalidade</a></li>
-							<li><a href="../pages/ficha-financeira.html">Ficha financeira</a></li>
+                            <li><a href="../pages/mensalidade.php">Mensalidade</a></li>
+                            <li><a href="../pages/ficha-financeira.php">Ficha financeira</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Personal</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../pages/aula.php">Cadastrar aula</a></li>
+                            <li><a href="../pages/controle-aulas.php">Controle de aulas</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -286,48 +290,95 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-            <!-- row -->
 
-            <div class="container-fluid">
+            <div class="container-fluid mt-3">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Total de alunos</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">110</h2>
+                                    <p class="text-white mb-0">Ativos/Inativos</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Alunos ativos</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">45</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Pagamentos em abertos</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">15</h2>
+                                    <p class="text-white mb-0">Mensalidades</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Lucro</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">R$ 1.200</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Lista de Alunos</h4>
-								<br>
-								<input type="text" class="form-control input-default" placeholder="Pesquisar" id="filtro">
-								<br>
+                                <div class="card-title">
+                                    <h4>Alunos com pendencia financeira</h4>
+                                </div>
                                 <div class="table-responsive">
-                                    <table class="table header-border">
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Codigo pagamento</th>
                                                 <th>Nome completo</th>
-                                                <th>Nome do Responsável</th>
-                                                <th>CPF</th>
-                                                <th>RG</th>
-                                                <th>Telefone</th>
-                                                <th>Prajied</th>
+                                                <th>Data vencimento</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Lucas Evangelista de Oliveira</td>
-                                                <td>Proprio aluno</td>
-                                                <td>02086709633</td>
-                                                <td>mg16876859</td>
-                                                <td>31991418777</td>
-                                                <td>Verde</td>
-                                                <td><span class="label label-success">Ativo</span></td>
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
+                                                </td>
+                                                <td>January 22</td>
                                             </tr>
                                             <tr>
-                                                <td>João augusto figueiredo</td>
-                                                <td>Maria cristina figueiredo</td>
-                                                <td>84536952355</td>
-                                                <td>mg16586124</td>
-                                                <td>31993654482</td>
-                                                <td>Amarelo</td>
-                                                <td><span class="label label-danger">Inativo</span></td>
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
+                                                </td>
+                                                <td>January 30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
+                                                </td>
+                                                <td>January 25</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -335,6 +386,143 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Alunos/Prajied</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome completo</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Prajied</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
+                                                </td>
+                                                <td>January 22</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
+                                                </td>
+                                                <td>January 30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
+                                                </td>
+                                                <td>January 25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Alunos ativos</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome completo</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
+                                                </td>
+                                                <td>January 22</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
+                                                </td>
+                                                <td>January 30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
+                                                </td>
+                                                <td>January 25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Alunos inativos</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome completo</th>
+                                                <th>Data de nascimento</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Kolor Tea Shirt For Man</td>
+                                                <td><span class="badge badge-primary px-2">Sale</span>
+                                                </td>
+                                                <td>January 22</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <td>Kolor Tea Shirt For Women</td>
+                                                <td><span class="badge badge-danger px-2">Tax</span>
+                                                </td>
+                                                <td>January 30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td>Blue Backpack For Baby</td>
+                                                <td><span class="badge badge-success px-2">Extended</span>
+                                                </td>
+                                                <td>January 25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
                 </div>
             </div>
             <!-- #/ container -->

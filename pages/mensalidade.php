@@ -268,17 +268,17 @@ session_start();
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a href="../pages/dashboard.html" aria-expanded="false">
+                        <a href="../pages/dashboard.php" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-people"></i><span class="nav-text">Aluno</span>
+                            <i class="icon-people"></i><span class="nav-text">Cadastro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/cadastro-aluno.html">Cadastro Aluno</a></li>
-                            <li><a href="../pages/lista-alunos.html">Lista de Alunos</a></li>
+                            <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
+                            <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -286,8 +286,17 @@ session_start();
                             <i class="icon-credit-card"></i><span class="nav-text">Financeiro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/mensalidade.html">Mensalidade</a></li>
-                            <li><a href="../pages/ficha-financeira.html">Ficha financeira</a></li>
+                            <li><a href="../pages/mensalidade.php">Mensalidade</a></li>
+                            <li><a href="../pages/ficha-financeira.php">Ficha financeira</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Personal</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../pages/aula.php">Cadastrar aula</a></li>
+                            <li><a href="../pages/controle-aulas.php">Controle de aulas</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -393,7 +402,7 @@ session_start();
                                                             <div class="col-md-1">
                                                                 <div class="form-group">
                                                                     <label>Matricula</label>
-                                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_alu">
+                                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_alu" readonly=“true”>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">

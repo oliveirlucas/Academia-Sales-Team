@@ -269,7 +269,7 @@
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a href="../pages/dashboard.html" aria-expanded="false">
+                        <a href="../pages/dashboard.php" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
@@ -278,8 +278,8 @@
                             <i class="icon-people"></i><span class="nav-text">Cadastro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/cadastro-aluno.html">Cadastro Aluno</a></li>
-                            <li><a href="../pages/lista-alunos.html">Lista de Alunos</a></li>
+                            <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
+                            <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -287,8 +287,17 @@
                             <i class="icon-credit-card"></i><span class="nav-text">Financeiro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/mensalidade.html">Mensalidade</a></li>
-                            <li><a href="../pages/ficha-financeira.html">Ficha financeira</a></li>
+                            <li><a href="../pages/mensalidade.php">Mensalidade</a></li>
+                            <li><a href="../pages/ficha-financeira.php">Ficha financeira</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Personal</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="../pages/aula.php">Cadastrar aula</a></li>
+                            <li><a href="../pages/controle-aulas.php">Controle de aulas</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -311,13 +320,13 @@
                             <div class="card-body">
                                 <p class="text-muted"><code></code>
                                 </p>
-                                <form>
+                                <form method="POST" id="form_pesquisa" action="">
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Matricula</label>
                                                 <input type="text" class="form-control input-default"
-                                                    name="matricula_filtro">
+                                                    name="matricula_filtro" id="pesquisa">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -414,12 +423,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right"
-                                            class="alert-dismissible" style="margin: 0 8px;">Buscar</button>
-                                    </div>
-                                    <div>
                                         <button type="reset" class="btn btn-info btn-fill pull-right"
-                                            class="alert-dismissible" style="margin: 0 8px;">Limpar</button>
+                                            class="alert-dismissible" id="limpar-dados">Limpar</button>
                                         <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -428,29 +433,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table header-border">
-                                        <thead>
-                                            <tr>
-                                                <th>Codigo</th>
-                                                <th>Nome do Aluno</th>
-                                                <th>Data gerada</th>
-                                                <th>Data de vencimento</th>
-                                                <th>Valor</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>250435</td>
-                                                <td>Lucas Evangelista de Oliveira</td>
-                                                <td>28/07/2019</td>
-                                                <td>10/08/2019</td>
-                                                <td>R$ 80.00</td>
-                                                <td><span class="label gradient-1 rounded">Pago</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="table-responsive" id="tabela-pagamentos">
                                 </div>
                             </div>
                         </div>
@@ -557,6 +540,8 @@
 
 
     <script src="../js/dashboard/dashboard-1.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/tabela-ficha-financeira.js"></script>
 
 </body>
 

@@ -1,10 +1,3 @@
-<?php
-
-// Sessão
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +17,7 @@ session_start();
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style-icons.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
+
 
 </head>
 
@@ -54,7 +48,7 @@ session_start();
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="dashboard.html">
+                <a href="../pages/dashboard.html">
                     <b class="logo-abbr"><img src="../images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="../images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
@@ -72,12 +66,20 @@ session_start();
         ***********************************-->
         <div class="header">
             <div class="header-content clearfix">
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
                 <div class="header-left">
                     <div class="input-group icons">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
+                                    class="mdi mdi-magnify"></i></span>
                         </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
+                        <input type="search" class="form-control" placeholder="Search Dashboard"
+                            aria-label="Search Dashboard">
                         <div class="drop-down animated flipInX d-md-none">
                             <form action="#">
                                 <input type="text" class="form-control" placeholder="Search">
@@ -102,7 +104,8 @@ session_start();
                                     <ul>
                                         <li class="notification-unread">
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/1.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/1.jpg"
+                                                    alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Saiful Islam</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -113,7 +116,8 @@ session_start();
                                         </li>
                                         <li class="notification-unread">
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/2.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/2.jpg"
+                                                    alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Adam Smith</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -123,7 +127,8 @@ session_start();
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/3.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/3.jpg"
+                                                    alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Barak Obama</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -134,7 +139,8 @@ session_start();
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/4.jpg" alt="">
+                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/4.jpg"
+                                                    alt="">
                                                 <div class="notification-content">
                                                     <div class="notification-heading">Hilari Clinton</div>
                                                     <div class="notification-timestamp">08 Hours ago</div>
@@ -162,7 +168,8 @@ session_start();
                                     <ul>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i
+                                                        class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Events near you</h6>
                                                     <span class="notification-text">Within next 5 days</span>
@@ -171,7 +178,8 @@ session_start();
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
+                                                        class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Event Started</h6>
                                                     <span class="notification-text">One hour ago</span>
@@ -180,7 +188,8 @@ session_start();
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i
+                                                        class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Event Ended Successfully</h6>
                                                     <span class="notification-text">One hour ago</span>
@@ -189,7 +198,8 @@ session_start();
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
+                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
+                                                        class="icon-present"></i></span>
                                                 <div class="notification-content">
                                                     <h6 class="notification-heading">Events to Join</h6>
                                                     <span class="notification-text">After two days</span>
@@ -302,121 +312,43 @@ session_start();
         ***********************************-->
         <div class="content-body">
             <!-- row -->
+
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <div>
-                                    <?php
-                                    if (isset($_SESSION['msgcadastro'])) {
-                                        echo $_SESSION['msgcadastro'];
-                                        unset($_SESSION['msgcadastro']);
-                                    }
-                                    ?>
-                                </div>
-                                <h4 class="card-title">Formulário de cadastro do Aluno</h4>
-                                <br>
-                                <div class="basic-form">
-                                    <form action=../php/cadastro-aluno.php method="post">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Nome Completo do aluno</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Nome completo" name="nome">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Telefone Fixo/Celular</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Telefone" name="telefone" maxlength="15" onkeypress="mascara(this)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">E-mail</label>
-                                                    <input type="email" class="form-control input-default" required="required" placeholder="E-mail" name="email">
-                                                </div>
+                                <p class="text-muted"><code></code>
+                                </p>
+                                <form method="POST" id="form_pesquisa" action="">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Matricula</label>
+                                                <input type="text" class="form-control input-default"
+                                                    name="matricula_filtro" id="pesquisa">
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Responsável</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Insira aqui o nome completo do responsável" name="responsavel">
-                                                </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Nome Completo do aluno</label>
+                                                <input type="text" class="form-control input-default" readonly=“true”
+                                                    name="nome">
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>CPF</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="CPF" name="cpf" maxlength="14" onkeypress="mascaraCpf(this)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>RG/Identidade</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Numero da identidade" name="rg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Data de nascimento</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Data" name="data" maxlength="10" onkeypress="mascaraData(this)">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Endereço</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Endereço" name="endereco">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Cidade</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Cidade" name="cidade">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Estado</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Estado" name="estado">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Prajied</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Khan atual" name="nivel">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Status Aluno</label>
-                                                <select class="form-control" name="status">
-                                                    <option selected="selected">Selecione o status</option>
-                                                    <option>Ativo</option>
-                                                    <option>Inativo</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Se o aluno for o proprio responsável insira no campo
-                                                        <b>"Responsável"</b> o texto <b>"Proprio aluno"</b>, caso
-                                                        contrario,
-                                                        insira no campo o <b>nome completo do responsável</b></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Cadastrar</button>
+                                    </div>
+                                    <div>
+                                        <button type="reset" class="btn btn-info btn-fill pull-right"
+                                            class="alert-dismissible" id="limpar-dados">Limpar</button>
                                         <div class="clearfix"></div>
-                                    </form>
-                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive" id="tabela-pagamentos">
                                 </div>
                             </div>
                         </div>
@@ -425,6 +357,8 @@ session_start();
             </div>
             <!-- #/ container -->
         </div>
+
+
         <!--**********************************
             Content body end
         ***********************************-->
@@ -435,7 +369,8 @@ session_start();
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Desenvolvido por Academy System</a> 2019</p>
+                <p>Copyright &copy; Desenvolvido por Academy System</a>
+                    2019</p>
             </div>
         </div>
         <!--**********************************
@@ -472,36 +407,34 @@ session_start();
     <!-- ChartistJS -->
     <script src="../plugins/chartist/js/chartist.min.js"></script>
     <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
-    <script type="text/javascript">
-        function mascara(telefone){ 
-            if(telefone.value.length == 0)
-                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(telefone.value.length == 3)
-                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
- 
-            if(telefone.value.length == 10)
-                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
-        }
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $("input[name='matricula_filtro']").blur(function () {
+                var $nome = $("input[name='nome']");
+                $.getJSON('../php/filtro_ficha_matricula.php', {
+                    matricula_filtro: $(this).val()
+                }, function (json) {
+                    $nome.val(json.nome);
+                });
+            });
+        });
     </script>
-    <script type="text/javascript">
-        function mascaraData(data){ 
-            if(data.value.length == 2)
-                data.value = data.value + '/'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(data.value.length == 5)
-                data.value = data.value + '/'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-        }
+    <script type='text/javascript'>
+        function limpar() {
+            var elements = document.getElementsByTagName("input");
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].type == "text") {
+                    elements[i].value = "";
+                }
+            }
+        };
     </script>
-    <script type="text/javascript">
-        function mascaraCpf(cpf){ 
-            if(cpf.value.length == 3)
-                cpf.value = cpf.value + '.'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(cpf.value.length == 7)
-                cpf.value = cpf.value + '.'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-            if(cpf.value.length == 11)
-            cpf.value = cpf.value + '-'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-        }
-    </script>
+
+
+
     <script src="../js/dashboard/dashboard-1.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/tabela-aulas-personal.js"></script>
 
 </body>
 
