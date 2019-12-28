@@ -11,7 +11,7 @@ $status = filter_input(INPUT_POST, 'status');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "INSERT INTO PAGAMENTO (COD_ALUNO, DATA_CRIADA, DATA_VENCIMENTO, VALOR, STATUS) VALUES ('$cod_aluno', '$data_gerada', '$data_vencimento', '$valor', '$status')";
+$result_usuario = "INSERT INTO pagamento (COD_ALUNO, DATA_CRIADA, DATA_VENCIMENTO, VALOR, STATUS) VALUES ('$cod_aluno', '$data_gerada', '$data_vencimento', '$valor', '$status')";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_insert_id($connect)) {

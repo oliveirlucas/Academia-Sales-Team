@@ -7,7 +7,7 @@ $cod_matricula = filter_input(INPUT_POST, 'cod_matricula');
 $numero_aula = filter_input(INPUT_POST, 'numero_aula');
 $status_aula = filter_input(INPUT_POST, 'status_aula');
 
-$result_usuario = "UPDATE PERSONAL SET COD_ALUNO='$cod_matricula', NUMERO_AULA='$numero_aula', STATUS_AULA='$status_aula' WHERE COD_PERSONAL='$cod_aula'";
+$result_usuario = "UPDATE personal SET COD_ALUNO='$cod_matricula', NUMERO_AULA='$numero_aula', STATUS_AULA='$status_aula' WHERE COD_PERSONAL='$cod_aula'";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if(mysqli_affected_rows($connect)){

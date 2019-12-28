@@ -2,7 +2,7 @@
 include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
 function retorna($cod_pag, $connect){
-	$result_aluno = "SELECT * FROM PAGAMENTO WHERE COD_PAGAMENTO = '$cod_pag' LIMIT 1";
+	$result_aluno = "SELECT * FROM pagamento WHERE COD_PAGAMENTO = '$cod_pag' LIMIT 1";
 	$resultado_aluno = mysqli_query($connect, $result_aluno);
 	if($resultado_aluno->num_rows){
 		$row_aluno = mysqli_fetch_assoc($resultado_aluno);

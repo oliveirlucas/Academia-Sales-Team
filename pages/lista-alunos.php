@@ -335,7 +335,7 @@
                                             //calcular o inicio visualização
                                             $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-                                            $result_usuarios = "SELECT * FROM ALUNO LIMIT $inicio, $qnt_result_pg";
+                                            $result_usuarios = "SELECT * FROM aluno LIMIT $inicio, $qnt_result_pg";
                                             $resultado_usuarios = mysqli_query($connect, $result_usuarios);
                                             while ($dado = mysqli_fetch_assoc($resultado_usuarios)) { ?>
                                                 <tr>

@@ -6,8 +6,8 @@
 	$pagamento = $_POST['palavra'];
 	
 	//Pesquisar no banco de dados nome do curso referente a palavra digitada pelo usuário
-	$pagamento = "SELECT PAG.COD_PAGAMENTO, ALU.NOME, PAG.DATA_CRIADA, PAG.DATA_VENCIMENTO, PAG.VALOR, PAG.STATUS FROM DBADM.PAGAMENTO PAG 
-                  INNER JOIN DBADM.ALUNO ALU
+	$pagamento = "SELECT PAG.COD_PAGAMENTO, ALU.NOME, PAG.DATA_CRIADA, PAG.DATA_VENCIMENTO, PAG.VALOR, PAG.STATUS FROM dbadm-sales.pagamento PAG 
+                  INNER JOIN dbadm-sales.aluno ALU
                   ON PAG.COD_ALUNO = ALU.COD_ALUNO
                   WHERE PAG.COD_ALUNO = '$pagamento'";
 

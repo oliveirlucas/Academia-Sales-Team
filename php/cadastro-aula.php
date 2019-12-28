@@ -9,7 +9,7 @@ $status_aula = filter_input(INPUT_POST, 'status_aula');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "INSERT INTO PERSONAL (COD_ALUNO, NUMERO_AULA, STATUS_AULA) VALUES ('$cod_aluno', '$cod_aula', '$status_aula')";
+$result_usuario = "INSERT INTO personal (COD_ALUNO, NUMERO_AULA, STATUS_AULA) VALUES ('$cod_aluno', '$cod_aula', '$status_aula')";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_insert_id($connect)) {

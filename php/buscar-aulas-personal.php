@@ -6,8 +6,8 @@
 	$aula = $_POST['palavra'];
 	
 	//Pesquisar no banco de dados nome do curso referente a palavra digitada pelo usuário
-	$aula = "SELECT * FROM PERSONAL P
-            INNER JOIN ALUNO ALU ON ALU.COD_ALUNO = P.COD_ALUNO
+	$aula = "SELECT * FROM personal P
+            INNER JOIN aluno ALU ON ALU.COD_ALUNO = P.COD_ALUNO
             WHERE P.COD_ALUNO = '$aula'";
 
 	$resultado_aula = mysqli_query($connect, $aula);

@@ -7,7 +7,7 @@ $cod_personal = filter_input(INPUT_POST, 'codigo_aula');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "DELETE FROM PERSONAL WHERE COD_PERSONAL = '$cod_personal'";
+$result_usuario = "DELETE FROM personal WHERE COD_PERSONAL = '$cod_personal'";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_affected_rows($connect)) {

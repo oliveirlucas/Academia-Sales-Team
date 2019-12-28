@@ -7,7 +7,7 @@ $cod_pagament = filter_input(INPUT_POST, 'cod_pagament');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "DELETE FROM PAGAMENTO WHERE COD_PAGAMENTO = '$cod_pagament'";
+$result_usuario = "DELETE FROM pagamento WHERE COD_PAGAMENTO = '$cod_pagament'";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_affected_rows($connect)) {

@@ -3,8 +3,8 @@ include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
 function retorna($cod_pagament, $connect){
 
-    $result_aluno = "SELECT P.COD_PAGAMENTO, P.COD_ALUNO, ALU.NOME, P.DATA_CRIADA, P.DATA_VENCIMENTO, P.VALOR, P.STATUS FROM DBADM.PAGAMENTO P
-                    INNER JOIN DBADM.ALUNO ALU
+    $result_aluno = "SELECT P.COD_PAGAMENTO, P.COD_ALUNO, ALU.NOME, P.DATA_CRIADA, P.DATA_VENCIMENTO, P.VALOR, P.STATUS FROM dbadm-sales.pagamento P
+                    INNER JOIN dbadm-sales.aluno ALU
                     ON P.COD_ALUNO = ALU.COD_ALUNO
                     WHERE P.COD_PAGAMENTO = '$cod_pagament'";
 
