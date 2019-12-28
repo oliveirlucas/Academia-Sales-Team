@@ -23,12 +23,12 @@
 			// 105 OR 1=1 
 			// 1; DROP TABLE teste
 
-			$sql = "SELECT USUARIO FROM FUNCIONARIO WHERE USUARIO = '$usuario'";
+			$sql = "SELECT USUARIO FROM funcionario WHERE USUARIO = '$usuario'";
 			$resultado = mysqli_query($connect, $sql);		
 
 			if(mysqli_num_rows($resultado) > 0):
 			$senha = md5($senha);       
-			$sql = "SELECT * FROM FUNCIONARIO WHERE USUARIO = '$usuario' AND senha = '$senha'";
+			$sql = "SELECT * FROM funcionario WHERE USUARIO = '$usuario' AND senha = '$senha'";
 
 
 
@@ -39,7 +39,7 @@
 					mysqli_close($connect);
 					$_SESSION['logado'] = true;
 					$_SESSION['id_usuario'] = $dados['COD_FUNCIONARIO'];
-					header('Location: ./pages/dashboard.html');
+					header('Location: ../pages/dashboard.php');
 				else:
 					$erros[] = "<div class='alert alert-danger' role='alert'> Usuário e senha não conferem </div>";
 				endif;

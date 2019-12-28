@@ -1,4 +1,4 @@
-<?php include(realpath(dirname(__FILE__) . "./php/login.php")); ?>
+<?php include(realpath(dirname(__FILE__) . "/./php/login.php")); ?>
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
