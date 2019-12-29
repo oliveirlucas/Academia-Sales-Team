@@ -29,10 +29,8 @@
 			if(mysqli_num_rows($resultado) > 0):
 			$senha = md5($senha);       
 			$sql = "SELECT * FROM funcionario WHERE USUARIO = '$usuario' AND senha = '$senha'";
-
-
-
 			$resultado = mysqli_query($connect, $sql);
+
 
 				if(mysqli_num_rows($resultado) == 1):
 					$dados = mysqli_fetch_array($resultado);
@@ -48,7 +46,15 @@
 				$erros[] = "<div class='alert alert-danger' role='alert'> Usuário inexistente </div>";
 			endif;
 
+			if($resultado == 1){
+				$_SESSION['usuariologado'] = $usuario;
+				$_SESSION['senhalogado'] = $senha;
+				$_SESSION['timeout'] = time();
+
+			}
+
 		endif;
 
 	endif;
+	
 	?>

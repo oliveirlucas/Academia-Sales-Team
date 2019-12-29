@@ -14,11 +14,13 @@ $cidade = filter_input(INPUT_POST, 'cidade');
 $estado = filter_input(INPUT_POST, 'estado');
 $nivel = filter_input(INPUT_POST, 'nivel');
 $status = filter_input(INPUT_POST, 'status');
+$bairro = filter_input(INPUT_POST, 'bairro');
+$cep = filter_input(INPUT_POST, 'cep');
 
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "INSERT INTO aluno (NOME, TELEFONE, EMAIL, RESPONSAVEL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS) VALUES ('$nome', '$telefone', '$email', '$responsavel', '$cpf', '$rg', '$data', '$endereco', '$cidade', '$estado', '$nivel', '$status')";
+$result_usuario = "INSERT INTO aluno (NOME, TELEFONE, EMAIL, RESPONSAVEL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS, BAIRRO, CEP) VALUES ('$nome', '$telefone', '$email', '$responsavel', '$cpf', '$rg', '$data', '$endereco', '$cidade', '$estado', '$nivel', '$status', '$bairro', '$cep')";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_insert_id($connect)) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Dez-2019 às 04:01
+-- Tempo de geração: 29-Dez-2019 às 20:24
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -41,35 +41,23 @@ CREATE TABLE `aluno` (
   `CIDADE` varchar(60) NOT NULL,
   `ESTADO` varchar(60) NOT NULL,
   `NIVEL` varchar(60) NOT NULL,
-  `STATUS` varchar(60) NOT NULL
+  `STATUS` varchar(60) NOT NULL,
+  `BAIRRO` varchar(60) DEFAULT NULL,
+  `CEP` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `aluno`
---
-
-INSERT INTO `aluno` (`COD_ALUNO`, `NOME`, `TELEFONE`, `EMAIL`, `RESPONSAVEL`, `CPF`, `RG`, `DATA`, `ENDERECO`, `CIDADE`, `ESTADO`, `NIVEL`, `STATUS`) VALUES
-(1, 'Lucas Evangelista de Oliveira', '(31) 99141-8777', 'luquinha207@hotmail.com', 'Proprio aluno', '020.867.096-33', 'mg16876859', '12/07/1997', 'Rua Agua boa n47', 'Belo Horizonte', 'Minas Gerais', 'Verde', 'Ativo');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `funcionario`
+-- Estrutura da tabela `contrato`
 --
 
-CREATE TABLE `funcionario` (
-  `COD_FUNCIONARIO` int(11) NOT NULL,
-  `NOME` varchar(255) NOT NULL,
-  `USUARIO` varchar(60) NOT NULL,
-  `SENHA` varchar(60) NOT NULL
+CREATE TABLE `contrato` (
+  `COD_CONTRATO` int(11) NOT NULL,
+  `COD_PLANO` int(11) NOT NULL,
+  `COD_ALUNO` int(11) NOT NULL,
+  `STATUS_CONTRATO` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `funcionario`
---
-
-INSERT INTO `funcionario` (`COD_FUNCIONARIO`, `NOME`, `USUARIO`, `SENHA`) VALUES
-(1, 'Lucas Evangelista de Oliveira', 'lucasoliveira', '221e525ceac82833311a8e67ed7948b7');
 
 -- --------------------------------------------------------
 
@@ -82,16 +70,44 @@ CREATE TABLE `pagamento` (
   `COD_ALUNO` int(11) NOT NULL,
   `DATA_CRIADA` varchar(60) DEFAULT NULL,
   `DATA_VENCIMENTO` varchar(60) DEFAULT NULL,
-  `VALOR` varchar(60) DEFAULT NULL,
-  `STATUS` varchar(60) DEFAULT NULL
+  `STATUS` varchar(60) DEFAULT NULL,
+  `TIPO_PAGAMENTO` varchar(60) DEFAULT NULL,
+  `VALOR` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `personal`
+--
+
+CREATE TABLE `personal` (
+  `COD_PERSONAL` int(11) NOT NULL,
+  `COD_ALUNO` int(11) NOT NULL,
+  `NUMERO_AULA` int(11) DEFAULT NULL,
+  `STATUS_AULA` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `planos`
+--
+
+CREATE TABLE `planos` (
+  `COD_PLANO` int(11) NOT NULL,
+  `TIPO_PLANO` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `pagamento`
+-- Extraindo dados da tabela `planos`
 --
 
-INSERT INTO `pagamento` (`COD_PAGAMENTO`, `COD_ALUNO`, `DATA_CRIADA`, `DATA_VENCIMENTO`, `VALOR`, `STATUS`) VALUES
-(5, 1, '14/12/2019', '20/12/2019', 'R$ 89,80', 'Aberto');
+INSERT INTO `planos` (`COD_PLANO`, `TIPO_PLANO`) VALUES
+(1, '2x aulas por semana'),
+(2, '3x aulas por semana'),
+(3, '5x aulas por semana'),
+(4, 'Plano semestral 2x semana (R$ 480,00)');
 
 --
 -- Índices para tabelas despejadas
@@ -104,10 +120,12 @@ ALTER TABLE `aluno`
   ADD PRIMARY KEY (`COD_ALUNO`);
 
 --
--- Índices para tabela `funcionario`
+-- Índices para tabela `contrato`
 --
-ALTER TABLE `funcionario`
-  ADD PRIMARY KEY (`COD_FUNCIONARIO`);
+ALTER TABLE `contrato`
+  ADD PRIMARY KEY (`COD_CONTRATO`),
+  ADD KEY `COD_PLANO` (`COD_PLANO`),
+  ADD KEY `COD_ALUNO` (`COD_ALUNO`);
 
 --
 -- Índices para tabela `pagamento`
@@ -117,6 +135,19 @@ ALTER TABLE `pagamento`
   ADD KEY `COD_ALUNO` (`COD_ALUNO`);
 
 --
+-- Índices para tabela `personal`
+--
+ALTER TABLE `personal`
+  ADD PRIMARY KEY (`COD_PERSONAL`),
+  ADD KEY `COD_ALUNO` (`COD_ALUNO`);
+
+--
+-- Índices para tabela `planos`
+--
+ALTER TABLE `planos`
+  ADD PRIMARY KEY (`COD_PLANO`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -124,29 +155,48 @@ ALTER TABLE `pagamento`
 -- AUTO_INCREMENT de tabela `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `COD_ALUNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `COD_ALUNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de tabela `funcionario`
+-- AUTO_INCREMENT de tabela `contrato`
 --
-ALTER TABLE `funcionario`
-  MODIFY `COD_FUNCIONARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `contrato`
+  MODIFY `COD_CONTRATO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `pagamento`
 --
 ALTER TABLE `pagamento`
-  MODIFY `COD_PAGAMENTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `COD_PAGAMENTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de tabela `personal`
+--
+ALTER TABLE `personal`
+  MODIFY `COD_PERSONAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para despejos de tabelas
 --
 
 --
+-- Limitadores para a tabela `contrato`
+--
+ALTER TABLE `contrato`
+  ADD CONSTRAINT `contrato_ibfk_1` FOREIGN KEY (`COD_PLANO`) REFERENCES `planos` (`COD_PLANO`),
+  ADD CONSTRAINT `contrato_ibfk_2` FOREIGN KEY (`COD_ALUNO`) REFERENCES `aluno` (`COD_ALUNO`);
+
+--
 -- Limitadores para a tabela `pagamento`
 --
 ALTER TABLE `pagamento`
   ADD CONSTRAINT `pagamento_ibfk_1` FOREIGN KEY (`COD_ALUNO`) REFERENCES `aluno` (`COD_ALUNO`);
+
+--
+-- Limitadores para a tabela `personal`
+--
+ALTER TABLE `personal`
+  ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`COD_ALUNO`) REFERENCES `aluno` (`COD_ALUNO`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

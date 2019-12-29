@@ -11,14 +11,22 @@ $(function () {
 			}
 			$.post('../php/buscar-pagamento.php', dados, function (retorna) {
 				//Mostra dentro da ul os resultado obtidos 
-				$(".table-responsive").html(retorna);
+				$("#tabela-pagamentos").html(retorna);
+			});
+			$.post('../php/buscar-contrato.php', dados, function (retorna) {
+				//Mostra dentro da ul os resultado obtidos 
+				$("#tabela-contrato").html(retorna);
 			});
 		} else {
-			$(".table-responsive").html('');
+			$("#tabela-pagamentos").html('');
+			$("#tabela-contrato").html('');
 		}
 
 		$("#limpar-dados").click(function () {
 			$('#tabela-pagamentos').html("");
+		});
+		$("#limpar-dados").click(function () {
+			$('#tabela-contrato').html("");
 		});
 	});
 });

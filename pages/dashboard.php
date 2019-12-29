@@ -1,3 +1,27 @@
+<?php
+
+	session_start();
+
+    include_once(realpath(dirname(__FILE__) . "/../php/relatorio-dashboard.php"));
+
+    if(!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])){
+        header("Location: ../index.php");
+
+        exit;
+
+    }else{
+        if((time() - $_SESSION['timeout']) > 600){
+            header("Location: ../php/sair.php");
+        }
+    }
+
+    $id = $_SESSION['usuariologado'];
+    $sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
+    $resultado_funcionario = mysqli_query($connect, $sql);
+    $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,18 +46,12 @@
 
 </head>
 
+
 <body>
 
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
     <!--*******************
         Preloader end
     ********************-->
@@ -49,7 +67,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="dashboard.html">
+                <a href="./dashboard.php">
                     <b class="logo-abbr"><img src="../images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="../images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
@@ -65,170 +83,23 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">    
-            <div class="header-content clearfix">
-                <div class="header-left">
-                    <div class="input-group icons">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
-                        </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
-                        <div class="drop-down animated flipInX d-md-none">
-                            <form action="#">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </form>
-                        </div>
+        <div class="header">
+            <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
                     </div>
-                </div>
+                </div>  
+            <div class="header-content clearfix">
                 <div class="header-right">
                     <ul class="clearfix">
-                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                                <i class="mdi mdi-email-outline"></i>
-                                <span class="badge badge-pill gradient-1">3</span>
-                            </a>
-                            <div class="drop-down animated fadeIn dropdown-menu">
-                                <div class="dropdown-content-heading d-flex justify-content-between">
-                                    <span class="">3 New Messages</span>  
-                                    <a href="javascript:void()" class="d-inline-block">
-                                        <span class="badge badge-pill gradient-1">3</span>
-                                    </a>
-                                </div>
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li class="notification-unread">
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/1.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Saiful Islam</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="notification-unread">
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/2.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Adam Smith</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Can you do me a favour?</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/3.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Barak Obama</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="../images/avatar/4.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Hilari Clinton</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hello</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    
-                                </div>
-                            </div>
-                        </li>
-                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                                <i class="mdi mdi-bell-outline"></i>
-                                <span class="badge badge-pill gradient-2">3</span>
-                            </a>
-                            <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
-                                <div class="dropdown-content-heading d-flex justify-content-between">
-                                    <span class="">2 New Notifications</span>  
-                                    <a href="javascript:void()" class="d-inline-block">
-                                        <span class="badge badge-pill gradient-2">5</span>
-                                    </a>
-                                </div>
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Events near you</h6>
-                                                    <span class="notification-text">Within next 5 days</span> 
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Started</h6>
-                                                    <span class="notification-text">One hour ago</span> 
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Ended Successfully</h6>
-                                                    <span class="notification-text">One hour ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Events to Join</h6>
-                                                    <span class="notification-text">After two days</span> 
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    
-                                </div>
-                            </div>
-                        </li>
-                        <li class="icons dropdown d-none d-md-flex">
-                            <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span>English</span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
-                            </a>
-                            <div class="drop-down dropdown-language animated fadeIn  dropdown-menu">
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li><a href="javascript:void()">English</a></li>
-                                        <li><a href="javascript:void()">Dutch</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
-                                <span class="activity active"></span>
-                                <img src="../images/user/1.png" height="40" width="40" alt="">
-                            </div>
+                        <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
+                                <span><?php echo $dados_funcionario['NOME']; ?></span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+                            </a>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
-                                        <li>
-                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill gradient-1">3</div>
-                                            </a>
-                                        </li>
-                                        
-                                        <hr class="my-2">
-                                        <li>
-                                            <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                        </li>
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="../php/sair.php"><i class="icon-key"></i> <span>Sair</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -259,6 +130,7 @@
                         <ul aria-expanded="false">
                             <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
                             <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
+                            <li><a href="../pages/contrato.php">Contrato/Trancamento</a></li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -298,10 +170,8 @@
                             <div class="card-body">
                                 <h3 class="card-title text-white">Total de alunos</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">110</h2>
-                                    <p class="text-white mb-0">Ativos/Inativos</p>
+                                    <h2 class="text-white"><?php echo $qtd_alunos_total['total_aluno'];?></h2>
                                 </div>
-                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                             </div>
                         </div>
                     </div>
@@ -310,39 +180,39 @@
                             <div class="card-body">
                                 <h3 class="card-title text-white">Alunos ativos</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">45</h2>
+                                    <h2 class="text-white"><?php echo $qtd_total_alunos_ativos['total_aluno_ativos'];?></h2>
                                 </div>
-                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Pagamentos em abertos</h3>
+                                <h3 class="card-title text-white">Faturas em aberto</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">15</h2>
-                                    <p class="text-white mb-0">Mensalidades</p>
+                                    <h2 class="text-white"><?php echo $qtd_total_faturas_aberta['total_faturas_aberta'];?></h2>
                                 </div>
-                                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Lucro</h3>
+                                <h3 class="card-title text-white">Lucro Anual</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">R$ 1.200</h2>
+                                <?php if($qtd_total_valor['total_valor'] == null) {?>
+                                    <h2 class="text-white">R$ 0.00</h2>
+                                <?php } else { ?>
+                                    <h2 class="text-white">R$<?php echo $qtd_total_valor['total_valor'];?></h2>
+                                <?php }?>
                                 </div>
-                                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title">
@@ -352,178 +222,50 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Codigo pagamento</th>
+                                                <th>Codigo da fatura</th>
                                                 <th>Nome completo</th>
                                                 <th>Data vencimento</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php while ($qtd_pagamento_pendente = mysqli_fetch_assoc($resultado_pagamento_pendente)) { ?>
                                             <tr>
-                                                <th>1</th>
-                                                <td>Kolor Tea Shirt For Man</td>
-                                                <td><span class="badge badge-primary px-2">Sale</span>
-                                                </td>
-                                                <td>January 22</td>
+                                                <th><?php echo $qtd_pagamento_pendente['COD_PAGAMENTO'];?></th>
+                                                <td><?php echo $qtd_pagamento_pendente['NOME'];?></td>
+                                                <td><?php echo $qtd_pagamento_pendente['DATA_VENCIMENTO'];?></td>
+                                                <td><span class="label label-danger"><?php echo $qtd_pagamento_pendente['STATUS'];?></span></td>
                                             </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Kolor Tea Shirt For Women</td>
-                                                <td><span class="badge badge-danger px-2">Tax</span>
-                                                </td>
-                                                <td>January 30</td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td>Blue Backpack For Baby</td>
-                                                <td><span class="badge badge-success px-2">Extended</span>
-                                                </td>
-                                                <td>January 25</td>
-                                            </tr>
+                                        <?php }?>
                                         </tbody>
                                     </table>
+                                    <center>
+                                        <nav aria-label="Page navigation example">
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item"><a class="page-link" href="dashboard.php?pagina=1">Primeira pagina</a></li>
+
+                                                <?php for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) { ?>
+                                                    <?php if ($pag_ant >= 1) { ?>
+                                                        <li class="page-item"><a class="page-link" href="dashboard.php?pagina=<?php echo $pag_ant ?>"><?php echo $pag_ant ?></a></li>
+                                                    <?php    } ?>
+                                                <?php } ?>
+
+                                                <li class="paginate_button page-item active"><a class="page-link"><?php echo $pagina ?></a></li>
+
+                                                <?php for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) { ?>
+                                                    <?php if ($pag_dep <= $quantidade_pg) { ?>
+                                                        <li class="page-item"><a class="page-link" href="dashboard.php?pagina=<?php echo $pag_dep ?>"><?php echo $pag_dep ?></a></li>
+                                                    <?php    } ?>
+                                                <?php } ?>
+
+                                                <li class="page-item"><a class="page-link" href="dashboard.php?pagina=<?php echo $quantidade_pg ?>">Ultima pagina</a></li>
+                                            </ul>
+                                        </nav>
+                                    </center>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <h4>Alunos/Prajied</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Matricula</th>
-                                                <th>Nome completo</th>
-                                                <th>Data de nascimento</th>
-                                                <th>Prajied</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th>1</th>
-                                                <td>Kolor Tea Shirt For Man</td>
-                                                <td><span class="badge badge-primary px-2">Sale</span>
-                                                </td>
-                                                <td>January 22</td>
-                                            </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Kolor Tea Shirt For Women</td>
-                                                <td><span class="badge badge-danger px-2">Tax</span>
-                                                </td>
-                                                <td>January 30</td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td>Blue Backpack For Baby</td>
-                                                <td><span class="badge badge-success px-2">Extended</span>
-                                                </td>
-                                                <td>January 25</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <h4>Alunos ativos</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Matricula</th>
-                                                <th>Nome completo</th>
-                                                <th>Data de nascimento</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th>1</th>
-                                                <td>Kolor Tea Shirt For Man</td>
-                                                <td><span class="badge badge-primary px-2">Sale</span>
-                                                </td>
-                                                <td>January 22</td>
-                                            </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Kolor Tea Shirt For Women</td>
-                                                <td><span class="badge badge-danger px-2">Tax</span>
-                                                </td>
-                                                <td>January 30</td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td>Blue Backpack For Baby</td>
-                                                <td><span class="badge badge-success px-2">Extended</span>
-                                                </td>
-                                                <td>January 25</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <h4>Alunos inativos</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Matricula</th>
-                                                <th>Nome completo</th>
-                                                <th>Data de nascimento</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th>1</th>
-                                                <td>Kolor Tea Shirt For Man</td>
-                                                <td><span class="badge badge-primary px-2">Sale</span>
-                                                </td>
-                                                <td>January 22</td>
-                                            </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Kolor Tea Shirt For Women</td>
-                                                <td><span class="badge badge-danger px-2">Tax</span>
-                                                </td>
-                                                <td>January 30</td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td>Blue Backpack For Baby</td>
-                                                <td><span class="badge badge-success px-2">Extended</span>
-                                                </td>
-                                                <td>January 25</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>     
-                </div>
             </div>
             <!-- #/ container -->
         </div>

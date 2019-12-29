@@ -6,7 +6,7 @@
 	$pagamento = $_POST['palavra'];
 	
 	//Pesquisar no banco de dados nome do curso referente a palavra digitada pelo usuário
-	$pagamento = "SELECT PAG.COD_PAGAMENTO, ALU.NOME, PAG.DATA_CRIADA, PAG.DATA_VENCIMENTO, PAG.VALOR, PAG.STATUS FROM pagamento PAG 
+	$pagamento = "SELECT PAG.COD_PAGAMENTO, ALU.NOME, PAG.DATA_CRIADA, PAG.DATA_VENCIMENTO, PAG.VALOR, PAG.STATUS, PAG.TIPO_PAGAMENTO FROM pagamento PAG 
                   INNER JOIN aluno ALU
                   ON PAG.COD_ALUNO = ALU.COD_ALUNO
                   WHERE PAG.COD_ALUNO = '$pagamento'";
@@ -21,6 +21,7 @@
                 $tabela .= "<tr>";
                     $tabela .= "<th>Codigo</th>";
                     $tabela .= "<th>Nome do Aluno</th>";
+                    $tabela .= "<th>Tipo</th>";
                     $tabela .= "<th>Data gerada</th>";
                     $tabela .= "<th>Data de vencimento</th>";
                     $tabela .= "<th>Valor</th>";
@@ -32,10 +33,11 @@
                     $tabela .= "<tr>";
                         $tabela .= "<td>".$dados['COD_PAGAMENTO']."</td>";
                         $tabela .= "<td>".$dados['NOME']."</td>";
+                        $tabela .= "<td>".$dados['TIPO_PAGAMENTO']."</td>";
                         $tabela .= "<td>".$dados['DATA_CRIADA']."</td>";
                         $tabela .= "<td>".$dados['DATA_VENCIMENTO']."</td>";
-                        $tabela .= "<td>".$dados['VALOR']."</td>";
-                        if($dados['STATUS'] == 'Aberto'){
+                        $tabela .= "<td>R$ ".$dados['VALOR']."</td>";
+                        if($dados['STATUS'] == 'Pago'){
                             $tabela .= "<td><span class='label label-success'>".$dados['STATUS']."</span></td>";
                         }else{
                             $tabela .= "<td><span class='label label-danger'>".$dados['STATUS']."</span></td>";
