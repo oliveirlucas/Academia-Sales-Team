@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Dez-2019 às 20:24
+-- Tempo de geração: 29-Dez-2019 às 20:45
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -72,7 +72,8 @@ CREATE TABLE `pagamento` (
   `DATA_VENCIMENTO` varchar(60) DEFAULT NULL,
   `STATUS` varchar(60) DEFAULT NULL,
   `TIPO_PAGAMENTO` varchar(60) DEFAULT NULL,
-  `VALOR` decimal(10,2) DEFAULT NULL
+  `VALOR` decimal(10,2) DEFAULT NULL,
+  `DATA_REGISTRO` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -155,7 +156,7 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT de tabela `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `COD_ALUNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `COD_ALUNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `contrato`
@@ -167,7 +168,7 @@ ALTER TABLE `contrato`
 -- AUTO_INCREMENT de tabela `pagamento`
 --
 ALTER TABLE `pagamento`
-  MODIFY `COD_PAGAMENTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `COD_PAGAMENTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `personal`
