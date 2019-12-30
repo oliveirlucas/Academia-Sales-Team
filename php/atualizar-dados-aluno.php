@@ -18,13 +18,19 @@ $estado = filter_input(INPUT_POST, 'estado');
 $nivel = filter_input(INPUT_POST, 'nivel');
 $status = filter_input(INPUT_POST, 'status');
 
-$result_usuario = "UPDATE aluno SET NOME='$nome', TELEFONE='$telefone', EMAIL='$email', CPF='$cpf', RESPONSAVEL='$responsavel', RG='$rg', DATA='$data', ENDERECO='$endereco', CIDADE='$cidade', CEP='$cep', BAIRRO='$bairro', ESTADO='$estado', BAIRRO='$bairro', NIVEL='$nivel', STATUS='$status' WHERE COD_ALUNO='$cod_aluno'";
-$resultado_usuario = mysqli_query($connect, $result_usuario);
-
-if(mysqli_affected_rows($connect)){
-	$_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Dados do aluno atualizado com sucesso</div>";
-	header("Location: ../pages/atualizar-aluno.php");
+if($nivel == 'Selecione a Prajied' || $nivel == '-- Adulto --' || $nivel == '-- Kids --' || $status = 'Selecione o status'){
+    $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Prajied não selecionada</div>";
+    header("Location: ../pages/cadastro-aluno.php");
 }else{
-	$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Houve algum problema ao atualizar o aluno, tente novamente</div>";
-    header("Location:../pages/atualizar-aluno.php");
+	$result_usuario = "UPDATE aluno SET NOME='$nome', TELEFONE='$telefone', EMAIL='$email', CPF='$cpf', RESPONSAVEL='$responsavel', RG='$rg', DATA='$data', ENDERECO='$endereco', CIDADE='$cidade', CEP='$cep', BAIRRO='$bairro', ESTADO='$estado', BAIRRO='$bairro', NIVEL='$nivel', STATUS='$status' WHERE COD_ALUNO='$cod_aluno'";
+	$resultado_usuario = mysqli_query($connect, $result_usuario);
+
+	if(mysqli_affected_rows($connect)){
+		$_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Dados do aluno atualizado com sucesso</div>";
+		header("Location: ../pages/atualizar-aluno.php");
+	}else{
+		$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Houve algum problema ao atualizar o aluno, tente novamente</div>";
+		header("Location:../pages/atualizar-aluno.php");
+	}
 }
+

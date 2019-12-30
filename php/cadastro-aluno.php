@@ -20,13 +20,21 @@ $cep = filter_input(INPUT_POST, 'cep');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "INSERT INTO aluno (NOME, TELEFONE, EMAIL, RESPONSAVEL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS, BAIRRO, CEP) VALUES ('$nome', '$telefone', '$email', '$responsavel', '$cpf', '$rg', '$data', '$endereco', '$cidade', '$estado', '$nivel', '$status', '$bairro', '$cep')";
-$resultado_usuario = mysqli_query($connect, $result_usuario);
+if($nivel == 'Selecione a Prajied' || $nivel == '-- Adulto --' || $nivel == '-- Kids --' || $status = 'Selecione o status'){
+    $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Prajied não selecionada</div>";
+    header("Location: ../pages/cadastro-aluno.php");
+}else{
 
-if (mysqli_insert_id($connect)) {
-    $_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Aluno cadastrado com sucesso</div>";
-    header("Location: ../pages/cadastro-aluno.php");
-} else {
-    $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Aluno não cadastrado</div>";
-    header("Location: ../pages/cadastro-aluno.php");
+    $result_usuario = "INSERT INTO aluno (NOME, TELEFONE, EMAIL, RESPONSAVEL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS, BAIRRO, CEP) VALUES ('$nome', '$telefone', '$email', '$responsavel', '$cpf', '$rg', '$data', '$endereco', '$cidade', '$estado', '$nivel', '$status', '$bairro', '$cep')";
+    $resultado_usuario = mysqli_query($connect, $result_usuario);
+
+    if (mysqli_insert_id($connect)) {
+        $_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Aluno cadastrado com sucesso</div>";
+        header("Location: ../pages/cadastro-aluno.php");
+    } else {
+        $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Aluno não cadastrado</div>";
+        header("Location: ../pages/cadastro-aluno.php");
+    }
 }
+
+

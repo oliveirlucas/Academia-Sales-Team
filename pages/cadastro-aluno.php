@@ -261,11 +261,36 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Prajied</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Khan atual" name="nivel">
-                                                </div>
+                                        <div class="col-md-6">
+                                                <label>Prajied</label>
+                                                <select class="form-control" name="nivel">
+                                                    <option selected="selected">Selecione a Prajied</option>
+                                                    <option>-- Adulto --</option>
+                                                    <option>1º Branco(A)</option>
+                                                    <option>2º Amarelo(A)</option>
+                                                    <option>3º Amarelo/branco(A)</option>
+                                                    <option>4º Verde(A)</option>
+                                                    <option>5º Verde/branco(A)</option>
+                                                    <option>6º Azul(A)</option>
+                                                    <option>7º Azul/branco(A)</option>
+                                                    <option>8º Marrom(A)</option>
+                                                    <option>9º Marrom/branco(A)</option>
+                                                    <option>10º Vermelho(A)</option>
+                                                    <option>11º Vermelho/branco(A)</option>
+                                                    <option>12º Vermelho/amarelo(A)</option>
+                                                    <option>-- Kids --</option>
+                                                    <option>1º Branco(K)</option>
+                                                    <option>2º Cinza(K)</option>
+                                                    <option>3º Cinza/branco(K)</option>
+                                                    <option>4º Laranja(K)</option>
+                                                    <option>5º Laranja/branco(K)</option>
+                                                    <option>6º Azul claro(K)</option>
+                                                    <option>7º Azul claro/branco(K)</option>
+                                                    <option>8º Azul claro/roxo(K)</option>
+                                                    <option>9º Roxo(K)</option>
+                                                    <option>10º Roxo/branco(K)</option>
+                                                    <option>11º Roxo/amarelo(K)</option>
+                                                </select>
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Status Aluno</label>
