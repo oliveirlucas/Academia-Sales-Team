@@ -1,19 +1,20 @@
 <?php
 
-    session_start();
+session_start();
 
-    include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
+include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
-    if(!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])){
-        header("Location: ../index.php");
+if (!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])) {
+    header("Location: ../index.php");
 
-        exit;
-    }
+    exit;
+}
 
-    $id = $_SESSION['usuariologado'];
-    $sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
-    $resultado_funcionario = mysqli_query($connect, $sql);
-    $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
+$id = $_SESSION['usuariologado'];
+$sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
+$resultado_funcionario = mysqli_query($connect, $sql);
+$dados_funcionario = mysqli_fetch_array($resultado_funcionario);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Cadastrar aula</title>
+    <title>Atualizar aluno</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png">
     <!-- Pignose Calender -->
@@ -35,10 +36,6 @@
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style-icons.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
-    <link href="./plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
-
 
 </head>
 
@@ -87,16 +84,16 @@
         ***********************************-->
         <div class="header">
             <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>  
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
             <div class="header-content clearfix">
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                        <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span><?php echo $dados_funcionario['NOME']; ?></span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+                            <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
+                                <span><?php echo $dados_funcionario['NOME']; ?></span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
                             </a>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
@@ -166,7 +163,6 @@
         ***********************************-->
         <div class="content-body">
             <!-- row -->
-            
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -180,91 +176,119 @@
                                     }
                                     ?>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Cadastrar Aula</h4>
+                                <h4 class="card-title">Formulário de atualização dos dados do aluno</h4>
                                 <br>
                                 <div class="basic-form">
-                                    <form action=../php/cadastro-aula.php method="post">
+                                    <form action=../php/atualizar-dados-aluno.php method="post">
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="form-group">
                                                     <label>Matricula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_aluno" required="required">
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Nº" name="matricula_filtro">
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
+                                            <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label>Aula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_aula" required="required">
+                                                    <label>Nome Completo do aluno</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Nome completo" name="nome">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label>Status aula</label>
-                                                <select class="form-control" name="status_aula">
-                                                    <option selected="selected">Selecione o status
-                                                    </option>
-                                                    <option>Aberto</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Cadastrar</button>
-                                        <div class="clearfix"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Atualizar Aula</h4>
-                                <br>
-                                <div class="basic-form">
-                                    <form method="post" action=../php/atualizar-aula.php>
-                                        <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Codigo da aula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_aula">
+                                                    <label>Telefone Fixo/Celular</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Telefone" name="telefone" minlength="15" maxlength="15" onkeypress="mascara(this)">
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Matricula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº aluno" name="cod_matricula" readonly=“true”>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Aluno</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nome do aluno" name="nome" readonly=“true”>
+                                                    <label for="exampleInputEmail1">E-mail</label>
+                                                    <input type="email" class="form-control input-default" required="required" placeholder="E-mail" name="email">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Numero da aula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="numero_aula" >
+                                                    <label>Responsável</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Insira aqui o nome completo do responsável" name="responsavel">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <label>Status aula</label>
-                                                <select class="form-control" name="status_aula">
-                                                    <option selected="selected">Selecione o status
-                                                    </option>
-                                                    <option>Presente</option>
-                                                    <option>Aberto</option>
+                                                <div class="form-group">
+                                                    <label>CPF</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="CPF" name="cpf" minlength="14" maxlength="14" onkeypress="mascaraCpf(this)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>RG/Identidade</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Numero da identidade" name="rg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Data de nascimento</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Data" name="data" maxlength="10" onkeypress="mascaraData(this)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Endereço</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Endereço" name="endereco">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Bairro</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Bairro" name="bairro">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Cidade</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Cidade" name="cidade">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Estado</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Estado" name="estado">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>CEP</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="CEP residencial" name="cep" minlength="9" maxlength="9" onkeypress="mascaraCep(this)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Prajied</label>
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Khan atual" name="nivel">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Status Aluno</label>
+                                                <select class="form-control" name="status">
+                                                    <option>Ativo</option>
+                                                    <option>Inativo</option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Se o aluno for o proprio responsável insira no campo
+                                                        <b>"Responsável"</b> o texto <b>"Proprio aluno"</b>, caso
+                                                        contrario,
+                                                        insira no campo o <b>nome completo do responsável</b></label>
+                                                </div>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Atualizar</button>
@@ -275,69 +299,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Deletar Aula</h4>
-                                <br>
-                                <div class="basic-form">
-                                    <form action=../php/deletar-aula.php method="post">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label>Codigo da aula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="codigo_aula">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="form-group">
-                                                    <label>Matricula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="codigo_aluno" readonly=“true”>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Aluno</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nome do aluno" name="nome_aluno" readonly=“true”>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Status da aula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Status" name="status_atual" readonly=“true”>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible"> Deletar</button>
-                                        <div class="clearfix"></div>
-                                    </form>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <!-- #/ container -->
         </div>
-        <!--**********************************
+        <!-- #/ container -->
+    </div>
+    <!--**********************************
             Content body end
         ***********************************-->
 
 
-        <!--**********************************
+    <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright &copy; Desenvolvido por Academy System</a>
-                    2019</p>
-            </div>
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright &copy; Desenvolvido por Academy System</a> 2019</p>
         </div>
-        <!--**********************************
+    </div>
+    <!--**********************************
             Footer end
         ***********************************-->
     </div>
@@ -373,42 +352,78 @@
     <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
     <script type='text/javascript'>
         $(document).ready(function() {
-            $("input[name='cod_aula']").blur(function() {
-                var $cod_matricula = $("input[name='cod_matricula']");
+            $("input[name='matricula_filtro']").blur(function() {
                 var $nome = $("input[name='nome']");
-                var $numero_aula = $("input[name='numero_aula']");
-                var $status_aula = $("input[name='status_aula']");
-                $.getJSON('../php/update-trazer-aula.php', {
-                    cod_aula: $(this).val()
+                var $telefone = $("input[name='telefone']");
+                var $email = $("input[name='email']");
+                var $responsavel = $("input[name='responsavel']");
+                var $cpf = $("input[name='cpf']");
+                var $rg = $("input[name='rg']");
+                var $data = $("input[name='data']");
+                var $endereco = $("input[name='endereco']");
+                var $cidade = $("input[name='cidade']");
+                var $cep = $("input[name='cep']");
+                var $bairro = $("input[name='bairro']");
+                var $estado = $("input[name='estado']");
+                var $nivel = $("input[name='nivel']");
+                var $status = $("input[name='status']");
+                $.getJSON('../php/filtro_atualizar_aluno.php', {
+                    matricula_filtro: $(this).val()
                 }, function(json) {
-                    $cod_matricula.val(json.cod_matricula);
                     $nome.val(json.nome);
-                    $numero_aula.val(json.numero_aula);
-                    $status_aula.val(json.status_aula);
+                    $telefone.val(json.telefone);
+                    $email.val(json.email);
+                    $responsavel.val(json.responsavel);
+                    $cpf.val(json.cpf);
+                    $rg.val(json.rg);
+                    $data.val(json.data);
+                    $endereco.val(json.endereco);
+                    $cidade.val(json.cidade);
+                    $cep.val(json.cep);
+                    $bairro.val(json.bairro);
+                    $estado.val(json.estado);
+                    $nivel.val(json.nivel);
+                    $status.val(json.status);
                 });
             });
         });
     </script>
-    <script type='text/javascript'>
-        $(document).ready(function() {
-            $("input[name='codigo_aula']").blur(function() {
-                var $codigo_aluno = $("input[name='codigo_aluno']");
-                var $nome_aluno = $("input[name='nome_aluno']");
-                var $status_atual = $("input[name='status_atual']");
-                $.getJSON('../php/trazer-aula.php', {
-                    codigo_aula: $(this).val()
-                }, function(json) {
-                    $codigo_aluno.val(json.codigo_aluno);
-                    $nome_aluno.val(json.nome_aluno);
-                    $status_atual.val(json.status_atual);
-                });
-            });
-        });
-    </script>
+    <script type="text/javascript">
+        function mascara(telefone) {
+            if (telefone.value.length == 0)
+                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if (telefone.value.length == 3)
+                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
 
+            if (telefone.value.length == 10)
+                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+        }
+    </script>
+    <script type="text/javascript">
+        function mascaraData(data) {
+            if (data.value.length == 2)
+                data.value = data.value + '/'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if (data.value.length == 5)
+                data.value = data.value + '/'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+        }
+    </script>
+    <script type="text/javascript">
+        function mascaraCep(data) {
+            if (data.value.length == 5)
+                data.value = data.value + '-'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+        }
+    </script>
+    <script type="text/javascript">
+        function mascaraCpf(cpf) {
+            if (cpf.value.length == 3)
+                cpf.value = cpf.value + '.'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if (cpf.value.length == 7)
+                cpf.value = cpf.value + '.'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+            if (cpf.value.length == 11)
+                cpf.value = cpf.value + '-'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+        }
+    </script>
     <script src="../js/dashboard/dashboard-1.js"></script>
-    <script src="../plugins/sweetalert/js/sweetalert.min.js"></script>
-    <script src="../plugins/sweetalert/js/sweetalert.init.js"></script>
 
 </body>
 

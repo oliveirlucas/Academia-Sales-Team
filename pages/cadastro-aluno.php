@@ -128,6 +128,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
+                            <li><a href="../pages/atualizar-aluno.php">Atualizar aluno</a></li>
                             <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
                             <li><a href="../pages/contrato.php">Contrato/Trancamento</a></li>
                         </ul>
@@ -189,7 +190,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Telefone Fixo/Celular</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Telefone" name="telefone" maxlength="15" onkeypress="mascara(this)">
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="Telefone" name="telefone" minlength="15" maxlength="15" onkeypress="mascara(this)">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -209,7 +210,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>CPF</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="CPF" name="cpf" maxlength="14" onkeypress="mascaraCpf(this)">
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="CPF" name="cpf" minlength="14" maxlength="14" onkeypress="mascaraCpf(this)">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -255,7 +256,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>CEP</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="CEP residencial" name="cep" maxlength="9" onkeypress="mascaraCep(this)">
+                                                    <input type="text" class="form-control input-default" required="required" placeholder="CEP residencial" name="cep" minlength="9" maxlength="9" onkeypress="mascaraCep(this)">
                                                 </div>
                                             </div>
                                         </div>

@@ -129,6 +129,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
+                            <li><a href="../pages/atualizar-aluno.php">Atualizar aluno</a></li>
                             <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
                             <li><a href="../pages/contrato.php">Contrato/Trancamento</a></li>
                         </ul>
@@ -189,17 +190,8 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                         </thead>
                                         <tbody id="filtrobusca">
                                             <?php
-                                            //Receber o número da página
-                                            $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-                                            $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
 
-                                            //Setar a quantidade de itens por pagina
-                                            $qnt_result_pg = 10;
-
-                                            //calcular o inicio visualização
-                                            $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
-
-                                            $result_usuarios = "SELECT * FROM aluno LIMIT $inicio, $qnt_result_pg";
+                                            $result_usuarios = "SELECT * FROM aluno ";
                                             $resultado_usuarios = mysqli_query($connect, $result_usuarios);
                                             while ($dado = mysqli_fetch_assoc($resultado_usuarios)) { ?>
                                                 <tr>
@@ -225,39 +217,6 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <?php } ?>
                                         </tbody>
                                     </table>
-                                    <?php
-                                    //Paginação - Somar a quantidade de usuários
-                                    $result_pg = "SELECT COUNT(COD_ALUNO) AS num_result FROM aluno";
-                                    $resultado_pg = mysqli_query($connect, $result_pg);
-                                    $row_pg = mysqli_fetch_assoc($resultado_pg);
-                                    //Quantidade de pagina 
-                                    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
-
-                                    //Limitar os link antes depois
-                                    $max_links = 1; ?>
-                                    <center>
-                                        <nav aria-label="Page navigation example">
-                                            <ul class="pagination justify-content-center">
-                                                <li class="page-item"><a class="page-link" href="lista-alunos.php?pagina=1">Primeira pagina</a></li>
-
-                                                <?php for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) { ?>
-                                                    <?php if ($pag_ant >= 1) { ?>
-                                                        <li class="page-item"><a class="page-link" href="lista-alunos.php?pagina=<?php echo $pag_ant ?>"><?php echo $pag_ant ?></a></li>
-                                                    <?php    } ?>
-                                                <?php } ?>
-
-                                                <li class="paginate_button page-item active"><a class="page-link"><?php echo $pagina ?></a></li>
-
-                                                <?php for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) { ?>
-                                                    <?php if ($pag_dep <= $quantidade_pg) { ?>
-                                                        <li class="page-item"><a class="page-link" href="lista-alunos.php?pagina=<?php echo $pag_dep ?>"><?php echo $pag_dep ?></a></li>
-                                                    <?php    } ?>
-                                                <?php } ?>
-
-                                                <li class="page-item"><a class="page-link" href="lista-alunos.php?pagina=<?php echo $quantidade_pg ?>">Ultima pagina</a></li>
-                                            </ul>
-                                        </nav>
-                                    </center>
                                 </div>
                             </div>
                         </div>

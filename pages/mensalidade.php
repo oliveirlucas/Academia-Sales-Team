@@ -131,6 +131,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
+                            <li><a href="../pages/atualizar-aluno.php">Atualizar aluno</a></li>
                             <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
                             <li><a href="../pages/contrato.php">Contrato/Tracamento</a></li>
                         </ul>
