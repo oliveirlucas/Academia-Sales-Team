@@ -232,7 +232,7 @@
                                     </table>
                                     <?php
                                     //Paginação - Somar a quantidade de usuários
-                                    $result_pg = "SELECT COUNT(COD_ALUNO) AS num_result FROM ALUNO";
+                                    $result_pg = "SELECT COUNT(COD_ALUNO) AS num_result FROM aluno";
                                     $resultado_pg = mysqli_query($connect, $result_pg);
                                     $row_pg = mysqli_fetch_assoc($resultado_pg);
                                     //Quantidade de pagina 
