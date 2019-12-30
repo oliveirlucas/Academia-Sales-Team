@@ -18,7 +18,7 @@ $dados = mysqli_fetch_assoc($resultado_usuario);
 $dompdf = new DOMPDF();
 
 if(mysqli_num_rows($resultado_usuario) <= 0){
-    $contrato = "<h1>Não foi possivel encontrar o aluno para gerar o contrato</h1>";
+    $contrato = "<h1>Aluno não existe ou não possui contrato cadastrado</h1>";
 }else{
     $contrato = "<center><b><h5>TERMO DE ADESÃO PLANO DE ATIVIDADES FÍSICAS E LUTAS</h5></b></center>";
 
