@@ -198,14 +198,12 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Responsável</label>
                                                 <input type="text" class="form-control input-default" readonly=“true” name="responsavel">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>CPF</label>
@@ -218,18 +216,26 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                                 <input type="text" class="form-control input-default" readonly=“true” name="rg">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Data de nascimento</label>
                                                 <input type="text" class="form-control input-default" readonly=“true” name="data">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-9">
                                             <div class="form-group">
                                                 <label>Endereço</label>
                                                 <input type="text" class="form-control input-default" readonly=“true” name="endereco">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Bairro</label>
+                                                <input type="text" class="form-control input-default" readonly=“true” name="bairro">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -242,6 +248,12 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <div class="form-group">
                                                 <label>Estado</label>
                                                 <input type="text" class="form-control input-default" readonly=“true” name="estado">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Cep</label>
+                                                <input type="text" class="form-control input-default" readonly=“true” name="cep">
                                             </div>
                                         </div>
                                     </div>
@@ -357,6 +369,8 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                 var $data = $("input[name='data']");
                 var $endereco = $("input[name='endereco']");
                 var $cidade = $("input[name='cidade']");
+                var $bairro = $("input[name='bairro']");
+                var $cep = $("input[name='cep']");
                 var $estado = $("input[name='estado']");
                 var $nivel = $("input[name='nivel']");
                 var $status = $("input[name='status']");
@@ -372,6 +386,8 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                     $data.val(json.data);
                     $endereco.val(json.endereco);
                     $cidade.val(json.cidade);
+                    $bairro.val(json.bairro);
+                    $cep.val(json.cep);
                     $estado.val(json.estado);
                     $nivel.val(json.nivel);
                     $status.val(json.status);

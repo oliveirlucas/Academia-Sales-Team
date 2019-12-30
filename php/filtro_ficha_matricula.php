@@ -18,6 +18,8 @@ function retorna($matricula_filtro, $connect){
         $valores['endereco'] = $row_aluno['ENDERECO'];
         $valores['cidade'] = $row_aluno['CIDADE'];
         $valores['estado'] = $row_aluno['ESTADO'];
+        $valores['bairro'] = $row_aluno['BAIRRO'];
+        $valores['cep'] = $row_aluno['CEP'];
         $valores['nivel'] = $row_aluno['NIVEL'];
         $valores['status'] = $row_aluno['STATUS'];
 	}else{
@@ -30,6 +32,8 @@ function retorna($matricula_filtro, $connect){
         $valores['data'] = 'Aluno não encontrado';
         $valores['endereco'] = 'Aluno não encontrado';
         $valores['cidade'] = 'Aluno não encontrado';
+        $valores['bairro'] = 'Aluno não encontrado';
+        $valores['cep'] = 'Aluno não encontrado';
         $valores['estado'] = 'Aluno não encontrado';
         $valores['nivel'] = 'Aluno não encontrado';
         $valores['status'] = 'Aluno não encontrado';

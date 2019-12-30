@@ -185,7 +185,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Trancamento/Destrancamento de matricula</h4>
@@ -193,13 +193,13 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                 <div class="basic-form">
                                     <form action=../php/trancamento-matricula.php method="post">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Codigo contrato</label>
                                                     <input type="text" class="form-control input-default" placeholder="Nº" name="cod_contrato" required="required">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <label>Situação</label>
                                                 <select class="form-control" name="tipo">
                                                     <option selected="selected">Selecione o status
@@ -216,9 +216,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                                 <div>
@@ -227,13 +225,13 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                     <div class="basic-form">
                                         <form action=../php/cadastrar-contrato.php method="post">
                                             <div class="row">
-                                                <div class="col-md-1">
+                                                <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>Matricula</label>
                                                         <input type="text" class="form-control input-default" placeholder="Nº" name="cod_aluno" required="required">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <label>Categoria</label>
                                                     <select class="form-control" name="tipo">
                                                         <option selected="selected">Selecione o tipo
@@ -252,40 +250,60 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Gerar contrato</h4>
-                                        <br>
-                                        <div class="basic-form">
-                                            <form class="form-inline" action=../php/gerar-contrato-pdf.php method="post">
-                                                <div class="form-group mx-sm-3 mb-2">
-                                                    <label class="sr-only">Numero da matricula</label>
-                                                    <input type="text" class="form-control" placeholder="Numero da matricula" name="matricula">
-                                                </div>
-                                                <button type="submit" class="btn btn-dark mb-2" formtarget="_blank">Gerar</button>
-                                            </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Gerar contrato</h4>
+                                <br>
+                                <div class="basic-form">
+                                    <form class="form-inline" action=../php/gerar-contrato-pdf.php method="post">
+                                        <div class="form-group mx-sm-3 mb-2">
+                                            <label class="sr-only">Numero da matricula</label>
+                                            <input type="text" class="form-control" placeholder="Numero da matricula" name="matricula">
                                         </div>
-                                    </div>
+                                        <button type="submit" class="btn btn-dark mb-2" formtarget="_blank">Gerar</button>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Gerar Anamnese</h4>
-                                        <br>
-                                        <div class="basic-form">
-                                            <form class="form-inline" action=../php/gerar-anamnese.php method="post">
-                                                <button type="submit" class="btn btn-dark mb-2" formtarget="_blank">Clique aqui para gerar a Anamnese</button>
-                                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <h4 class="card-title">Deletar contrato</h4>
+                                    <br>
+                                    <div class="basic-form">
+                                    <form class="form-inline" action=../php/deletar-contrato.php method="post">
+                                        <div class="form-group mx-sm-3 mb-2">
+                                            <label class="sr-only">Numero do contrato</label>
+                                            <input type="text" class="form-control" placeholder="Numero do contrato" name="contrato">
                                         </div>
+                                        <button type="submit" class="btn btn-dark mb-2" >Deletar</button>
+                                    </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Gerar Anamnese</h4>
+                                <br>
+                                <div class="basic-form">
+                                    <form class="form-inline" action=../php/gerar-anamnese.php method="post">
+                                        <button type="submit" class="btn btn-dark mb-2" formtarget="_blank">Clique aqui para gerar a Anamnese</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- #/ container -->
