@@ -1,24 +1,19 @@
 <?php
 
-	session_start();
+session_start();
 
-    include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
+include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
-    if(!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])){
-        header("Location: ../index.php");
+if (!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])) {
+    header("Location: ../index.php");
 
-        exit;
+    exit;
+}
 
-    }else{
-        if((time() - $_SESSION['timeout']) > 600){
-            header("Location: ../php/sair.php");
-        }
-    }
-
-    $id = $_SESSION['usuariologado'];
-    $sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
-    $resultado_funcionario = mysqli_query($connect, $sql);
-    $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
+$id = $_SESSION['usuariologado'];
+$sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
+$resultado_funcionario = mysqli_query($connect, $sql);
+$dados_funcionario = mysqli_fetch_array($resultado_funcionario);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,16 +83,16 @@
         ***********************************-->
         <div class="header">
             <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>  
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
             <div class="header-content clearfix">
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                        <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span><?php echo $dados_funcionario['NOME']; ?></span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+                            <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
+                                <span><?php echo $dados_funcionario['NOME']; ?></span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
                             </a>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
@@ -179,21 +174,18 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Matricula</label>
-                                                <input type="text" class="form-control input-default"
-                                                    name="matricula_filtro" id="pesquisa">
+                                                <input type="text" class="form-control input-default" name="matricula_filtro" id="pesquisa">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Nome Completo do aluno</label>
-                                                <input type="text" class="form-control input-default" readonly=“true”
-                                                    name="nome">
+                                                <input type="text" class="form-control input-default" readonly=“true” name="nome">
                                             </div>
                                         </div>
                                     </div>
                                     <div>
-                                        <button type="reset" class="btn btn-info btn-fill pull-right"
-                                            class="alert-dismissible" id="limpar-dados">Limpar</button>
+                                        <button type="reset" class="btn btn-info btn-fill pull-right" class="alert-dismissible" id="limpar-dados">Limpar</button>
                                         <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -262,12 +254,12 @@
     <script src="../plugins/chartist/js/chartist.min.js"></script>
     <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
     <script type='text/javascript'>
-        $(document).ready(function () {
-            $("input[name='matricula_filtro']").blur(function () {
+        $(document).ready(function() {
+            $("input[name='matricula_filtro']").blur(function() {
                 var $nome = $("input[name='nome']");
                 $.getJSON('../php/filtro_ficha_matricula.php', {
                     matricula_filtro: $(this).val()
-                }, function (json) {
+                }, function(json) {
                     $nome.val(json.nome);
                 });
             });
@@ -288,7 +280,7 @@
 
     <script src="../js/dashboard/dashboard-1.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/tabela-aulas-personal.js"></script>
+    <script type="text/javascript" src="../js/tabela-aulas-personal.js"></script>
 
 </body>
 

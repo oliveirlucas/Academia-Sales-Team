@@ -1,24 +1,19 @@
 <?php
 
-    session_start();
+session_start();
 
-    include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
+include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
-    if(!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])){
-        header("Location: ../index.php");
+if (!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])) {
+    header("Location: ../index.php");
 
-        exit;
+    exit;
+}
 
-    }else{
-        if((time() - $_SESSION['timeout']) > 600){
-            header("Location: ../php/sair.php");
-        }
-    }
-
-    $id = $_SESSION['usuariologado'];
-    $sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
-    $resultado_funcionario = mysqli_query($connect, $sql);
-    $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
+$id = $_SESSION['usuariologado'];
+$sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
+$resultado_funcionario = mysqli_query($connect, $sql);
+$dados_funcionario = mysqli_fetch_array($resultado_funcionario);
 ?>
 
 <!DOCTYPE html>
@@ -92,16 +87,16 @@
         ***********************************-->
         <div class="header">
             <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>  
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
             <div class="header-content clearfix">
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                        <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span><?php echo $dados_funcionario['NOME']; ?></span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+                            <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
+                                <span><?php echo $dados_funcionario['NOME']; ?></span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
                             </a>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
@@ -219,7 +214,7 @@
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Valor a
                                                         pagar</label>
-                                                    <input type="text" class="form-control input-default" placeholder="0,00" name="valor" required="required" id="valor" onkeyup="k(this);" >
+                                                    <input type="text" class="form-control input-default" placeholder="0,00" name="valor" required="required" id="valor" onkeyup="k(this);">
                                                 </div>
                                             </div>
                                         </div>
@@ -448,12 +443,12 @@
     </script>
     <script type="text/javascript">
         function k(i) {
-            var v = i.value.replace(/\D/g,'');
-            v = (v/100).toFixed(2) + '';
+            var v = i.value.replace(/\D/g, '');
+            v = (v / 100).toFixed(2) + '';
             v = v.replace(".", ",");
-	        v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-	        v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
-	        i.value = v;
+            v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+            v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+            i.value = v;
         }
     </script>
     <script type='text/javascript'>
@@ -500,7 +495,7 @@
     <script src="../js/dashboard/dashboard-1.js"></script>
     <script src="../plugins/sweetalert/js/sweetalert.min.js"></script>
     <script src="../plugins/sweetalert/js/sweetalert.init.js"></script>
-    
+
 
 </body>
 

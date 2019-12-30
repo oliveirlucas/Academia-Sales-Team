@@ -1,24 +1,19 @@
 <?php
 
-    session_start();
+session_start();
 
-    include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
-    
-    if(!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])){
-        header("Location: ../index.php");
+include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
-        exit;
+if (!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])) {
+    header("Location: ../index.php");
 
-    }else{
-        if((time() - $_SESSION['timeout']) > 600){
-            header("Location: ../php/sair.php");
-        }
-    }
+    exit;
+}
 
-    $id = $_SESSION['usuariologado'];
-    $sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
-    $resultado_funcionario = mysqli_query($connect, $sql);
-    $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
+$id = $_SESSION['usuariologado'];
+$sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
+$resultado_funcionario = mysqli_query($connect, $sql);
+$dados_funcionario = mysqli_fetch_array($resultado_funcionario);
 
 ?>
 
@@ -89,16 +84,16 @@
         ***********************************-->
         <div class="header">
             <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>  
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
             <div class="header-content clearfix">
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                        <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span><?php echo $dados_funcionario['NOME']; ?></span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+                            <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
+                                <span><?php echo $dados_funcionario['NOME']; ?></span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
                             </a>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
@@ -294,28 +289,28 @@
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #/ container -->
         </div>
-        <!--**********************************
+        <!-- #/ container -->
+    </div>
+    <!--**********************************
             Content body end
         ***********************************-->
 
 
-        <!--**********************************
+    <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright &copy; Desenvolvido por Academy System</a> 2019</p>
-            </div>
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright &copy; Desenvolvido por Academy System</a> 2019</p>
         </div>
-        <!--**********************************
+    </div>
+    <!--**********************************
             Footer end
         ***********************************-->
     </div>
@@ -350,38 +345,38 @@
     <script src="../plugins/chartist/js/chartist.min.js"></script>
     <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
     <script type="text/javascript">
-        function mascara(telefone){ 
-            if(telefone.value.length == 0)
+        function mascara(telefone) {
+            if (telefone.value.length == 0)
                 telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(telefone.value.length == 3)
+            if (telefone.value.length == 3)
                 telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
- 
-            if(telefone.value.length == 10)
+
+            if (telefone.value.length == 10)
                 telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
         }
     </script>
     <script type="text/javascript">
-        function mascaraData(data){ 
-            if(data.value.length == 2)
+        function mascaraData(data) {
+            if (data.value.length == 2)
                 data.value = data.value + '/'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(data.value.length == 5)
+            if (data.value.length == 5)
                 data.value = data.value + '/'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
         }
     </script>
     <script type="text/javascript">
-        function mascaraCep(data){ 
-            if(data.value.length == 5)
+        function mascaraCep(data) {
+            if (data.value.length == 5)
                 data.value = data.value + '-'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
         }
     </script>
     <script type="text/javascript">
-        function mascaraCpf(cpf){ 
-            if(cpf.value.length == 3)
+        function mascaraCpf(cpf) {
+            if (cpf.value.length == 3)
                 cpf.value = cpf.value + '.'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(cpf.value.length == 7)
+            if (cpf.value.length == 7)
                 cpf.value = cpf.value + '.'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-            if(cpf.value.length == 11)
-            cpf.value = cpf.value + '-'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+            if (cpf.value.length == 11)
+                cpf.value = cpf.value + '-'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
         }
     </script>
     <script src="../js/dashboard/dashboard-1.js"></script>

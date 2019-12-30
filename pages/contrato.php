@@ -1,24 +1,19 @@
 <?php
 
-    session_start();
+session_start();
 
-    include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
+include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
-    if(!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])){
-        header("Location: ../index.php");
+if (!isset($_SESSION['usuariologado']) and !isset($_SESSION['senhalogado'])) {
+    header("Location: ../index.php");
 
-        exit;
+    exit;
+}
 
-    }else{
-        if((time() - $_SESSION['timeout']) > 600){
-            header("Location: ../php/sair.php");
-        }
-    }
-
-    $id = $_SESSION['usuariologado'];
-    $sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
-    $resultado_funcionario = mysqli_query($connect, $sql);
-    $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
+$id = $_SESSION['usuariologado'];
+$sql = "SELECT * FROM funcionario WHERE USUARIO = '$id'";
+$resultado_funcionario = mysqli_query($connect, $sql);
+$dados_funcionario = mysqli_fetch_array($resultado_funcionario);
 ?>
 
 <!DOCTYPE html>
@@ -92,16 +87,16 @@
         ***********************************-->
         <div class="header">
             <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>  
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
             <div class="header-content clearfix">
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                        <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span><?php echo $dados_funcionario['NOME']; ?></span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+                            <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
+                                <span><?php echo $dados_funcionario['NOME']; ?></span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
                             </a>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
@@ -197,7 +192,7 @@
                                 <div class="basic-form">
                                     <form action=../php/trancamento-matricula.php method="post">
                                         <div class="row">
-                                        <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label>Codigo contrato</label>
                                                     <input type="text" class="form-control input-default" placeholder="Nº" name="cod_contrato" required="required">
@@ -226,127 +221,127 @@
                         <div class="card">
                             <div class="card-body">
                                 <div>
-                                <h4 class="card-title">Cadastrar contrato</h4>
-                                <br>
-                                <div class="basic-form">
-                                    <form action=../php/cadastrar-contrato.php method="post">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="form-group">
-                                                    <label>Matricula</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Nº" name="cod_aluno" required="required">
+                                    <h4 class="card-title">Cadastrar contrato</h4>
+                                    <br>
+                                    <div class="basic-form">
+                                        <form action=../php/cadastrar-contrato.php method="post">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <div class="form-group">
+                                                        <label>Matricula</label>
+                                                        <input type="text" class="form-control input-default" placeholder="Nº" name="cod_aluno" required="required">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Categoria</label>
+                                                    <select class="form-control" name="tipo">
+                                                        <option selected="selected">Selecione o tipo
+                                                        </option>
+                                                        <option>2x aulas por semana</option>
+                                                        <option>3x aulas por semana</option>
+                                                        <option>5x aulas por semana</option>
+                                                        <option>Plano semestral 2x semana (R$ 480,00)</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label>Categoria</label>
-                                                <select class="form-control" name="tipo">
-                                                    <option selected="selected">Selecione o tipo
-                                                    </option>
-                                                    <option>2x aulas por semana</option>
-                                                    <option>3x aulas por semana</option>
-                                                    <option>5x aulas por semana</option>
-                                                    <option>Plano semestral 2x semana (R$ 480,00)</option>
-                                                </select>
-                                            </div>
+                                            <button type="submit" class="btn btn-dark mb-2" class="alert-dismissible">Cadastrar</button>
+                                            <div class="clearfix"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Gerar contrato</h4>
+                                        <br>
+                                        <div class="basic-form">
+                                            <form class="form-inline" action=../php/gerar-contrato-pdf.php method="post">
+                                                <div class="form-group mx-sm-3 mb-2">
+                                                    <label class="sr-only">Numero da matricula</label>
+                                                    <input type="text" class="form-control" placeholder="Numero da matricula" name="matricula">
+                                                </div>
+                                                <button type="submit" class="btn btn-dark mb-2" formtarget="_blank">Gerar</button>
+                                            </form>
                                         </div>
-                                        <button type="submit" class="btn btn-dark mb-2" class="alert-dismissible">Cadastrar</button>
-                                        <div class="clearfix"></div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Gerar contrato</h4>
-                                <br>
-                                <div class="basic-form" >
-                                    <form class="form-inline" action=../php/gerar-contrato-pdf.php method="post">
-                                        <div class="form-group mx-sm-3 mb-2">
-                                            <label class="sr-only">Numero da matricula</label>
-                                            <input type="text" class="form-control" placeholder="Numero da matricula" name="matricula">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Gerar Anamnese</h4>
+                                        <br>
+                                        <div class="basic-form">
+                                            <form class="form-inline" action=../php/gerar-anamnese.php method="post">
+                                                <button type="submit" class="btn btn-dark mb-2" formtarget="_blank">Clique aqui para gerar a Anamnese</button>
+                                            </form>
                                         </div>
-                                        <button type="submit" class="btn btn-dark mb-2" formtarget="_blank" >Gerar</button>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Gerar Anamnese</h4>
-                                <br>
-                                <div class="basic-form">
-                                    <form class="form-inline" action=../php/gerar-anamnese.php method="post">
-                                        <button type="submit" class="btn btn-dark mb-2" formtarget="_blank" >Clique aqui para gerar a Anamnese</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
 
-        <!-- #/ container -->
-    </div>
-    <!--**********************************
+                </div>
+
+                <!-- #/ container -->
+            </div>
+            <!--**********************************
             Content body end
         ***********************************-->
 
 
-    <!--**********************************
+            <!--**********************************
             Footer start
         ***********************************-->
-    <div class="footer">
-        <div class="copyright">
-            <p>Copyright &copy; Desenvolvido por Academy System</a>
-                2019</p>
-        </div>
-    </div>
-    <!--**********************************
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright &copy; Desenvolvido por Academy System</a>
+                        2019</p>
+                </div>
+            </div>
+            <!--**********************************
             Footer end
         ***********************************-->
-    </div>
-    <!--**********************************
+        </div>
+        <!--**********************************
         Main wrapper end
     ***********************************-->
 
-    <!--**********************************
+        <!--**********************************
         Scripts
     ***********************************-->
-    <script src="../plugins/common/common.min.js"></script>
-    <script src="../js/custom.min.js"></script>
-    <script src="../js/settings.js"></script>
-    <script src="../js/gleek.js"></script>
-    <script src="../js/styleSwitcher.js"></script>
+        <script src="../plugins/common/common.min.js"></script>
+        <script src="../js/custom.min.js"></script>
+        <script src="../js/settings.js"></script>
+        <script src="../js/gleek.js"></script>
+        <script src="../js/styleSwitcher.js"></script>
 
-    <!-- Chartjs -->
-    <script src="../plugins/chart.js/Chart.bundle.min.js"></script>
-    <!-- Circle progress -->
-    <script src="../plugins/circle-progress/circle-progress.min.js"></script>
-    <!-- Datamap -->
-    <script src="../plugins/d3v3/index.js"></script>
-    <script src="../plugins/topojson/topojson.min.js"></script>
-    <script src="../plugins/datamaps/datamaps.world.min.js"></script>
-    <!-- Morrisjs -->
-    <script src="../plugins/raphael/raphael.min.js"></script>
-    <script src="../plugins/morris/morris.min.js"></script>
-    <!-- Pignose Calender -->
-    <script src="../plugins/moment/moment.min.js"></script>
-    <script src="../plugins/pg-calendar/js/pignose.calendar.min.js"></script>
-    <!-- ChartistJS -->
-    <script src="../plugins/chartist/js/chartist.min.js"></script>
-    <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+        <!-- Chartjs -->
+        <script src="../plugins/chart.js/Chart.bundle.min.js"></script>
+        <!-- Circle progress -->
+        <script src="../plugins/circle-progress/circle-progress.min.js"></script>
+        <!-- Datamap -->
+        <script src="../plugins/d3v3/index.js"></script>
+        <script src="../plugins/topojson/topojson.min.js"></script>
+        <script src="../plugins/datamaps/datamaps.world.min.js"></script>
+        <!-- Morrisjs -->
+        <script src="../plugins/raphael/raphael.min.js"></script>
+        <script src="../plugins/morris/morris.min.js"></script>
+        <!-- Pignose Calender -->
+        <script src="../plugins/moment/moment.min.js"></script>
+        <script src="../plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+        <!-- ChartistJS -->
+        <script src="../plugins/chartist/js/chartist.min.js"></script>
+        <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
 
-    <script src="../js/dashboard/dashboard-1.js"></script>
-    <script src="../plugins/sweetalert/js/sweetalert.min.js"></script>
-    <script src="../plugins/sweetalert/js/sweetalert.init.js"></script>
-    
+        <script src="../js/dashboard/dashboard-1.js"></script>
+        <script src="../plugins/sweetalert/js/sweetalert.min.js"></script>
+        <script src="../plugins/sweetalert/js/sweetalert.init.js"></script>
+
 
 </body>
 

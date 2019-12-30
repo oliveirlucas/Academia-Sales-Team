@@ -8,11 +8,6 @@
         header("Location: ../index.php");
 
         exit;
-
-    }else{
-        if((time() - $_SESSION['timeout']) > 600){
-            header("Location: ../php/sair.php");
-        }
     }
 
     $id = $_SESSION['usuariologado'];
