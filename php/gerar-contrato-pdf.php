@@ -101,19 +101,9 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
     Se você não desejar a renovação ao final de qualquer período, poderá cancelar o contrato conforme as regras deste termo.</p>";
     
     
-    if($dados['COD_PLANO'] == 1){
-        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <br><br>";
-        $contrato .= "Valor: R$ 90,00 <br><br>";
-    }elseif($dados['COD_PLANO'] == 2){
-        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <br><br>";
-        $contrato .= "Valor: R$ 110,00 <br><br>";
-    }elseif($dados['COD_PLANO'] == 3){
-        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <br><br>";
-        $contrato .= "Valor: R$ 160,00 <br><br>";
-    }else{
-        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> 6 meses <br><br>";
-        $contrato .= "Valor: R$ 480,00 <br><br>";
-    }
+    $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <br><br>";
+    $contrato .= "Valor: R$ ".$dados['VALOR_PLANO']."<br><br>";
+    
     
     $contrato .= "Observações:_____________________________________________________________________________<br>
     _________________________________________________________________________________________<br>

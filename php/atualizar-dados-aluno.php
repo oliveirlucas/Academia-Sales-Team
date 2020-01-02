@@ -18,9 +18,13 @@ $estado = filter_input(INPUT_POST, 'estado');
 $nivel = filter_input(INPUT_POST, 'nivel');
 $status = filter_input(INPUT_POST, 'status');
 
-if($nivel == 'Selecione a Prajied' || $nivel == '-- Adulto --' || $nivel == '-- Kids --' || $status = 'Selecione o status'){
+if($nivel == "Selecione a Prajied" || $nivel == "-- Adulto --" || $nivel == "-- Kids --"){
     $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Prajied não selecionada</div>";
-    header("Location: ../pages/atualizar-aluno.php");
+    header("Location: ../pages/cadastro-aluno.php");
+
+}elseif($status == "Selecione o status"){
+    $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Status não selecionado</div>";
+    header("Location: ../pages/cadastro-aluno.php");
 }else{
 	$result_usuario = "UPDATE aluno SET NOME='$nome', TELEFONE='$telefone', EMAIL='$email', CPF='$cpf', RESPONSAVEL='$responsavel', RG='$rg', DATA='$data', ENDERECO='$endereco', CIDADE='$cidade', CEP='$cep', BAIRRO='$bairro', ESTADO='$estado', BAIRRO='$bairro', NIVEL='$nivel', STATUS='$status' WHERE COD_ALUNO='$cod_aluno'";
 	$resultado_usuario = mysqli_query($connect, $result_usuario);

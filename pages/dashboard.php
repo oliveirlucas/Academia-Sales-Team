@@ -200,7 +200,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                     <?php if ($qtd_total_valor['total_valor'] == null) { ?>
                                         <h2 class="text-white">R$ 0.00</h2>
                                     <?php } else { ?>
-                                        <h2 class="text-white">R$<?php echo $qtd_total_valor['total_valor']; ?></h2>
+                                        <h2 class="text-white">R$ <?php echo $qtd_total_valor['total_valor']; ?></h2>
                                     <?php } ?>
                                 </div>
                             </div>

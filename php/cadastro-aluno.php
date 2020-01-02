@@ -20,20 +20,32 @@ $cep = filter_input(INPUT_POST, 'cep');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-if($nivel == 'Selecione a Prajied' || $nivel == '-- Adulto --' || $nivel == '-- Kids --' || $status = 'Selecione o status'){
+if($nivel == "Selecione a Prajied" || $nivel == "-- Adulto --" || $nivel == "-- Kids --"){
     $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Prajied não selecionada</div>";
     header("Location: ../pages/cadastro-aluno.php");
+
+}elseif($status == "Selecione o status"){
+    $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Status não selecionado</div>";
+    header("Location: ../pages/cadastro-aluno.php");
 }else{
+    
+    $buscar_cpf = "SELECT CPF FROM aluno where CPF = '$cpf'";
+    $resultado_busca_cpf = mysqli_query($connect, $buscar_cpf);
 
-    $result_usuario = "INSERT INTO aluno (NOME, TELEFONE, EMAIL, RESPONSAVEL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS, BAIRRO, CEP) VALUES ('$nome', '$telefone', '$email', '$responsavel', '$cpf', '$rg', '$data', '$endereco', '$cidade', '$estado', '$nivel', '$status', '$bairro', '$cep')";
-    $resultado_usuario = mysqli_query($connect, $result_usuario);
+    if(mysqli_affected_rows($connect)){
+        $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Já existe um registro desse aluno em nosso sistema</div>";
+        header("Location: ../pages/cadastro-aluno.php");
+    }else{
+        $result_usuario = "INSERT INTO aluno (NOME, TELEFONE, EMAIL, RESPONSAVEL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS, BAIRRO, CEP, DATA_REGISTRO) VALUES ('$nome', '$telefone', '$email', '$responsavel', '$cpf', '$rg', '$data', '$endereco', '$cidade', '$estado', '$nivel', '$status', '$bairro', '$cep', now());";
+        $resultado_usuario = mysqli_query($connect, $result_usuario);
 
-    if (mysqli_insert_id($connect)) {
-        $_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Aluno cadastrado com sucesso</div>";
-        header("Location: ../pages/cadastro-aluno.php");
-    } else {
-        $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Aluno não cadastrado</div>";
-        header("Location: ../pages/cadastro-aluno.php");
+        if (mysqli_insert_id($connect)) {
+            $_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Aluno cadastrado com sucesso</div>";
+            header("Location: ../pages/cadastro-aluno.php");
+        } else {
+            $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Aluno não cadastrado</div>";
+            header("Location: ../pages/cadastro-aluno.php");
+        }
     }
 }
 
