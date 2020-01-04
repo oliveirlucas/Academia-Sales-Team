@@ -1,1 +1,2 @@
-ALTER DATABASE `sua_base` CHARSET = UTF8 COLLATE = utf8_general_ci;
+//Alterar dados do banco para receber acentuação PT-BR
+ALTER DATABASE `ConteudoAnimal` CHARSET = UTF8 COLLATE = utf8_general_ci;
