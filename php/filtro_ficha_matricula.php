@@ -8,10 +8,9 @@ function retorna($matricula_filtro, $connect){
 	$resultado_aluno = mysqli_query($connect, $result_aluno);
 	if($resultado_aluno->num_rows){
 		$row_aluno = mysqli_fetch_assoc($resultado_aluno);
-        $valores['nome'] = $row_aluno['NOME'];
+        $valores['nome'] = $row_aluno['NOM_ALUNO'];
         $valores['telefone'] = $row_aluno['TELEFONE'];
         $valores['email'] = $row_aluno['EMAIL'];
-        $valores['responsavel'] = $row_aluno['RESPONSAVEL'];
         $valores['cpf'] = $row_aluno['CPF'];
         $valores['rg'] = $row_aluno['RG'];
         $valores['data'] = $row_aluno['DATA'];

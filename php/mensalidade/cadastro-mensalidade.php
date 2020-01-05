@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
+include_once(realpath(dirname(__FILE__) . "/../../db/db_connect.php"));
 
 $cod_aluno = filter_input(INPUT_POST, 'cod_aluno');
 $data_gerada = filter_input(INPUT_POST, 'data_gerada');
@@ -18,8 +18,8 @@ $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_insert_id($connect)) {
     $_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Pagamento registrado com sucesso</div>";
-    header("Location: ../pages/mensalidade.php");
+    header("Location: ../../pages/mensalidade.php");
 } else {
     $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Pagamento não registrado</div>";
-    header("Location: ../pages/mensalidade.php");
+    header("Location: ../../pages/mensalidade.php");
 }

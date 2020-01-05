@@ -1,6 +1,6 @@
 <?php
 	//Incluir a conexão com banco de dados
-    include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));	
+    include_once(realpath(dirname(__FILE__) . "/../../db/db_connect.php"));	
 
 	//Recuperar o valor da palavra
 	$pagamento = $_POST['palavra'];

@@ -191,7 +191,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                 <h4 class="card-title">Cadastrar Mensalidade</h4>
                                 <br>
                                 <div class="basic-form">
-                                    <form action=../php/cadastro-mensalidade.php method="post">
+                                    <form action=../php/mensalidade/cadastro-mensalidade.php method="post">
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="form-group">
@@ -202,13 +202,13 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Data de abertura</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Data do lançamento" name="data_gerada" required="required" onkeypress="mascaraData(this)">
+                                                    <input type="date" class="form-control input-default" placeholder="Data do lançamento" name="data_gerada" required="required">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Data de vencimento</label>
-                                                    <input type="text" class="form-control input-default" placeholder="Data final de pagamento" name="data_vencimento" required="required" onkeypress="mascaraData(this)">
+                                                    <input type="date" class="form-control input-default" placeholder="Data final de pagamento" name="data_vencimento" required="required">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -253,7 +253,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                 <h4 class="card-title">Atualizar mensalidade</h4>
                                 <br>
                                 <div class="basic-form">
-                                    <form method="post" action=../php/atualizar-pagamento.php> <div class="row">
+                                    <form method="post" action=../php/mensalidade/atualizar-pagamento.php> <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Codigo do pagamento</label>
@@ -268,16 +268,22 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <input type="text" class="form-control input-default" placeholder="Nº" name="cod_alu" readonly=“true”>
                                         </div>
                                     </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>Aluno</label>
+                                            <input type="text" class="form-control input-default" placeholder="Nome do aluno" name="nom_aluno" readonly=“true”>
+                                        </div>
+                                    </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Data de abertura</label>
-                                            <input type="text" class="form-control input-default" placeholder="Data do lançamento" name="data_abertu">
+                                            <input type="date" class="form-control input-default" placeholder="Data do lançamento" name="data_abertu">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Data de vencimento</label>
-                                            <input type="text" class="form-control input-default" placeholder="Data final de pagamento" name="data_venci">
+                                            <input type="date" class="form-control input-default" placeholder="Data final de pagamento" name="data_venci">
                                         </div>
                                     </div>
                                 </div>
@@ -314,7 +320,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                             <h4 class="card-title">Deletar Mensalidade</h4>
                             <br>
                             <div class="basic-form">
-                                <form action=../php/deletar-mensalidade.php method="post">
+                                <form action=../php/mensalidade/deletar-mensalidade.php method="post">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -355,16 +361,16 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Data de abertura</label>
-                                                <input type="text" class="form-control input-default" placeholder="Data do lançamento" name="data_abertur" readonly=“true”>
+                                                <input type="date" class="form-control input-default" placeholder="Data do lançamento" name="data_abertur" readonly=“true”>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Data de vencimento</label>
-                                                <input type="text" class="form-control input-default" placeholder="Data final de pagamento" name="data_venciment" readonly=“true”>
+                                                <input type="date" class="form-control input-default" placeholder="Data final de pagamento" name="data_venciment" readonly=“true”>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -456,13 +462,15 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
         $(document).ready(function() {
             $("input[name='cod_pag']").blur(function() {
                 var $cod_alu = $("input[name='cod_alu']");
+                var $nom_aluno = $("input[name='nom_aluno']");
                 var $data_abertu = $("input[name='data_abertu']");
                 var $data_venci = $("input[name='data_venci']");
                 var $valor_pagar = $("input[name='valor_pagar']");
-                $.getJSON('../php/update-trazer-pagamento.php', {
+                $.getJSON('../php/mensalidade/update-trazer-pagamento.php', {
                     cod_pag: $(this).val()
                 }, function(json) {
                     $cod_alu.val(json.cod_alu);
+                    $nom_aluno.val(json.nom_aluno);
                     $data_abertu.val(json.data_abertu);
                     $data_venci.val(json.data_venci);
                     $valor_pagar.val(json.valor_pagar);
@@ -479,7 +487,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                 var $data_venciment = $("input[name='data_venciment']");
                 var $valor_pag = $("input[name='valor_pag']");
                 var $status_atual = $("input[name='status_atual']");
-                $.getJSON('../php/trazer-pagamento.php', {
+                $.getJSON('../php/mensalidade/trazer-pagamento.php', {
                     cod_pagament: $(this).val()
                 }, function(json) {
                     $cod_alun.val(json.cod_alun);

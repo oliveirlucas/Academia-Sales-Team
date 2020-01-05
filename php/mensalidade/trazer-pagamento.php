@@ -1,9 +1,9 @@
 <?php
-include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
+include_once(realpath(dirname(__FILE__) . "/../../db/db_connect.php"));
 
 function retorna($cod_pagament, $connect){
 
-    $result_aluno = "SELECT P.COD_PAGAMENTO, P.COD_ALUNO, ALU.NOME, P.DATA_CRIADA, P.DATA_VENCIMENTO, P.VALOR, P.STATUS FROM pagamento P
+    $result_aluno = "SELECT P.COD_PAGAMENTO, P.COD_ALUNO, ALU.NOM_ALUNO, P.DATA_CRIADA, P.DATA_VENCIMENTO, P.VALOR, P.STATUS FROM pagamento P
                     INNER JOIN aluno ALU
                     ON P.COD_ALUNO = ALU.COD_ALUNO
                     WHERE P.COD_PAGAMENTO = '$cod_pagament'";
@@ -12,7 +12,7 @@ function retorna($cod_pagament, $connect){
 	if($resultado_aluno->num_rows){
 		$row_aluno = mysqli_fetch_assoc($resultado_aluno);
         $valores['cod_alun'] = $row_aluno['COD_ALUNO'];
-        $valores['nome_aluno'] = $row_aluno['NOME'];
+        $valores['nome_aluno'] = $row_aluno['NOM_ALUNO'];
         $valores['data_abertur'] = $row_aluno['DATA_CRIADA'];
         $valores['data_venciment'] = $row_aluno['DATA_VENCIMENTO'];
         $valores['valor_pag'] = $row_aluno['VALOR'];

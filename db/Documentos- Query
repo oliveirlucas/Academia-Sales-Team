@@ -1,2 +1,11 @@
 //Alterar dados do banco para receber acentuação PT-BR
 ALTER DATABASE `ConteudoAnimal` CHARSET = UTF8 COLLATE = utf8_general_ci;
+
+//Criar tabela 
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);

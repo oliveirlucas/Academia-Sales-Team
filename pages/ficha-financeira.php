@@ -165,140 +165,54 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
 
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4 style="text-indent: 20px;">Insira a matricula</h4>
+                                </div>
+                                <div class="basic-form">
+                                    <form class="form-inline" id="form_pesquisa" method="post">
+                                        <div class="form-group mx-sm-3 mb-2">
+                                            <label class="sr-only">Numero do contrato</label>
+                                            <input type="text" class="form-control" name="matricula_filtro" id="pesquisa">
+                                        </div>
+                                        <button type="reset" class="btn btn-dark mb-2" id="limpar-dados" >Limpar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Contrato</h4>
+                                </div>
+                                <div class="table-responsive" id="tabela-contrato">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <p class="text-muted"><code></code>
-                                </p>
-                                <form method="POST" id="form_pesquisa" action="">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label>Matricula</label>
-                                                <input type="text" class="form-control input-default" name="matricula_filtro" id="pesquisa">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Nome Completo do aluno</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="nome">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Telefone Fixo/Celular</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="telefone">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">E-mail</label>
-                                                <input type="email" class="form-control input-default" readonly=“true” name="email">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Responsável</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="responsavel">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>CPF</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="cpf">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>RG/Identidade</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="rg">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Data de nascimento</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="data">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="form-group">
-                                                <label>Endereço</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="endereco">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Bairro</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="bairro">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Cidade</label>
-                                                <input type="text" class="form-control input-default" readonly=“true”" name="cidade">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Estado</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="estado">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Cep</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="cep">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Prajied</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="nivel">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Status</label>
-                                                <input type="text" class="form-control input-default" readonly=“true” name="status">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button type="reset" class="btn btn-info btn-fill pull-right" class="alert-dismissible" id="limpar-dados">Limpar</button>
-                                        <div class="clearfix"></div>
+                                <form id="formulario-aluno">
                                 </form>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <h4>Contrato</h4>
-                                    </div>
-                                    <div class="table-responsive" id="tabela-contrato">
-                                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Faturas</h4>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <h4>Faturas</h4>
-                                    </div>
-                                    <div class="table-responsive" id="tabela-pagamentos">
-                                    </div>
+                                <div class="table-responsive" id="tabela-pagamentos">
                                 </div>
                             </div>
                         </div>

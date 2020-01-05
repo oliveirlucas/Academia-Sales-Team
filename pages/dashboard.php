@@ -229,7 +229,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <?php while ($qtd_pagamento_pendente = mysqli_fetch_assoc($resultado_pagamento_pendente)) { ?>
                                                 <tr>
                                                     <th><?php echo $qtd_pagamento_pendente['COD_PAGAMENTO']; ?></th>
-                                                    <td><?php echo $qtd_pagamento_pendente['NOME']; ?></td>
+                                                    <td><?php echo $qtd_pagamento_pendente['NOM_ALUNO']; ?></td>
                                                     <td><?php echo $qtd_pagamento_pendente['DATA_VENCIMENTO']; ?></td>
                                                     <td><span class="label label-danger"><?php echo $qtd_pagamento_pendente['STATUS']; ?></span></td>
                                                 </tr>

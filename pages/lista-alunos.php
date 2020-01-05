@@ -180,10 +180,8 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <tr>
                                                 <th>Matricula</th>
                                                 <th>Nome completo</th>
-                                                <th>Nome do Responsável</th>
+                                                <th>Possui responsável</th>
                                                 <th>CPF</th>
-                                                <th>RG</th>
-                                                <th>Telefone</th>
                                                 <th>Prajied</th>
                                                 <th>Status</th>
                                             </tr>
@@ -191,16 +189,24 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                         <tbody id="filtrobusca">
                                             <?php
 
-                                            $result_usuarios = "SELECT * FROM aluno ";
+                                            $result_usuarios = "SELECT * FROM aluno";
                                             $resultado_usuarios = mysqli_query($connect, $result_usuarios);
                                             while ($dado = mysqli_fetch_assoc($resultado_usuarios)) { ?>
                                                 <tr>
                                                     <td><?php echo $dado["COD_ALUNO"]; ?></td>
-                                                    <td><?php echo $dado["NOME"]; ?></td>
-                                                    <td><?php echo $dado["RESPONSAVEL"]; ?></td>
+                                                    <td><?php echo $dado["NOM_ALUNO"]; ?></td>
+                                                    <?php
+                                                    if ($dado["IND_RESPONSAVEL"] == "S") {
+                                                    ?>
+                                                        <td>SIM</td>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                    <td>NÃO</td>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                     <td><?php echo $dado["CPF"]; ?></td>
-                                                    <td><?php echo $dado["RG"]; ?></td>
-                                                    <td><?php echo $dado["TELEFONE"]; ?></td>
                                                     <td><?php echo $dado["NIVEL"]; ?></td>
                                                     <?php
                                                     if ($dado["STATUS"] == 'Ativo') {

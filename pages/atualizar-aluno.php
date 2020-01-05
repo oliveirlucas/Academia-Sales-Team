@@ -179,145 +179,17 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                 <h4 class="card-title">Formulário de atualização dos dados do aluno</h4>
                                 <br>
                                 <div class="basic-form">
-                                    <form action=../php/atualizar-dados-aluno.php method="post">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="form-group">
-                                                    <label>Matricula</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Nº" name="matricula_filtro">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label>Nome Completo do aluno</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Nome completo" name="nome">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Telefone Fixo/Celular</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Telefone" name="telefone" minlength="15" maxlength="15" onkeypress="mascara(this)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">E-mail</label>
-                                                    <input type="email" class="form-control input-default" required="required" placeholder="E-mail" name="email">
-                                                </div>
-                                            </div>
+                                    <form action=../php/cadastro/atualizar-dados-aluno.php method="post">
+                                        <div class="form-group">
+                                            <label class="radio-inline mr-3">
+                                                <h6>Este aluno possui responsável ? </h6></label>
+                                            <label class="radio-inline mr-3">
+                                                <input type="radio" name="ind_responsavel" id="responsavel-sim" value="Sim"> Sim</label>
+                                            <label class="radio-inline mr-3">
+                                                <input type="radio" name="ind_responsavel" id="responsavel-nao" value="Nao"> Não</label>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Responsável</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Insira aqui o nome completo do responsável" name="responsavel">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>CPF</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="CPF" name="cpf" minlength="14" maxlength="14" onkeypress="mascaraCpf(this)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>RG/Identidade</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Numero da identidade" name="rg">
-                                                </div>
-                                            </div>
+                                        <div id="formulario-cadastro">
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Data de nascimento</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Data" name="data" maxlength="10" onkeypress="mascaraData(this)">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Endereço</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Endereço" name="endereco">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Bairro</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Bairro" name="bairro">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Cidade</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Cidade" name="cidade">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Estado</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="Estado" name="estado">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>CEP</label>
-                                                    <input type="text" class="form-control input-default" required="required" placeholder="CEP residencial" name="cep" minlength="9" maxlength="9" onkeypress="mascaraCep(this)">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <div class="col-md-6">
-                                                <label>Prajied</label>
-                                                <select class="form-control" name="nivel">
-                                                    <option selected="selected">Selecione a Prajied</option>
-                                                    <option>-- Adulto --</option>
-                                                    <option>1º Branco(A)</option>
-                                                    <option>2º Amarelo(A)</option>
-                                                    <option>3º Amarelo/branco(A)</option>
-                                                    <option>4º Verde(A)</option>
-                                                    <option>5º Verde/branco(A)</option>
-                                                    <option>6º Azul(A)</option>
-                                                    <option>7º Azul/branco(A)</option>
-                                                    <option>8º Marrom(A)</option>
-                                                    <option>9º Marrom/branco(A)</option>
-                                                    <option>10º Vermelho(A)</option>
-                                                    <option>11º Vermelho/branco(A)</option>
-                                                    <option>12º Vermelho/amarelo(A)</option>
-                                                    <option>-- Kids --</option>
-                                                    <option>1º Branco(K)</option>
-                                                    <option>2º Cinza(K)</option>
-                                                    <option>3º Cinza/branco(K)</option>
-                                                    <option>4º Laranja(K)</option>
-                                                    <option>5º Laranja/branco(K)</option>
-                                                    <option>6º Azul claro(K)</option>
-                                                    <option>7º Azul claro/branco(K)</option>
-                                                    <option>8º Azul claro/roxo(K)</option>
-                                                    <option>9º Roxo(K)</option>
-                                                    <option>10º Roxo/branco(K)</option>
-                                                    <option>11º Roxo/amarelo(K)</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Status Aluno</label>
-                                                <select class="form-control" name="status">
-                                                    <option>Ativo</option>
-                                                    <option>Inativo</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Se o aluno for o proprio responsável insira no campo
-                                                        <b>"Responsável"</b> o texto <b>"Proprio aluno"</b>, caso
-                                                        contrario,
-                                                        insira no campo o <b>nome completo do responsável</b></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right" class="alert-dismissible">Atualizar</button>
-                                        <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
@@ -375,79 +247,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
     <!-- ChartistJS -->
     <script src="../plugins/chartist/js/chartist.min.js"></script>
     <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
-    <script type='text/javascript'>
-        $(document).ready(function() {
-            $("input[name='matricula_filtro']").blur(function() {
-                var $nome = $("input[name='nome']");
-                var $telefone = $("input[name='telefone']");
-                var $email = $("input[name='email']");
-                var $responsavel = $("input[name='responsavel']");
-                var $cpf = $("input[name='cpf']");
-                var $rg = $("input[name='rg']");
-                var $data = $("input[name='data']");
-                var $endereco = $("input[name='endereco']");
-                var $cidade = $("input[name='cidade']");
-                var $cep = $("input[name='cep']");
-                var $bairro = $("input[name='bairro']");
-                var $estado = $("input[name='estado']");
-                var $nivel = $("input[name='nivel']");
-                var $status = $("input[name='status']");
-                $.getJSON('../php/filtro_atualizar_aluno.php', {
-                    matricula_filtro: $(this).val()
-                }, function(json) {
-                    $nome.val(json.nome);
-                    $telefone.val(json.telefone);
-                    $email.val(json.email);
-                    $responsavel.val(json.responsavel);
-                    $cpf.val(json.cpf);
-                    $rg.val(json.rg);
-                    $data.val(json.data);
-                    $endereco.val(json.endereco);
-                    $cidade.val(json.cidade);
-                    $cep.val(json.cep);
-                    $bairro.val(json.bairro);
-                    $estado.val(json.estado);
-                    $nivel.val(json.nivel);
-                    $status.val(json.status);
-                });
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        function mascara(telefone) {
-            if (telefone.value.length == 0)
-                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if (telefone.value.length == 3)
-                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-
-            if (telefone.value.length == 10)
-                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
-        }
-    </script>
-    <script type="text/javascript">
-        function mascaraData(data) {
-            if (data.value.length == 2)
-                data.value = data.value + '/'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if (data.value.length == 5)
-                data.value = data.value + '/'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-        }
-    </script>
-    <script type="text/javascript">
-        function mascaraCep(data) {
-            if (data.value.length == 5)
-                data.value = data.value + '-'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-        }
-    </script>
-    <script type="text/javascript">
-        function mascaraCpf(cpf) {
-            if (cpf.value.length == 3)
-                cpf.value = cpf.value + '.'; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if (cpf.value.length == 7)
-                cpf.value = cpf.value + '.'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-            if (cpf.value.length == 11)
-                cpf.value = cpf.value + '-'; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-        }
-    </script>
+    <script type="text/javascript" src="../js/formulario-responsavel-atualizar.js"></script>
     <script src="../js/dashboard/dashboard-1.js"></script>
 
 </body>

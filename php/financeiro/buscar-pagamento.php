@@ -1,12 +1,12 @@
 <?php
 	//Incluir a conexão com banco de dados
-    include_once(realpath(dirname(__FILE__) . "/../db/db_connect.php"));	
+    include_once(realpath(dirname(__FILE__) . "/../../db/db_connect.php"));	
 
 	//Recuperar o valor da palavra
 	$pagamento = $_POST['palavra'];
 	
 	//Pesquisar no banco de dados nome do curso referente a palavra digitada pelo usuário
-	$pagamento = "SELECT PAG.COD_PAGAMENTO, ALU.NOME, PAG.DATA_CRIADA, PAG.DATA_VENCIMENTO, PAG.VALOR, PAG.STATUS, PAG.TIPO_PAGAMENTO FROM pagamento PAG 
+	$pagamento = "SELECT PAG.COD_PAGAMENTO, ALU.NOM_ALUNO, PAG.DATA_CRIADA, PAG.DATA_VENCIMENTO, PAG.VALOR, PAG.STATUS, PAG.TIPO_PAGAMENTO FROM pagamento PAG 
                   INNER JOIN aluno ALU
                   ON PAG.COD_ALUNO = ALU.COD_ALUNO
                   WHERE PAG.COD_ALUNO = '$pagamento'";
@@ -32,7 +32,7 @@
             while($dados = mysqli_fetch_assoc($resultado_pagamento)){
                     $tabela .= "<tr>";
                         $tabela .= "<td>".$dados['COD_PAGAMENTO']."</td>";
-                        $tabela .= "<td>".$dados['NOME']."</td>";
+                        $tabela .= "<td>".$dados['NOM_ALUNO']."</td>";
                         $tabela .= "<td>".$dados['TIPO_PAGAMENTO']."</td>";
                         $tabela .= "<td>".$dados['DATA_CRIADA']."</td>";
                         $tabela .= "<td>".$dados['DATA_VENCIMENTO']."</td>";

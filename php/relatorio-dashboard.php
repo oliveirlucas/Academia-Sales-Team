@@ -31,7 +31,7 @@ $qnt_result_pg = 5;
 
 $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-$total_pagamento_pendente = "SELECT pag.COD_PAGAMENTO, alu.NOME, pag.DATA_VENCIMENTO, pag.STATUS FROM pagamento pag
+$total_pagamento_pendente = "SELECT pag.COD_PAGAMENTO, alu.NOM_ALUNO, pag.DATA_VENCIMENTO, pag.STATUS FROM pagamento pag
                             inner join aluno alu
                             on alu.cod_aluno = pag.cod_aluno 
                             where pag.STATUS = 'Aberto' LIMIT $inicio, $qnt_result_pg";
