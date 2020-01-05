@@ -3,7 +3,7 @@
                                         <div class='col-md-8'>
                                             <div class='form-group'>
                                                 <label>Nome Completo do aluno</label>
-                                                <input type='text' class='form-control input-default' required='required' name='nome_aluno_nao' style='text-transform: uppercase;'>
+                                                <input type='text' class='form-control input-default' required='required' name='nome_aluno_nao' >
                                             </div>
                                         </div>
                                         <div class='col-md-1'>

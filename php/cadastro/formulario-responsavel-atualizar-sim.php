@@ -16,7 +16,7 @@
                                             <div class='col-md-5'>
                                                 <div class='form-group'>
                                                     <label>Nome Completo do aluno</label>
-                                                    <input type='text' class='form-control input-default' required='required' name='nome_aluno' style='text-transform: uppercase;'>
+                                                    <input type='text' class='form-control input-default' required='required' name='nome_aluno'>
                                                 </div>
                                             </div>
                                             <div class='col-md-3'>
@@ -86,7 +86,7 @@
                                             <div class='col-md-8'>
                                                 <div class='form-group'>
                                                     <label>Nome Completo do responsável</label>
-                                                    <input type='text' class='form-control input-default' required='required' name='nome_responsavel' style='text-transform: uppercase;'>
+                                                    <input type='text' class='form-control input-default' required='required' name='nome_responsavel'>
                                                 </div>
                                             </div>
                                             <div class='col-md-4'>

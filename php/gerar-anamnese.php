@@ -14,7 +14,7 @@ $dompdf = new DOMPDF();
     
     <p>Nome:_________________________________________________________________________________<br><br>
     Fator RH (Tipo sanguíneo):________________________________________________________________<br><br>
-    Em caso de emergência quem avisar?______________Tel:(    ) _________________________. 
+    Em caso de emergência quem avisar?______________Tel:(   ) _________________________. 
     </p>
 
     <center><p><b><font size='16'>Histórico de Saúde</font></b></p></center>
