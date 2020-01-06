@@ -44,5 +44,66 @@ $row_pg = mysqli_fetch_assoc($resultado_pagina_pagamento_pendente);
 $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
 $max_links = 1;
 
+
+//Soma do lucro de janeiro
+$total_ganho_janeiro = "SELECT SUM(VALOR) AS JANEIRO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-01-01') AND ('2020-01-31')";
+$resultado_total_ganho_janeiro = mysqli_query($connect, $total_ganho_janeiro);
+$qtd_total_ganho_janeiro = mysqli_fetch_assoc($resultado_total_ganho_janeiro);
+
+//Soma do lucro de fevereiro
+$total_ganho_fevereiro = "SELECT SUM(VALOR) AS FEVEREIRO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-02-01') AND ('2020-02-31')";
+$resultado_total_ganho_fevereiro = mysqli_query($connect, $total_ganho_fevereiro);
+$qtd_total_ganho_fevereiro = mysqli_fetch_assoc($resultado_total_ganho_fevereiro);
+
+//Soma do lucro de março
+$total_ganho_marco = "SELECT SUM(VALOR) AS MARCO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-03-01') AND ('2020-03-31')";
+$resultado_total_ganho_marco = mysqli_query($connect, $total_ganho_marco);
+$qtd_total_ganho_marco = mysqli_fetch_assoc($resultado_total_ganho_marco);
+
+//Soma do lucro de abril
+$total_ganho_abril = "SELECT SUM(VALOR) AS ABRIL FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-04-01') AND ('2020-04-31')";
+$resultado_total_ganho_abril = mysqli_query($connect, $total_ganho_abril);
+$qtd_total_ganho_abril = mysqli_fetch_assoc($resultado_total_ganho_abril);
+
+//Soma do lucro de maio
+$total_ganho_maio = "SELECT SUM(VALOR) AS MAIO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-05-01') AND ('2020-05-31')";
+$resultado_total_ganho_maio = mysqli_query($connect, $total_ganho_maio);
+$qtd_total_ganho_maio = mysqli_fetch_assoc($resultado_total_ganho_maio);
+
+//Soma do lucro de junho
+$total_ganho_junho = "SELECT SUM(VALOR) AS JUNHO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-06-01') AND ('2020-06-31')";
+$resultado_total_ganho_junho = mysqli_query($connect, $total_ganho_junho);
+$qtd_total_ganho_junho = mysqli_fetch_assoc($resultado_total_ganho_junho);
+
+//Soma do lucro de julho
+$total_ganho_julho = "SELECT SUM(VALOR) AS JULHO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-07-01') AND ('2020-07-31')";
+$resultado_total_ganho_julho = mysqli_query($connect, $total_ganho_julho);
+$qtd_total_ganho_julho = mysqli_fetch_assoc($resultado_total_ganho_julho);
+
+//Soma do lucro de agosto
+$total_ganho_agosto = "SELECT SUM(VALOR) AS AGOSTO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-08-01') AND ('2020-08-31')";
+$resultado_total_ganho_agosto = mysqli_query($connect, $total_ganho_agosto);
+$qtd_total_ganho_agosto = mysqli_fetch_assoc($resultado_total_ganho_agosto);
+
+//Soma do lucro de setembro
+$total_ganho_setembro = "SELECT SUM(VALOR) AS SETEMBRO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-09-01') AND ('2020-09-31')";
+$resultado_total_ganho_setembro = mysqli_query($connect, $total_ganho_setembro);
+$qtd_total_ganho_setembro = mysqli_fetch_assoc($resultado_total_ganho_setembro);
+
+//Soma do lucro de outubro
+$total_ganho_outubro = "SELECT SUM(VALOR) AS OUTUBRO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-10-01') AND ('2020-10-31')";
+$resultado_total_ganho_outubro = mysqli_query($connect, $total_ganho_outubro);
+$qtd_total_ganho_outubro = mysqli_fetch_assoc($resultado_total_ganho_outubro);
+
+//Soma do lucro de novembro
+$total_ganho_novembro = "SELECT SUM(VALOR) AS NOVEMBRO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-11-01') AND ('2020-11-31')";
+$resultado_total_ganho_novembro = mysqli_query($connect, $total_ganho_novembro);
+$qtd_total_ganho_novembro = mysqli_fetch_assoc($resultado_total_ganho_novembro);
+
+//Soma do lucro de dezembro
+$total_ganho_dezembro = "SELECT SUM(VALOR) AS DEZEMBRO FROM pagamento WHERE STATUS = 'Pago' and DATA_VENCIMENTO BETWEEN ('2020-12-01') AND ('2020-12-31')";
+$resultado_total_ganho_dezembro = mysqli_query($connect, $total_ganho_dezembro);
+$qtd_total_ganho_dezembro = mysqli_fetch_assoc($resultado_total_ganho_dezembro);
+
 ?>
 

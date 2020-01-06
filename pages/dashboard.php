@@ -36,10 +36,11 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style-icons.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
-
-
-
-
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
 </head>
 
 
@@ -195,7 +196,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Lucro Anual</h3>
+                                <h3 class="card-title text-white">Receita Anual</h3>
                                 <div class="d-inline-block">
                                     <?php if ($qtd_total_valor['total_valor'] == null) { ?>
                                         <h2 class="text-white">R$ 0.00</h2>
@@ -203,6 +204,18 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                         <h2 class="text-white">R$ <?php echo $qtd_total_valor['total_valor']; ?></h2>
                                     <?php } ?>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Receita mensal</h4>
+                                <br>
+                                <div id="container" style="height: 500px;"></div>
                             </div>
                         </div>
                     </div>
@@ -226,13 +239,13 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php while ($qtd_pagamento_pendente = mysqli_fetch_assoc($resultado_pagamento_pendente)) { 
-                                             $data = $qtd_pagamento_pendente['DATA_VENCIMENTO'];
+                                            <?php while ($qtd_pagamento_pendente = mysqli_fetch_assoc($resultado_pagamento_pendente)) {
+                                                $data = $qtd_pagamento_pendente['DATA_VENCIMENTO'];
                                             ?>
                                                 <tr>
                                                     <th><?php echo $qtd_pagamento_pendente['COD_PAGAMENTO']; ?></th>
                                                     <td><?php echo $qtd_pagamento_pendente['NOM_ALUNO']; ?></td>
-                                                    <td><?php echo date('d/m/Y',strtotime($data))?></td>
+                                                    <td><?php echo date('d/m/Y', strtotime($data)) ?></td>
                                                     <td><span class="label label-danger"><?php echo $qtd_pagamento_pendente['STATUS']; ?></span></td>
                                                 </tr>
                                             <?php } ?>
@@ -319,6 +332,63 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
 
 
         <script src="../js/dashboard/dashboard-1.js"></script>
+        <script>
+            anychart.onDocumentReady(function() {
+                // create column chart
+                var chart = anychart.column();
+
+                // turn on chart animation
+                chart.animation(true);
+
+                // set chart title text settings
+
+                // create area series with passed data
+                var series = chart.column([
+                    ['Janeiro', <?php echo $qtd_total_ganho_janeiro['JANEIRO']?>],
+                    ['Fevereiro', <?php echo $qtd_total_ganho_fevereiro['FEVEREIRO']?>],
+                    ['Março', <?php echo $qtd_total_ganho_marco['MARCO']?>],
+                    ['Abril', <?php echo $qtd_total_ganho_abril['ABRIL']?>],
+                    ['Maio', <?php echo $qtd_total_ganho_maio['MAIO']?>],
+                    ['Junho', <?php echo $qtd_total_ganho_junho['JUNHO']?>],
+                    ['Julho', <?php echo $qtd_total_ganho_julho['JULHO']?>],
+                    ['Agosto', <?php echo $qtd_total_ganho_agosto['AGOSTO']?>],
+                    ['Setembro', <?php echo $qtd_total_ganho_setembro['SETEMBRO']?>],
+                    ['Outubro', <?php echo $qtd_total_ganho_outubro['OUTUBRO']?>],
+                    ['Novembro', <?php echo $qtd_total_ganho_novembro['NOVEMBRO']?>],
+                    ['Dezembro', <?php echo $qtd_total_ganho_dezembro['DEZEMBRO']?>]
+                ]);
+
+                // set series tooltip settings
+                series.tooltip().titleFormat('{%X}');
+
+                series.tooltip()
+                    .position('center-top')
+                    .anchor('center-bottom')
+                    .offsetX(0)
+                    .offsetY(5)
+                    .format('R$ {%Value}');
+
+                // set scale minimum
+                chart.yScale().minimum(0);
+
+                // set yAxis labels formatter
+                chart.yAxis().labels().format('R$ {%Value}');
+
+                // tooltips position and interactivity settings
+                chart.tooltip().positionMode('point');
+                chart.interactivity().hoverMode('by-x');
+
+                // axes titles
+                chart.xAxis().title('Meses do ano');
+                chart.yAxis().title('');
+
+                // set container id for the chart
+                chart.container('container');
+
+                // initiate chart drawing
+                chart.draw();
+            });
+        </script>
 
 </body>
 
