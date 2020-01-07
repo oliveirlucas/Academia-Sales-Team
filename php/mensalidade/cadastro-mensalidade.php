@@ -14,7 +14,7 @@ $tipo = filter_input(INPUT_POST, 'tipo');
 //echo "E-mail: $email <br>";
 
 $result_usuario = "INSERT INTO pagamento (COD_ALUNO, DATA_CRIADA, DATA_VENCIMENTO, STATUS, TIPO_PAGAMENTO, VALOR, DATA_REGISTRO) VALUES ('$cod_aluno', '$data_gerada', '$data_vencimento','$status','$tipo', '$valor', now());";
-$resultado_usuario = mysqli_query($connect, $result_usuario);
+$resultado_usuario = mysqli_query($connect, $result_usuario) or die (mysqli_error($connect));
 
 if (mysqli_insert_id($connect)) {
     $_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Pagamento registrado com sucesso</div>";
