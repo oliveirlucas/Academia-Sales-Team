@@ -28,7 +28,7 @@
                                             <div class='col-md-3'>
                                                 <div class='form-group'>
                                                     <label>CPF</label>
-                                                    <input type='number' class='form-control input-default' required='required' name='cpf_aluno' minlength='11' maxlength='11'>
+                                                    <input type='text' class='form-control input-default' required='required' name='cpf_aluno' minlength='11' maxlength='11'>
                                                 </div>
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@
                                             <div class='col-md-3'>
                                                 <div class='form-group'>
                                                     <label>CPF</label>
-                                                    <input type='number' class='form-control input-default' required='required' name='cpf_responsavel' minlength='11' maxlength='11'>
+                                                    <input type='text' class='form-control input-default' required='required' name='cpf_responsavel' minlength='11' maxlength='11'>
                                                 </div>
                                             </div>
                                             <div class='col-md-3'>
@@ -132,7 +132,7 @@
                                             <div class='col-md-9'>
                                                 <div class='form-group'>
                                                     <label>Endereço</label>
-                                                    <input type='text' class='form-control input-default' required='required' name='endereco' readonly=“true” id='rua'>
+                                                    <input type='text' class='form-control input-default' required='required' name='endereco' id='rua'>
                                                 </div>
                                             </div>
                                             <div class='col-md-1'>
@@ -146,19 +146,19 @@
                                             <div class='col-md-6'>
                                                 <div class='form-group'>
                                                     <label>Bairro</label>
-                                                    <input type='text' class='form-control input-default' required='required' name='bairro' readonly=“true” id='bairro'>
+                                                    <input type='text' class='form-control input-default' required='required' name='bairro' id='bairro'>
                                                 </div>
                                             </div>
                                             <div class='col-md-5'>
                                                 <div class='form-group'>
                                                     <label>Cidade</label>
-                                                    <input type='text' class='form-control input-default' required='required' name='cidade' readonly=“true” id='cidade'>
+                                                    <input type='text' class='form-control input-default' required='required' name='cidade' id='cidade'>
                                                 </div>
                                             </div>
                                             <div class='col-md-1'>
                                                 <div class='form-group'>
                                                     <label>UF</label>
-                                                    <input type='text' class='form-control input-default' required='required' name='estado' readonly=“true” id='uf'>
+                                                    <input type='text' class='form-control input-default' required='required' name='estado' id='uf'>
                                                 </div>
                                             </div>
                                         </div>

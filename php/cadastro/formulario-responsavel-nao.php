@@ -23,7 +23,7 @@
                                         <div class='col-md-3'>
                                             <div class='form-group'>
                                                 <label>CPF</label>
-                                                <input type='number' class='form-control input-default' required='required' name='cpf_nao' minlength='11' maxlength='11'>
+                                                <input type='text' class='form-control input-default' required='required' name='cpf_nao' minlength='11' maxlength='11'>
                                             </div>
                                         </div>
                                         <div class='col-md-3'>
@@ -55,7 +55,7 @@
                                         <div class='col-md-9'>
                                             <div class='form-group'>
                                                 <label>Endereço</label>
-                                                <input type='text' class='form-control input-default' required='required' name='endereco_nao' readonly=“true” id='rua'>
+                                                <input type='text' class='form-control input-default' required='required' name='endereco_nao' id='rua'>
                                             </div>
                                         </div>
                                         <div class='col-md-1'>
@@ -69,19 +69,19 @@
                                         <div class='col-md-6'>
                                             <div class='form-group'>
                                                 <label>Bairro</label>
-                                                <input type='text' class='form-control input-default' required='required' name='bairro_nao' readonly=“true” id='bairro'>
+                                                <input type='text' class='form-control input-default' required='required' name='bairro_nao' id='bairro'>
                                             </div>
                                         </div>
                                         <div class='col-md-5'>
                                             <div class='form-group'>
                                                 <label>Cidade</label>
-                                                <input type='text' class='form-control input-default' required='required' name='cidade_nao' readonly=“true” id='cidade'>
+                                                <input type='text' class='form-control input-default' required='required' name='cidade_nao' id='cidade'>
                                             </div>
                                         </div>
                                         <div class='col-md-1'>
                                             <div class='form-group'>
                                                 <label>UF</label>
-                                                <input type='text' class='form-control input-default' required='required' name='estado_nao' readonly=“true” id='uf'>
+                                                <input type='text' class='form-control input-default' required='required' name='estado_nao' id='uf'>
                                             </div>
                                         </div>
                                     </div>

@@ -70,7 +70,7 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
         de forma vincenda, com o pagamento e posterior prestação dos serviços.</p>
 
         <p><b>Atraso no Pagamento:</b> O cliente tem um período de 03 (três) dias corridos após o vencimento para efetuar o 
-        pagamento sem multa e juros. Após este prazo, será cobrada multa de 10% da mensalidade e juros e de 0,3% ao dia, 
+        pagamento sem multa e juros. Após este prazo, será cobrada multa de R$ 4,50 ao mês de atraso e juros de 0,3% ao dia, 
         sendo que o pagamento deverá ser efetuado somente na academia ou via boleto bancário. Em caso de não 
         compensação de DDC a mensalidade será considerada como atrasada. O referido título de crédito só será devolvido 
         ao emitente após o pagamento do valor em atraso acrescido de multa de 10%. No caso de DCC o aluno deverá 
@@ -174,7 +174,7 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
         de forma vincenda, com o pagamento e posterior prestação dos serviços.</p>
 
         <p><b>Atraso no Pagamento:</b> O cliente tem um período de 03 (três) dias corridos após o vencimento para efetuar o 
-        pagamento sem multa e juros. Após este prazo, será cobrada multa de 10% da mensalidade e juros e de 0,3% ao dia, 
+        pagamento sem multa e juros. Após este prazo, será cobrada multa de R$ 4,50 ao mês de atraso e juros e de 0,3% ao dia, 
         sendo que o pagamento deverá ser efetuado somente na academia ou via boleto bancário. Em caso de não 
         compensação de DDC a mensalidade será considerada como atrasada. O referido título de crédito só será devolvido 
         ao emitente após o pagamento do valor em atraso acrescido de multa de 10%. No caso de DCC o aluno deverá 

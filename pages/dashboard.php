@@ -344,18 +344,18 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
 
                 // create area series with passed data
                 var series = chart.column([
-                    ['Janeiro', <?php echo $qtd_total_ganho_janeiro['JANEIRO']?>],
-                    ['Fevereiro', <?php echo $qtd_total_ganho_fevereiro['FEVEREIRO']?>],
-                    ['Março', <?php echo $qtd_total_ganho_marco['MARCO']?>],
-                    ['Abril', <?php echo $qtd_total_ganho_abril['ABRIL']?>],
-                    ['Maio', <?php echo $qtd_total_ganho_maio['MAIO']?>],
-                    ['Junho', <?php echo $qtd_total_ganho_junho['JUNHO']?>],
-                    ['Julho', <?php echo $qtd_total_ganho_julho['JULHO']?>],
-                    ['Agosto', <?php echo $qtd_total_ganho_agosto['AGOSTO']?>],
-                    ['Setembro', <?php echo $qtd_total_ganho_setembro['SETEMBRO']?>],
-                    ['Outubro', <?php echo $qtd_total_ganho_outubro['OUTUBRO']?>],
-                    ['Novembro', <?php echo $qtd_total_ganho_novembro['NOVEMBRO']?>],
-                    ['Dezembro', <?php echo $qtd_total_ganho_dezembro['DEZEMBRO']?>]
+                    ['Janeiro', <?php echo $qtd_total_ganho_mensal['JANEIRO']?>],
+                    ['Fevereiro', <?php echo $qtd_total_ganho_mensal['FEVEREIRO']?>],
+                    ['Março', <?php echo $qtd_total_ganho_mensal['MARCO']?>],
+                    ['Abril', <?php echo $qtd_total_ganho_mensal['ABRIL']?>],
+                    ['Maio', <?php echo $qtd_total_ganho_mensal['MAIO']?>],
+                    ['Junho', <?php echo $qtd_total_ganho_mensal['JUNHO']?>],
+                    ['Julho', <?php echo $qtd_total_ganho_mensal['JULHO']?>],
+                    ['Agosto', <?php echo $qtd_total_ganho_mensal['AGOSTO']?>],
+                    ['Setembro', <?php echo $qtd_total_ganho_mensal['SETEMBRO']?>],
+                    ['Outubro', <?php echo $qtd_total_ganho_mensal['OUTUBRO']?>],
+                    ['Novembro', <?php echo $qtd_total_ganho_mensal['NOVEMBRO']?>],
+                    ['Dezembro', <?php echo $qtd_total_ganho_mensal['DEZEMBRO']?>]
                 ]);
 
                 // set series tooltip settings

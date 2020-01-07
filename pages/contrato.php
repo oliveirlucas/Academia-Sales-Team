@@ -236,10 +236,11 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                                     <select class="form-control" name="tipo">
                                                         <option selected="selected">Selecione o tipo
                                                         </option>
-                                                        <option>2x aulas por semana</option>
-                                                        <option>3x aulas por semana</option>
-                                                        <option>5x aulas por semana</option>
-                                                        <option>Plano semestral 2x semana (R$ 480,00)</option>
+                                                        <option>Mensal 2x por semana</option>
+                                                        <option>Mensal 3x por semana</option>
+                                                        <option>Mensal 5x por semana</option>
+                                                        <option>Semestral 2x por semana</option>
+                                                        <option>Semestral 3x por semana</option>
                                                     </select>
                                                 </div>
                                             </div>
