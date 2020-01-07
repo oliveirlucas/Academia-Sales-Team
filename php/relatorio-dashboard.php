@@ -18,7 +18,7 @@ $resultado_total_faturas_aberta = mysqli_query($connect, $total_faturas_aberta);
 $qtd_total_faturas_aberta = mysqli_fetch_assoc($resultado_total_faturas_aberta);
 
 //Trazer o total de lucro anual
-$total_valor = "SELECT SUM(VALOR) AS total_valor FROM pagamento WHERE STATUS='Pago'";
+$total_valor = "SELECT SUM(VALOR) AS total_valor FROM pagamento WHERE STATUS='Pago' and DATA_VENCIMENTO BETWEEN ('2020-01-01') AND ('2020-12-31')";
 $resultado_total_valor = mysqli_query($connect, $total_valor);
 $qtd_total_valor = mysqli_fetch_assoc($resultado_total_valor);
 

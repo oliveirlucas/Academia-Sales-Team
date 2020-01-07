@@ -30,7 +30,7 @@
                     $tabela .= "<tr>";
                         $tabela .= "<td>".$dados['COD_PERSONAL']."</td>";
                         $tabela .= "<td>".$dados['COD_ALUNO']."</td>";
-                        $tabela .= "<td>".$dados['NOME']."</td>";
+                        $tabela .= "<td>".$dados['NOM_ALUNO']."</td>";
                         $tabela .= "<td>Aula ".$dados['NUMERO_AULA']."</td>";
                         if($dados['STATUS_AULA'] == 'Presente'){
                             $tabela .= "<td><span class='label label-success'>".$dados['STATUS_AULA']."</span></td>";
