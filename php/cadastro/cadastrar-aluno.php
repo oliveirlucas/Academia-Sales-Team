@@ -9,6 +9,7 @@ $ind_responsavel = filter_input(INPUT_POST, 'ind_responsavel');
 $nome_aluno = filter_input(INPUT_POST, 'nome_aluno');
 $data_aluno = filter_input(INPUT_POST, 'data_aluno');
 $cpf_aluno = filter_input(INPUT_POST, 'cpf_aluno');
+$rg_aluno = filter_input(INPUT_POST, 'rg_aluno');
 $nivel = filter_input(INPUT_POST, 'nivel');
 $status = filter_input(INPUT_POST, 'status');
 //Dados do responsavel
@@ -71,7 +72,7 @@ $status_nao = filter_input(INPUT_POST, 'status_nao');
 
                 if(mysqli_affected_rows($connect)){
                     $inserir_aluno = "INSERT INTO aluno (NOM_ALUNO, TELEFONE, EMAIL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS, BAIRRO, CEP, DATA_REGISTRO, IND_RESPONSAVEL, COD_RESPONSAVEL) 
-                                                VALUES ('$nome_aluno', NULL, NULL,'$cpf_aluno', NULL, '$data_aluno', NULL, NULL, NULL, '$nivel', '$status', NULL, NULL, now() ,'S',(
+                                                VALUES ('$nome_aluno', NULL, NULL,'$cpf_aluno','$rg_aluno', '$data_aluno', NULL, NULL, NULL, '$nivel', '$status', NULL, NULL, now() ,'S',(
                                                     SELECT COD_RESPONSAVEL FROM responsavel where CPF = '$cpf_responsavel'))";
 
                     $resultado_inserir_aluno = mysqli_query($connect, $inserir_aluno);
@@ -93,7 +94,7 @@ $status_nao = filter_input(INPUT_POST, 'status_nao');
                     if(mysqli_insert_id($connect)){
 
                         $inserir_aluno = "INSERT INTO aluno (NOM_ALUNO, TELEFONE, EMAIL, CPF, RG, DATA, ENDERECO, CIDADE, ESTADO, NIVEL, STATUS, BAIRRO, CEP, DATA_REGISTRO, IND_RESPONSAVEL, COD_RESPONSAVEL) 
-                                                VALUES ('$nome_aluno', NULL, NULL,'$cpf_aluno', NULL, '$data_aluno', NULL, NULL, NULL, '$nivel', '$status', NULL, NULL, now() ,'S',(SELECT COD_RESPONSAVEL FROM responsavel where CPF = '$cpf_responsavel'))";
+                                                VALUES ('$nome_aluno', NULL, NULL,'$cpf_aluno', '$rg_aluno', '$data_aluno', NULL, NULL, NULL, '$nivel', '$status', NULL, NULL, now() ,'S',(SELECT COD_RESPONSAVEL FROM responsavel where CPF = '$cpf_responsavel'))";
                         $resultado_inserir_aluno = mysqli_query($connect, $inserir_aluno);
 
                         if(mysqli_affected_rows($connect)){

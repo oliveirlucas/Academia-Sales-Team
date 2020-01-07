@@ -15,8 +15,8 @@
                                             </div>
                                             <div class='col-md-3'>
                                                 <div class='form-group'>
-                                                    <label>Data de nascimento</label>
-                                                    <input type='date' class='form-control input-default' required='required' name='data_aluno' maxlength='10'>
+                                                    <label>RG</label>
+                                                    <input type='text' class='form-control input-default' required='required' name='rg_aluno'>
                                                 </div>
                                             </div>
                                             <div class='col-md-3'>
@@ -27,7 +27,13 @@
                                             </div>
                                         </div>
                                         <div class='row'>
-                                            <div class='col-md-6'>
+                                            <div class='col-md-3'>
+                                                <div class='form-group'>
+                                                    <label>Data de nascimento</label>
+                                                    <input type='date' class='form-control input-default' required='required' name='data_aluno'>
+                                                </div>
+                                            </div>
+                                            <div class='col-md-5'>
                                                 <label>Prajied</label>
                                                 <select class='form-control' name='nivel'>
                                                     <option selected='selected'>Selecione a Prajied</option>
@@ -58,7 +64,7 @@
                                                     <option>11º ROXO/AMARELO(K)</option>
                                                 </select>
                                             </div>
-                                            <div class='col-md-6'>
+                                            <div class='col-md-4'>
                                                 <label>Status Aluno</label>
                                                 <select class='form-control' name='status'>
                                                     <option selected='selected'>Selecione o status</option>
