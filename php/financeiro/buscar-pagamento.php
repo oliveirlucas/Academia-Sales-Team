@@ -11,6 +11,8 @@
                   ON PAG.COD_ALUNO = ALU.COD_ALUNO
                   WHERE PAG.COD_ALUNO = '$pagamento'";
 
+    
+
 	$resultado_pagamento = mysqli_query($connect, $pagamento);
 	
 	if(mysqli_num_rows($resultado_pagamento) <= 0){
@@ -30,12 +32,15 @@
             $tabela .= "</thead>";
             $tabela .= "<tbody>";
             while($dados = mysqli_fetch_assoc($resultado_pagamento)){
+
+                $data_criada = $dados['DATA_CRIADA'];
+                $data_vencimento = $dados['DATA_VENCIMENTO'];
                     $tabela .= "<tr>";
                         $tabela .= "<td>".$dados['COD_PAGAMENTO']."</td>";
                         $tabela .= "<td>".$dados['NOM_ALUNO']."</td>";
                         $tabela .= "<td>".$dados['TIPO_PAGAMENTO']."</td>";
-                        $tabela .= "<td>".$dados['DATA_CRIADA']."</td>";
-                        $tabela .= "<td>".$dados['DATA_VENCIMENTO']."</td>";
+                        $tabela .= "<td>".date('d/m/Y', strtotime($data_criada))."</td>";
+                        $tabela .= "<td>".date('d/m/Y', strtotime($data_vencimento))."</td>";
                         $tabela .= "<td>R$ ".$dados['VALOR']."</td>";
                         if($dados['STATUS'] == 'Pago'){
                             $tabela .= "<td><span class='label label-success'>".$dados['STATUS']."</span></td>";
