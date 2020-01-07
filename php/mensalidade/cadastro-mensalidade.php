@@ -13,7 +13,7 @@ $tipo = filter_input(INPUT_POST, 'tipo');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "INSERT INTO pagamento (COD_ALUNO, DATA_CRIADA, DATA_VENCIMENTO, VALOR, STATUS, TIPO_PAGAMENTO, DATA_REGISTRO) VALUES ('$cod_aluno', '$data_gerada', '$data_vencimento', '$valor', '$status','$tipo', now());";
+$result_usuario = "INSERT INTO pagamento (COD_ALUNO, DATA_CRIADA, DATA_VENCIMENTO, STATUS, TIPO_PAGAMENTO, VALOR, DATA_REGISTRO) VALUES ('$cod_aluno', '$data_gerada', '$data_vencimento','$status','$tipo', '$valor', now());";
 $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_insert_id($connect)) {
