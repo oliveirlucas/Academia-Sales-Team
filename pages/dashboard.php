@@ -292,7 +292,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h4>Alunos que nãom possui contrato cadastrado</h4>
+                                    <h4>Alunos que não possui contrato cadastrado</h4>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-striped">
@@ -300,6 +300,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <tr>
                                                 <th>Matricula</th>
                                                 <th>Nome completo</th>
+                                                <th>CPF</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -308,6 +309,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                                 <tr>
                                                     <th><?php echo $qtd_aluno_sem_contrato['COD_ALUNO']; ?></th>
                                                     <td><?php echo $qtd_aluno_sem_contrato['NOM_ALUNO']; ?></td>
+                                                    <td><?php echo $qtd_aluno_sem_contrato['CPF']; ?></td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>

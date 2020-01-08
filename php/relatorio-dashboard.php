@@ -61,7 +61,7 @@ $max_links = 1;
 $resultado_total_ganho_mensal = mysqli_query($connect, $total_ganho_mensal);
 $qtd_total_ganho_mensal = mysqli_fetch_assoc($resultado_total_ganho_mensal);
 
-$alunos_sem_contrato = "SELECT DISTINCT COD_ALUNO, NOM_ALUNO FROM aluno WHERE NOT EXISTS (SELECT * FROM contrato WHERE contrato.COD_ALUNO = aluno.COD_ALUNO)";
+$alunos_sem_contrato = "SELECT DISTINCT COD_ALUNO, NOM_ALUNO, CPF FROM aluno WHERE NOT EXISTS (SELECT * FROM contrato WHERE contrato.COD_ALUNO = aluno.COD_ALUNO)";
 $resultado_alunos_sem_contrato = mysqli_query($connect,$alunos_sem_contrato);
 ?>
 
