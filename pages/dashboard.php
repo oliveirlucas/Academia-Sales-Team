@@ -287,6 +287,36 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Alunos que nãom possui contrato cadastrado</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome completo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php while ($qtd_aluno_sem_contrato = mysqli_fetch_assoc($resultado_alunos_sem_contrato)) {
+                                            ?>
+                                                <tr>
+                                                    <th><?php echo $qtd_aluno_sem_contrato['COD_PAGAMENTO']; ?></th>
+                                                    <td><?php echo $qtd_aluno_sem_contrato['NOM_ALUNO']; ?></td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- #/ container -->
             </div>
             <!--**********************************
