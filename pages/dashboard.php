@@ -306,7 +306,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                             <?php while ($qtd_aluno_sem_contrato = mysqli_fetch_assoc($resultado_alunos_sem_contrato)) {
                                             ?>
                                                 <tr>
-                                                    <th><?php echo $qtd_aluno_sem_contrato['COD_PAGAMENTO']; ?></th>
+                                                    <th><?php echo $qtd_aluno_sem_contrato['COD_ALUNO']; ?></th>
                                                     <td><?php echo $qtd_aluno_sem_contrato['NOM_ALUNO']; ?></td>
                                                 </tr>
                                             <?php } ?>
