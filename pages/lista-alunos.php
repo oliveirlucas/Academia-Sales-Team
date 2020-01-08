@@ -36,7 +36,14 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style-icons.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155846840-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'UA-155846840-1');
+    </script>
 
 </head>
 
