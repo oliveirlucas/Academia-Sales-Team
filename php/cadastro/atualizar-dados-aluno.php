@@ -9,6 +9,7 @@ $ind_responsavel = filter_input(INPUT_POST, 'ind_responsavel');
 $matricula_sim = filter_input(INPUT_POST, 'matricula_sim');
 $nome_aluno = filter_input(INPUT_POST, 'nome_aluno');
 $data_aluno = filter_input(INPUT_POST, 'data_aluno');
+$rg_aluno = filter_input(INPUT_POST, 'rg_aluno');
 $cpf_aluno = filter_input(INPUT_POST, 'cpf_aluno');
 $nivel = filter_input(INPUT_POST, 'nivel');
 $status = filter_input(INPUT_POST, 'status');
@@ -48,14 +49,14 @@ $status_nao = filter_input(INPUT_POST, 'status_nao');
 
 		if($nivel == "Selecione a Prajied" || $nivel == "-- ADULTO --" || $nivel == "-- KIDS --"){
 			$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Prajied não selecionada</div>";
-			header("Location: ../../pages/cadastro-aluno.php");
+			header("Location: ../../pages/atualizar-aluno.php");
 
 		}elseif($status == "Selecione o status"){
 			$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Status não selecionado</div>";
-			header("Location: ../../pages/cadastro-aluno.php");
+			header("Location: ../../pages/atualizar-aluno.php");
 		}else{
 
-			$result_usuario = "UPDATE aluno SET NOM_ALUNO='$nome_aluno' ,CPF='$cpf_aluno',DATA='$data_aluno',NIVEL='$nivel',STATUS='$status' WHERE COD_ALUNO = '$matricula_sim'";
+			$result_usuario = "UPDATE aluno SET NOM_ALUNO='$nome_aluno' ,CPF='$cpf_aluno',RG='$rg_aluno',DATA='$data_aluno',NIVEL='$nivel',STATUS='$status' WHERE COD_ALUNO = '$matricula_sim'";
 			$resultado_usuario = mysqli_query($connect, $result_usuario);
 
 			if(mysqli_affected_rows($connect)){
@@ -75,11 +76,11 @@ $status_nao = filter_input(INPUT_POST, 'status_nao');
 
 		if($nivel_nao == "Selecione a Prajied" || $nivel_nao == "-- ADULTO --" || $nivel_nao == "-- KIDS --"){
 			$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Prajied não selecionada</div>";
-			header("Location: ../../pages/cadastro-aluno.php");
+			header("Location: ../../pages/atualizar-aluno.php");
 
 		}elseif($status_nao == "Selecione o status"){
 			$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Status não selecionado</div>";
-			header("Location: ../../pages/cadastro-aluno.php");
+			header("Location: ../../pages/atualizar-aluno.php");
 		}else{
 
 			$result_usuario = "UPDATE aluno SET NOM_ALUNO='$nome_aluno_nao',TELEFONE='$telefone_nao',EMAIL='$email_nao',CPF='$cpf_nao',RG='$rg_nao',DATA='$data_nao',ENDERECO='$endereco_nao Nº".$numero_nao."',CIDADE='$cidade_nao',ESTADO='$estado_nao',NIVEL='$nivel_nao',STATUS='$status_nao',BAIRRO='$bairro_nao',CEP='$cep_nao' WHERE COD_ALUNO = '$matricula_nao'";

@@ -34,7 +34,7 @@ $dompdf = new DOMPDF();
     9 - Você está liberado por um médico e com atestado para a prática de atividades físicas?(  )sim (  )não <br>
     10 - Pratica alguma outra atividade física regularmente? (  )sim (  )não.<br>
     Qual(ais)?: ____________________________________________________________________.
-    </p></<p>
+    </p></div<p>
 
     <center><p><b><font size='16'>Consentimento</font></b></p></center>
     <p><b>Eu reconheço, para o melhor de minha capacidade, que estou em bom estado de saúde e não 
@@ -50,14 +50,16 @@ $dompdf = new DOMPDF();
 
         $dompdf->load_html(''.$contrato.'');
 
-//Renderizar o html
-$dompdf->render();
+        $dompdf->setPaper('A4', 'portrait');
 
-//Exibibir a página
-$dompdf->stream(
-        "Anamnese.pdf", 
-    array(
-        "Attachment" => false //Para realizar o download somente alterar para true
-    )
-);
+        //Renderizar o html
+        $dompdf->render();
+
+        //Exibibir a página
+        $dompdf->stream(
+                "Anamnese.pdf", 
+            array(
+                "Attachment" => false //Para realizar o download somente alterar para true
+            )
+        );
 

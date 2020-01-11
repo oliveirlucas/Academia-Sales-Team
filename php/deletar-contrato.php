@@ -12,10 +12,10 @@ $resultado_usuario = mysqli_query($connect, $result_usuario);
 
 if (mysqli_affected_rows($connect)) {
     $_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Contrato deletado com sucesso</div>";
-    header("Location: ../pages/mensalidade.php");
+    header("Location: ../pages/contrato.php");
 } else {
     $_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Codigo contrato não encontrado</div>";
-    header("Location: ../pages/mensalidade.php");
+    header("Location: ../pages/contrato.php");
 }
 
 ?>

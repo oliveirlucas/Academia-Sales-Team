@@ -139,6 +139,22 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
         $contrato .= "<b>".$dados_responsavel['BAIRRO']."</b>, <b>".$dados_responsavel['CIDADE']."</b>, <b>".$dados_responsavel['ESTADO']."</b>, <b>".$dados_responsavel['CEP']."</b> e que possui o e-mail <b>".$dados_responsavel['EMAIL']."</b>";
         $contrato.=" e o telefone <b>".$dados_responsavel['TELEFONE']."</b> para contato.</p>";
 
+        $contrato .= "<style>
+                        #watermark {
+                            position: fixed;
+                            bottom:   10cm;
+                            left:     1.8cm;
+                            width:    8cm;
+                            height:   8cm;
+                            z-index:  -1000;
+                            opacity: 0.1;
+                        }
+                    </style>";        
+
+        $contrato .= "<div id='watermark'>
+                        <img src='../images/favicon.png'  height= '400px'/>
+                        </div>";
+
         $contrato .= "<p>Por meio deste termo, você está contratando os serviços da ACADEMIA SALES, com sede na Rua Domingos Mancini 
         71, Brasil Industrial – BH – MG, Inscrita no CNPJ sob o Nº28.868.696/0001-91 nas condições abaixo:</p>
 
@@ -211,14 +227,14 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
         Se você não desejar a renovação ao final de qualquer período, poderá cancelar o contrato conforme as regras deste termo.</p>";
         
         
-        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <b>Valor:</b> R$ ".$dados['VALOR_PLANO']."<br><br>";
+        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <b>Valor:</b> R$ ".$dados['VALOR_PLANO']."<br>";
         
         
         $contrato .= "Observações:_____________________________________________________________________________<br>
         _________________________________________________________________________________________<br>
-        _________________________________________________________________________________________<br><br><br></p>";
+        _________________________________________________________________________________________<br></p><br>";
 
-        $contrato .= "<center><p>Belo horizonte,__________de_______________________________de___________.</center><br><br>
+        $contrato .= "<center><p>Belo horizonte,__________de_______________________________de___________.</center><br>
        <center> Assinatura:___________________________________________________________</center>";
     }
     
@@ -228,14 +244,16 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
 
         $dompdf->load_html(''.$contrato.'');
 
-//Renderizar o html
-$dompdf->render();
+        $dompdf->setPaper('A4', 'portrait');
 
-//Exibibir a página
-$dompdf->stream(
-    "Contrato ".$dados['NOM_ALUNO'].".pdf", 
-    array(
-        "Attachment" => false //Para realizar o download somente alterar para true
-    )
-);
+        //Renderizar o html
+        $dompdf->render();
+
+        //Exibibir a página
+        $dompdf->stream(
+            "Contrato ".$dados['NOM_ALUNO'].".pdf", 
+            array(
+                "Attachment" => false //Para realizar o download somente alterar para true
+            )
+        );
 

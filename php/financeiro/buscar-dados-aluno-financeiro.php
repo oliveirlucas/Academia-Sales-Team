@@ -34,8 +34,8 @@
                                             </div>
                                             <div class='col-md-3'>
                                                 <div class='form-group'>
-                                                    <label>Data de nascimento</label>
-                                                    <input type='date' class='form-control input-default' name='data_aluno' maxlength='10' readonly=“true” value='".$dados_buscar_aluno['DATA']."'>
+                                                    <label>RG</label>
+                                                    <input type='text' class='form-control input-default' name='rg_aluno' readonly=“true” style='text-transform: uppercase;' value='".$dados_buscar_aluno['RG']."'>
                                                 </div>
                                             </div>
                                             <div class='col-md-3'>
@@ -46,11 +46,17 @@
                                             </div>
                                         </div>
                                         <div class='row'>
-                                            <div class='col-md-6'>
+                                            <div class='col-md-4'>
+                                                <div class='form-group'>
+                                                    <label>Data de nascimento</label>
+                                                    <input type='date' class='form-control input-default' name='data_aluno' maxlength='10' readonly=“true” value='".$dados_buscar_aluno['DATA']."'>
+                                                </div>
+                                            </div>
+                                            <div class='col-md-4'>
                                                 <label>Prajied</label>
                                                 <input type='text' class='form-control input-default' name='nivel' minlength='11' maxlength='11' readonly=“true” value='".$dados_buscar_aluno['NIVEL']."'>
                                             </div>
-                                            <div class='col-md-6'>
+                                            <div class='col-md-4'>
                                                 <label>Status Aluno</label>
                                                 <input type='text' class='form-control input-default' name='status' minlength='11' maxlength='11' readonly=“true” value='".$dados_buscar_aluno['STATUS']."'>
                                             </div>

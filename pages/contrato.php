@@ -140,7 +140,14 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                             <li><a href="../pages/cadastro-aluno.php">Cadastro Aluno</a></li>
                             <li><a href="../pages/atualizar-aluno.php">Atualizar aluno</a></li>
                             <li><a href="../pages/lista-alunos.php">Lista de Alunos</a></li>
-                            <li><a href="../pages/contrato.php">Contrato/Trancamento</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-note"></i><span class="nav-text">Contrato</span>
+                        </a>
+                        <ul aria-expanded="false">
+                        <li><a href="../pages/contrato.php">Contrato/Trancamento</a></li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -154,7 +161,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Personal</span>
+                            <i class="icon-magnifier-add"></i><span class="nav-text">Personal</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="../pages/aula.php">Cadastrar aula</a></li>
@@ -245,6 +252,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                                         </option>
                                                         <option>Mensal 2x por semana</option>
                                                         <option>Mensal 3x por semana</option>
+                                                        <option>Mensal 4x por semana</option>
                                                         <option>Mensal 5x por semana</option>
                                                         <option>Semestral 2x por semana</option>
                                                         <option>Semestral 3x por semana</option>
