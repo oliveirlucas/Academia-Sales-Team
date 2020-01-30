@@ -59,17 +59,15 @@ $status_nao = filter_input(INPUT_POST, 'status_nao');
 			$result_usuario = "UPDATE aluno SET NOM_ALUNO='$nome_aluno' ,CPF='$cpf_aluno',RG='$rg_aluno',DATA='$data_aluno',NIVEL='$nivel',STATUS='$status' WHERE COD_ALUNO = '$matricula_sim'";
 			$resultado_usuario = mysqli_query($connect, $result_usuario);
 
-			if(mysqli_affected_rows($connect)){
-				$result_responsavel = "UPDATE responsavel SET NOM_RESPONSAVEL='$nome_responsavel',TELEFONE='$telefone',CPF='$cpf_responsavel',RG='$rg',DATA_NASCIMENTO='$data_responsavel',EMAIL='$email',CEP='$cep',ENDERECO='$endereco Nº(".$numero.")',BAIRRO='$bairro',CIDADE='$cidade',ESTADO='$estado' WHERE CPF='$cpf_responsavel'";
-				$resultado_result_responsavel = mysqli_query($connect, $result_responsavel);
+			$result_responsavel = "UPDATE responsavel SET NOM_RESPONSAVEL='$nome_responsavel',TELEFONE='$telefone',CPF='$cpf_responsavel',RG='$rg',DATA_NASCIMENTO='$data_responsavel',EMAIL='$email',CEP='$cep',ENDERECO='$endereco Nº(".$numero.")',BAIRRO='$bairro',CIDADE='$cidade',ESTADO='$estado' WHERE CPF='$cpf_responsavel'";
+			$resultado_result_responsavel = mysqli_query($connect, $result_responsavel);
 
-				if(mysqli_affected_rows($connect)){
-					$_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Dados do aluno atualizado com sucesso</div>";
-					header("Location: ../../pages/atualizar-aluno.php");
-				}else{
-					$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Houve algum problema ao atualizar o aluno, tente novamente</div>";
-					header("Location:../../pages/atualizar-aluno.php");
-				}
+			if(mysqli_affected_rows($connect)){
+				$_SESSION['msgcadastro'] = "<div class='alert alert-success' role='alert'>Dados do aluno atualizado com sucesso</div>";
+				header("Location: ../../pages/atualizar-aluno.php");
+			}else{
+				$_SESSION['msgcadastro'] = "<div class='alert alert-danger' role='alert'>Houve algum problema ao atualizar o aluno, tente novamente</div>";
+				header("Location:../../pages/atualizar-aluno.php");
 			}
 		}
 	}else{
