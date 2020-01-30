@@ -1,0 +1,7 @@
+Aluno possui data registro menor que 30 dias | Matricula: 105 | Aluno: GABRIELA GOBBI FERREIRA FERNANDES
+Aluno possui data registro menor que 30 dias | Matricula: 62 | Aluno: ANA CAROLINA OLIVEIRA REZENDE
+Aluno possui data registro menor que 30 dias | Matricula: 63 | Aluno: CLAUDIO FONSECA DE REZENDE
+Aluno possui data registro menor que 30 dias | Matricula: 66 | Aluno: BRUNO MOREIRA
+Já existe pagamento com data de vencimento para 2020-02-08 | Matricula: 67  | Aluno: ANDRÃ‰ CREPALOI SANTOS
+Já existe pagamento com data de vencimento para 2020-02-08 | Matricula: 69  | Aluno: ALEXANDRA MARIA DE JESUS RODRIGUES
+Já existe pagamento com data de vencimento para 2020-02-08 | Matricula: 71  | Aluno: RICARDO DIAS BONIFÃCIO
