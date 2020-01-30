@@ -10,7 +10,7 @@ function correcaoJurosEMulta(){
     $date_sem_horas = date("Y-m-d");
     $date_com_horas = date("Y-m-d_H-i-s");
 
-    $titulos_em_vencimento = "SELECT pag.COD_PAGAMENTO,PAG.DATA_VENCIMENTO,PAG.VALOR,PLA.VALOR_PLANO,ALU.NOM_ALUNO,PAG.DAT_OPERACAO 
+    $titulos_em_vencimento = "SELECT pag.COD_PAGAMENTO,pag.DATA_VENCIMENTO,pag.VALOR,pla.VALOR_PLANO,alu.NOM_ALUNO,pag.DAT_OPERACAO 
                                 FROM contrato con
                                 inner join aluno alu 		on alu.COD_ALUNO = con.COD_ALUNO
                                 INNER JOIN pagamento  pag 	on pag.COD_ALUNO = alu.COD_ALUNO        
