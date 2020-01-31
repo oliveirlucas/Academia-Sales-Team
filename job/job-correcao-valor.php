@@ -74,7 +74,7 @@ function atualizarValor($valor_corrigido,$cod_titulo,$date_sem_horas,$nom_aluno,
 
 function logMe($msg,$date_com_horas){
 
-    $fp = fopen("../logs/log_jurosemulta/log_".$date_com_horas.".txt", "a");
+    $fp = fopen(realpath(dirname(__FILE__) . "../logs/log_jurosemulta/log_".$date_com_horas.".txt", "a"));
     $escreve = fwrite($fp, $msg);
     fclose($fp);
     }
