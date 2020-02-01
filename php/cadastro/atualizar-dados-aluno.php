@@ -56,7 +56,8 @@ $status_nao = filter_input(INPUT_POST, 'status_nao');
 			header("Location: ../../pages/atualizar-aluno.php");
 		}else{
 
-			$result_usuario = "UPDATE aluno SET NOM_ALUNO='$nome_aluno' ,CPF='$cpf_aluno',RG='$rg_aluno',DATA='$data_aluno',NIVEL='$nivel',STATUS='$status' WHERE COD_ALUNO = '$matricula_sim'";
+			$result_usuario = "UPDATE aluno SET NOM_ALUNO='$nome_aluno' ,CPF='$cpf_aluno',RG='$rg_aluno',DATA='$data_aluno',NIVEL='$nivel',STATUS='$status' 
+								WHERE COD_ALUNO = '$matricula_sim'";
 			$resultado_usuario = mysqli_query($connect, $result_usuario);
 
 			$result_responsavel = "UPDATE responsavel SET NOM_RESPONSAVEL='$nome_responsavel',TELEFONE='$telefone',CPF='$cpf_responsavel',RG='$rg',DATA_NASCIMENTO='$data_responsavel',EMAIL='$email',CEP='$cep',ENDERECO='$endereco Nº(".$numero.")',BAIRRO='$bairro',CIDADE='$cidade',ESTADO='$estado' 

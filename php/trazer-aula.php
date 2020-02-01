@@ -11,6 +11,7 @@ function retorna($codigo_aula, $connect){
 		$row_aluno = mysqli_fetch_assoc($resultado_aluno);
         $valores['codigo_aluno'] = $row_aluno['COD_ALUNO'];
         $valores['nome_aluno'] = $row_aluno['NOM_ALUNO'];
+        $valores['data'] = $row_aluno['DATA_AULA'];
         $valores['status_atual'] = $row_aluno['STATUS_AULA'];
 	}else{
         $valores['codigo_aluno'] = 'N';

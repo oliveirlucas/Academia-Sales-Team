@@ -10,7 +10,7 @@
             INNER JOIN aluno ALU ON ALU.COD_ALUNO = P.COD_ALUNO
             WHERE P.COD_ALUNO = '$aula'";
 
-	$resultado_aula = mysqli_query($connect, $aula);
+    $resultado_aula = mysqli_query($connect, $aula);
 	
 	if(mysqli_num_rows($resultado_aula) <= 0){
 		echo "<div class='alert alert-danger' role='alert'>Não existe aulas registradas para este aluno</div>";
@@ -22,16 +22,19 @@
                     $tabela .= "<th>Matricula</th>";
                     $tabela .= "<th>Nome do Aluno</th>";
                     $tabela .= "<th>Numero de Aulas</th>";
+                    $tabela .= "<th>Data</th>";
                     $tabela .= "<th>Status</th>";
                 $tabela .= "</tr>";
             $tabela .= "</thead>";
             $tabela .= "<tbody>";
             while($dados = mysqli_fetch_assoc($resultado_aula)){
+                $data = $dados['DATA_AULA'];
                     $tabela .= "<tr>";
                         $tabela .= "<td>".$dados['COD_PERSONAL']."</td>";
                         $tabela .= "<td>".$dados['COD_ALUNO']."</td>";
                         $tabela .= "<td>".$dados['NOM_ALUNO']."</td>";
                         $tabela .= "<td>Aula ".$dados['NUMERO_AULA']."</td>";
+                        $tabela .= "<td>".date('d/m/Y', strtotime($data))."</td>";
                         if($dados['STATUS_AULA'] == 'Presente'){
                             $tabela .= "<td><span class='label label-success'>".$dados['STATUS_AULA']."</span></td>";
                         }else{

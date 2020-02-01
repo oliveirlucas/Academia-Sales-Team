@@ -219,6 +219,12 @@
                                                     <input type="text" class="form-control input-default" placeholder="Nº" name="cod_aula" required="required">
                                                 </div>
                                             </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Data</label>
+                                                    <input type="date" class="form-control input-default" name="data" required="required">
+                                                </div>
+                                            </div>
                                             <div class="col-md-4">
                                                 <label>Status aula</label>
                                                 <select class="form-control" name="status_aula">
@@ -271,6 +277,12 @@
                                                     <input type="text" class="form-control input-default" placeholder="Nº" name="numero_aula" >
                                                 </div>
                                             </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Data</label>
+                                                    <input type="date" class="form-control input-default" name="data" required="required">
+                                                </div>
+                                            </div>
                                             <div class="col-md-4">
                                                 <label>Status aula</label>
                                                 <select class="form-control" name="status_aula">
@@ -318,7 +330,13 @@
                                                     <input type="text" class="form-control input-default" placeholder="Nome do aluno" name="nome_aluno" readonly=“true”>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Data</label>
+                                                    <input type="date" class="form-control input-default" name="data_del" required="required" readonly=“true”>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Status da aula</label>
                                                     <input type="text" class="form-control input-default" placeholder="Status" name="status_atual" readonly=“true”>
@@ -408,12 +426,14 @@
             $("input[name='codigo_aula']").blur(function() {
                 var $codigo_aluno = $("input[name='codigo_aluno']");
                 var $nome_aluno = $("input[name='nome_aluno']");
+                var $data = $("input[name='data_del']");
                 var $status_atual = $("input[name='status_atual']");
                 $.getJSON('../php/trazer-aula.php', {
                     codigo_aula: $(this).val()
                 }, function(json) {
                     $codigo_aluno.val(json.codigo_aluno);
                     $nome_aluno.val(json.nome_aluno);
+                    $data.val(json.data);
                     $status_atual.val(json.status_atual);
                 });
             });

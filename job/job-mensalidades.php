@@ -126,7 +126,7 @@ function envio_email_pagamento_aluno($nome_aluno){
 
 function logMe($msg,$date_com_horas){
 
-    $fp = fopen(realpath(dirname(__FILE__) . "/../logs/log_mensalidade/log_".$date_com_horas.".txt", "a"));
+    $fp = fopen("../logs/log_mensalidade/log_".$date_com_horas.".txt", "a");
     $escreve = fwrite($fp, $msg);
     fclose($fp);
 }
