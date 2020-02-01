@@ -59,7 +59,8 @@ $status_nao = filter_input(INPUT_POST, 'status_nao');
 			$result_usuario = "UPDATE aluno SET NOM_ALUNO='$nome_aluno' ,CPF='$cpf_aluno',RG='$rg_aluno',DATA='$data_aluno',NIVEL='$nivel',STATUS='$status' WHERE COD_ALUNO = '$matricula_sim'";
 			$resultado_usuario = mysqli_query($connect, $result_usuario);
 
-			$result_responsavel = "UPDATE responsavel SET NOM_RESPONSAVEL='$nome_responsavel',TELEFONE='$telefone',CPF='$cpf_responsavel',RG='$rg',DATA_NASCIMENTO='$data_responsavel',EMAIL='$email',CEP='$cep',ENDERECO='$endereco Nº(".$numero.")',BAIRRO='$bairro',CIDADE='$cidade',ESTADO='$estado' WHERE CPF='$cpf_responsavel'";
+			$result_responsavel = "UPDATE responsavel SET NOM_RESPONSAVEL='$nome_responsavel',TELEFONE='$telefone',CPF='$cpf_responsavel',RG='$rg',DATA_NASCIMENTO='$data_responsavel',EMAIL='$email',CEP='$cep',ENDERECO='$endereco Nº(".$numero.")',BAIRRO='$bairro',CIDADE='$cidade',ESTADO='$estado' 
+									WHERE COD_RESPONSAVEL = (SELECT COD_RESPONSAVEL FROM aluno where COD_ALUNO = '$matricula_sim')";
 			$resultado_result_responsavel = mysqli_query($connect, $result_responsavel);
 
 			if(mysqli_affected_rows($connect)){
