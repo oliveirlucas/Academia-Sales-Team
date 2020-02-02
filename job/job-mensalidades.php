@@ -21,7 +21,7 @@ function mensalidade(){
     $situacao_aluno = "SELECT * from aluno alu
                         inner join contrato con on alu.COD_ALUNO = con.COD_ALUNO
                         inner join planos pla on pla.COD_PLANO = con.COD_PLANO
-                        where alu.STATUS = 'Ativo' and con.STATUS_CONTRATO = 'Ativo'";
+                        where alu.STATUS = 'Ativo' and con.STATUS_CONTRATO = 'Ativo' and pla.cod_plano in (1,2,3,4)";
     $resultado_situacao_aluno = mysqli_query($connect, $situacao_aluno) or die (mysqli_error($connect));
     
     while($aluno_status = mysqli_fetch_assoc($resultado_situacao_aluno)){
@@ -126,7 +126,7 @@ function envio_email_pagamento_aluno($nome_aluno){
 
 function logMe($msg,$date_com_horas){
 
-    $fp = fopen("/home/loyusgyp/public_html/logs/log_mensalidade/log_".$date_com_horas.".txt", "a");
+    $fp = fopen("../logs/log_mensalidade/log_".$date_com_horas.".txt", "a");
     $escreve = fwrite($fp, $msg);
     fclose($fp);
 }
