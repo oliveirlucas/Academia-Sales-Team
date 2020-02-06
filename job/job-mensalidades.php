@@ -3,7 +3,11 @@
     require '../PHPMailer/src/PHPMailer.php';
     require '../PHPMailer/src/SMTP.php';
     
+    echo "Iniciando processo de inserção de mensalidade para os alunos\n";
+    echo "Processando alunos ...\n";
+    echo "Executando\n";
     $gerar_mensalidade = mensalidade();
+    echo "Processando finalizado\n";
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -49,6 +53,7 @@ function mensalidade(){
             }else{
                 $msgRegistro = "Aluno possui data registro menor que 30 dias | Matricula: ".$aluno_status['COD_ALUNO']." | Aluno: ".$aluno_status['NOM_ALUNO']."\n";
                 logMe($msgRegistro,$date_com_horas);
+                echo $msgRegistro;
             }
         }
     }        
@@ -65,9 +70,11 @@ function inserir_pagamentos($matricula,$valor_plano,$nome_aluno,$date_com_horas)
     if(mysqli_insert_id($connect)){
         $msgInserir = "Pagamento inserido => Matricula: ".$matricula." | Aluno: ".$nome_aluno." | Valor R$ ".$valor_plano."\n";
         logMe($msgInserir,$date_com_horas);
+        echo $msgInserir;
     }else{
         $msgErro = "Não foi possivel inserir o pagamento para o aluno => Matricula: ".$matricula." | Aluno: ".$nome_aluno."\n";
         logMe($msgErro,$date_com_horas);
+        echo $msgErro;
     }
 }
 
@@ -126,7 +133,7 @@ function envio_email_pagamento_aluno($nome_aluno){
 
 function logMe($msg,$date_com_horas){
 
-    $fp = fopen("../logs/log_mensalidade/log_".$date_com_horas.".txt", "a");
+    $fp = fopen("/home/loyusgyp/public_html/logs/mensalidade/log_".$date_com_horas.".txt", "a");
     $escreve = fwrite($fp, $msg);
     fclose($fp);
 }

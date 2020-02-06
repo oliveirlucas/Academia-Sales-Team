@@ -1,6 +1,10 @@
 <?php
 
+    echo "Iniciando processo de correção de Juros e multa\n";
+    echo "Processando alunos ...\n";
+    echo "Executando\n";
     $jurosEMulta = correcaoJurosEMulta();
+    echo "Processando finalizado\n";
 
 function correcaoJurosEMulta(){
 
@@ -32,6 +36,7 @@ function correcaoJurosEMulta(){
         if($data_operacao == $date_sem_horas){
             $msg = "Titulo já corrigido | Aluno: $nom_aluno | Data da operação: $date_sem_horas\n";
             logMe($msg,$date_com_horas);
+            echo $msg;
         }else{
             $valor_corrigido = calcular($date_sem_horas,$data_titulos,$valor_plano);
             atualizarValor($valor_corrigido,$cod_titulo,$date_sem_horas,$nom_aluno,$date_com_horas);
@@ -69,12 +74,13 @@ function atualizarValor($valor_corrigido,$cod_titulo,$date_sem_horas,$nom_aluno,
     if(mysqli_affected_rows($connect)){
         $msg = "Juros e multa corrigido | Aluno: $nom_aluno | Valor: $valor_corrigido | Data da operação: $date_sem_horas\n";
         logMe($msg,$date_com_horas);
+        echo $msg;
     }
 }
 
 function logMe($msg,$date_com_horas){
 
-    $fp = fopen("../logs/log_jurosemulta/log_".$date_com_horas.".txt", "a");
+    $fp = fopen("/home/loyusgyp/public_html/logs/juros/log_jurosemulta/log_".$date_com_horas.".txt", "a");
     $escreve = fwrite($fp, $msg);
     fclose($fp);
     }
