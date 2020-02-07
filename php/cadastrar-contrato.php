@@ -8,26 +8,30 @@ $tipo = filter_input(INPUT_POST, 'tipo');
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-if($tipo == 'Mensal 2x por semana'){
+
+if($tipo == 'Muay Thai 2x por semana'){
     $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '1', 'Ativo')";
     $resultado_usuario = mysqli_query($connect, $result_usuario);
-}elseif($tipo == 'Mensal 3x por semana'){
+}elseif($tipo == 'Muay Thai 3x por semana'){
     $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '2', 'Ativo')";
     $resultado_usuario = mysqli_query($connect, $result_usuario);
-}elseif($tipo == 'Mensal 4x por semana'){
+}elseif($tipo == 'Muay Thai 4x por semana'){
     $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '3', 'Ativo')";
     $resultado_usuario = mysqli_query($connect, $result_usuario);
-}elseif($tipo == 'Mensal 5x por semana'){
+}elseif($tipo == 'Muay Thai 5x por semana'){
     $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '4', 'Ativo')";
     $resultado_usuario = mysqli_query($connect, $result_usuario);
-}elseif($tipo == 'Semestral 2x por semana'){
+}elseif($tipo == 'Muay Thai semestral 2x por semana'){
     $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '5', 'Ativo')";
     $resultado_usuario = mysqli_query($connect, $result_usuario);
-}elseif($tipo == 'Semestral 3x por semana'){
+}elseif($tipo == 'Muay Thai semestral 3x por semana'){
     $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '6', 'Ativo')";
     $resultado_usuario = mysqli_query($connect, $result_usuario);
-}elseif($tipo == 'Semestral 5x por semana'){
+}elseif($tipo == 'Funcional 2x por semana'){
     $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '7', 'Ativo')";
+    $resultado_usuario = mysqli_query($connect, $result_usuario);
+}elseif($tipo == 'Personal'){
+    $result_usuario = "INSERT INTO contrato (COD_ALUNO, COD_PLANO, STATUS_CONTRATO) VALUES ('$cod_aluno', '8', 'Ativo')";
     $resultado_usuario = mysqli_query($connect, $result_usuario);
 }
 

@@ -86,7 +86,15 @@
                                         </div>
                                     </div>
                                     <div class='row'>
-                                        <div class='col-md-6'>
+                                        <div class='col-md-4'>
+                                            <label>Modalidade</label>
+                                            <select class='form-control' name='modalidade_nao'>
+                                                <option selected='selected'>Selecione a modalidade</option>
+                                                <option>Muay Thai</option>
+                                                <option>Funcional</option>
+                                            </select>
+                                        </div>
+                                        <div class='col-md-4'>
                                             <label>Prajied</label>
                                             <select class='form-control' name='nivel_nao'>
                                                 <option selected='selected'>Selecione a Prajied</option>
@@ -117,7 +125,7 @@
                                                 <option>11º ROXO/AMARELO(K)</option>
                                             </select>
                                         </div>
-                                        <div class='col-md-6'>
+                                        <div class='col-md-4'>
                                             <label>Status Aluno</label>
                                             <select class='form-control' name='status_nao'>
                                                 <option selected='selected'>Selecione o status</option>

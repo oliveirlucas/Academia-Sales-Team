@@ -250,12 +250,14 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                                                     <select class="form-control" name="tipo">
                                                         <option selected="selected">Selecione o tipo
                                                         </option>
-                                                        <option>Mensal 2x por semana</option>
-                                                        <option>Mensal 3x por semana</option>
-                                                        <option>Mensal 4x por semana</option>
-                                                        <option>Mensal 5x por semana</option>
-                                                        <option>Semestral 2x por semana</option>
-                                                        <option>Semestral 3x por semana</option>
+                                                        <option>Muay Thai 2x por semana</option>
+                                                        <option>Muay Thai 3x por semana</option>
+                                                        <option>Muay Thai 4x por semana</option>
+                                                        <option>Muay Thai 5x por semana</option>
+                                                        <option>Muay Thai semestral 2x por semana</option>
+                                                        <option>Muay Thai semestral 3x por semana</option>
+                                                        <option>Funcional 2x por semana</option>
+                                                        <option>Personal</option>
                                                     </select>
                                                 </div>
                                             </div>

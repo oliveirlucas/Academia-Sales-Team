@@ -64,7 +64,7 @@ function inserir_pagamentos($matricula,$valor_plano,$nome_aluno,$date_com_horas)
     require(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
     $situacao_aluno = "INSERT into pagamento (COD_ALUNO, DATA_CRIADA, DATA_VENCIMENTO, STATUS, TIPO_PAGAMENTO, VALOR, DATA_REGISTRO) 
-                        values ('$matricula',now(),now() + interval 9 day ,'Aberto','Mensalidade','$valor_plano',now())";
+                        values ('$matricula','2020-02-01','2020-02-10','Aberto','Mensalidade','$valor_plano',now())";
     $resultado_situacao_aluno = mysqli_query($connect, $situacao_aluno) or die (mysqli_error($connect));
 
     if(mysqli_insert_id($connect)){

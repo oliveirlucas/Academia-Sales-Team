@@ -33,7 +33,15 @@
                                                     <input type='date' class='form-control input-default' required='required' name='data_aluno'>
                                                 </div>
                                             </div>
-                                            <div class='col-md-5'>
+                                            <div class='col-md-3'>
+                                                <label>Modalidade</label>
+                                                <select class='form-control' name='modalidade'>
+                                                    <option selected='selected'>Selecione a modalidade</option>
+                                                    <option>Muay Thai</option>
+                                                    <option>Funcional</option>
+                                                </select>
+                                            </div>
+                                            <div class='col-md-3'>
                                                 <label>Prajied</label>
                                                 <select class='form-control' name='nivel'>
                                                     <option selected='selected'>Selecione a Prajied</option>
@@ -64,7 +72,7 @@
                                                     <option>11º ROXO/AMARELO(K)</option>
                                                 </select>
                                             </div>
-                                            <div class='col-md-4'>
+                                            <div class='col-md-3'>
                                                 <label>Status Aluno</label>
                                                 <select class='form-control' name='status'>
                                                     <option selected='selected'>Selecione o status</option>

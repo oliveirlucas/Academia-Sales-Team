@@ -6,7 +6,9 @@
 	$cod_aluno = $_POST['palavra'];
 	
 	//Pesquisar no banco de dados nome do curso referente a palavra digitada pelo usuário
-	$buscar_dados_aluno = "SELECT * from aluno where COD_ALUNO = '$cod_aluno'";
+	$buscar_dados_aluno = "SELECT * from aluno alu
+                            inner join modalidade mdl on mdl.COD_MODALIDADE = alu.COD_MODALIDADE
+                            where alu.COD_ALUNO = '$cod_aluno'";
     $resultado_buscar_dados_aluno = mysqli_query($connect, $buscar_dados_aluno);
     $dados_buscar_aluno = mysqli_fetch_assoc($resultado_buscar_dados_aluno);
 
@@ -46,17 +48,21 @@
                                             </div>
                                         </div>
                                         <div class='row'>
-                                            <div class='col-md-4'>
+                                            <div class='col-md-3'>
                                                 <div class='form-group'>
                                                     <label>Data de nascimento</label>
                                                     <input type='date' class='form-control input-default' name='data_aluno' maxlength='10' readonly=“true” value='".$dados_buscar_aluno['DATA']."'>
                                                 </div>
                                             </div>
-                                            <div class='col-md-4'>
+                                            <div class='col-md-3'>
+                                                <label>Modalidade</label>
+                                                <input type='text' class='form-control input-default' name='nivel' minlength='11' maxlength='11' readonly=“true” value='".$dados_buscar_aluno['DSC_MODALIDADE']."'>
+                                            </div>
+                                            <div class='col-md-3'>
                                                 <label>Prajied</label>
                                                 <input type='text' class='form-control input-default' name='nivel' minlength='11' maxlength='11' readonly=“true” value='".$dados_buscar_aluno['NIVEL']."'>
                                             </div>
-                                            <div class='col-md-4'>
+                                            <div class='col-md-3'>
                                                 <label>Status Aluno</label>
                                                 <input type='text' class='form-control input-default' name='status' minlength='11' maxlength='11' readonly=“true” value='".$dados_buscar_aluno['STATUS']."'>
                                             </div>
@@ -224,11 +230,15 @@
                                                 </div>
                                             </div>
                                             <div class='row'>
-                                                <div class='col-md-6'>
+                                                <div class='col-md-4'>
+                                                    <label>Modalidade</label>
+                                                    <input type='text' class='form-control input-default' name='nivel' readonly=“true” value='".$dados_buscar_aluno['DSC_MODALIDADE']."'>
+                                                </div>
+                                                <div class='col-md-4'>
                                                     <label>Prajied</label>
                                                     <input type='text' class='form-control input-default' name='nivel' readonly=“true” value='".$dados_buscar_aluno['NIVEL']."'>
                                                 </div>
-                                                <div class='col-md-6'>
+                                                <div class='col-md-4'>
                                                     <label>Status Aluno</label>
                                                     <input type='text' class='form-control input-default' name='status' readonly=“true” value='".$dados_buscar_aluno['STATUS']."'>
                                                 </div>

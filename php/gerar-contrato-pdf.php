@@ -107,7 +107,11 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
         Se você não desejar a renovação ao final de qualquer período, poderá cancelar o contrato conforme as regras deste termo.</p>";
         
         
-        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <b>Valor:</b> R$ ".$dados['VALOR_PLANO']."<br><br>";
+        if($dados['TIPO_PLANO'] == "Personal"){
+            $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> A combinar <b>Valor:</b> A combinar<br>";
+        }else{
+            $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <b>Valor:</b> R$ ".$dados['VALOR_PLANO']."<br>";
+        }
         
         
         $contrato .= "Observações:_____________________________________________________________________________<br>
@@ -226,8 +230,13 @@ if(mysqli_num_rows($resultado_usuario) <= 0){
         iguais períodos. A cada renovação, passa a ser aplicável o Termo de Adesão que estiver vigente na data respectiva. 
         Se você não desejar a renovação ao final de qualquer período, poderá cancelar o contrato conforme as regras deste termo.</p>";
         
+        if($dados['TIPO_PLANO'] == "Personal"){
+            $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> A combinar <b>Valor:</b> A combinar<br>";
+        }else{
+            $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <b>Valor:</b> R$ ".$dados['VALOR_PLANO']."<br>";
+        }
         
-        $contrato .= "<b>Plano contratado:</b> ".$dados['TIPO_PLANO']." <b>Qtd. meses:</b> Mensalista <b>Valor:</b> R$ ".$dados['VALOR_PLANO']."<br>";
+        
         
         
         $contrato .= "Observações:_____________________________________________________________________________<br>
