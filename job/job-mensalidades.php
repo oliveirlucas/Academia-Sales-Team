@@ -40,6 +40,7 @@ function mensalidade(){
         if(mysqli_affected_rows($connect)){
             $msgExiste = "Já existe pagamento com data de vencimento para ".$pagamento['DATA_VENCIMENTO']." | Matricula: ".$aluno_status['COD_ALUNO']."  | Aluno: ".$aluno_status['NOM_ALUNO']."\n";
             logMe($msgExiste,$date_com_horas);
+            echo $msgExiste;
         }else{
             if(date('Y-m-d', strtotime("-30 days",strtotime($date))) > $aluno_status['DATA_REGISTRO']){
                 $matricula = $aluno_status['COD_ALUNO'];
@@ -64,7 +65,7 @@ function inserir_pagamentos($matricula,$valor_plano,$nome_aluno,$date_com_horas)
     require(realpath(dirname(__FILE__) . "/../db/db_connect.php"));
 
     $situacao_aluno = "INSERT into pagamento (COD_ALUNO, DATA_CRIADA, DATA_VENCIMENTO, STATUS, TIPO_PAGAMENTO, VALOR, DATA_REGISTRO) 
-                        values ('$matricula','2020-02-01','2020-02-10','Aberto','Mensalidade','$valor_plano',now())";
+                        values ('$matricula',now(),now() + interval 9 day ,'Aberto','Mensalidade','$valor_plano',now())";
     $resultado_situacao_aluno = mysqli_query($connect, $situacao_aluno) or die (mysqli_error($connect));
 
     if(mysqli_insert_id($connect)){
