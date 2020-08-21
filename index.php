@@ -35,15 +35,17 @@
 
 
     <div class="login-form-bg" style="height: 100% !important;">
-        <div class="container mr-0" style="height: 100% !important;">
+        <div class="mr-0 ml-0" style="height: 100% !important;">
             <div class="row justify-content-center" style="height: 100% !important;">
-                <div class="col-xl-6">
+                <div class="col-lg-8">
+                </div>
+                <div class="col-lg-3">
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <div>
                                 <center>
-                                    <img src="../images/login-png.png"></img>
+                                    <img src="../images/login-png.png" style="height: 120px"></img>
                                 </center>
                                 </div>
                                 </br>
@@ -74,6 +76,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-1">
                 </div>
             </div>
         </div>
