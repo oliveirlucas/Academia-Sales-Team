@@ -18,39 +18,51 @@
 	if(mysqli_num_rows($resultado_pagamento) <= 0){
 		echo "<div class='alert alert-danger' role='alert'>Nenhum pagamento foi encontrado para este aluno ou o mesmo não existe em nossa base de dados</div>";
 	}else{
-        $tabela = "<table class='table header-border'>";
-            $tabela .= "<thead>";
-                $tabela .= "<tr>";
-                    $tabela .= "<th>Codigo</th>";
-                    $tabela .= "<th>Nome do Aluno</th>";
-                    $tabela .= "<th>Tipo</th>";
-                    $tabela .= "<th>Data gerada</th>";
-                    $tabela .= "<th>Data de vencimento</th>";
-                    $tabela .= "<th>Valor</th>";
-                    $tabela .= "<th>Status</th>";
-                $tabela .= "</tr>";
-            $tabela .= "</thead>";
-            $tabela .= "<tbody>";
-            while($dados = mysqli_fetch_assoc($resultado_pagamento)){
+        $tabela = "<div class='card'>
+                        <div class='card-body'>
+                            <div class='card-title'>
+                                <h4>Faturas</h4>
+                            </div>
+                            <div class='table-responsive'>
+                            <table class='table header-border'>
+                                <thead>
+                                    <tr>
+                                        <th>Codigo</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Tipo</th>
+                                        <th>Data gerada</th>
+                                        <th>Data de vencimento</th>
+                                        <th>Valor</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+                        while($dados = mysqli_fetch_assoc($resultado_pagamento)){
 
-                $data_criada = $dados['DATA_CRIADA'];
-                $data_vencimento = $dados['DATA_VENCIMENTO'];
-                    $tabela .= "<tr>";
-                        $tabela .= "<td>".$dados['COD_PAGAMENTO']."</td>";
-                        $tabela .= "<td>".$dados['NOM_ALUNO']."</td>";
-                        $tabela .= "<td>".$dados['TIPO_PAGAMENTO']."</td>";
-                        $tabela .= "<td>".date('d/m/Y', strtotime($data_criada))."</td>";
-                        $tabela .= "<td>".date('d/m/Y', strtotime($data_vencimento))."</td>";
-                        $tabela .= "<td>R$ ".$dados['VALOR']."</td>";
-                        if($dados['STATUS'] == 'Pago'){
-                            $tabela .= "<td><span class='label label-success'>".$dados['STATUS']."</span></td>";
-                        }else{
-                            $tabela .= "<td><span class='label label-danger'>".$dados['STATUS']."</span></td>";
-                        }
-            }   
-                $tabela .= "</tr>";
-            $tabela .= "</tbody>";
-        $tabela .= "</table>";
+                            $data_criada = $dados['DATA_CRIADA'];
+                            $data_vencimento = $dados['DATA_VENCIMENTO'];
+                                $tabela .= "<tr>";
+                                    $tabela .= "<td>".$dados['COD_PAGAMENTO']."</td>";
+                                    $tabela .= "<td>".$dados['NOM_ALUNO']."</td>";
+                                    $tabela .= "<td>".$dados['TIPO_PAGAMENTO']."</td>";
+                                    $tabela .= "<td>".date('d/m/Y', strtotime($data_criada))."</td>";
+                                    $tabela .= "<td>".date('d/m/Y', strtotime($data_vencimento))."</td>";
+                                    $tabela .= "<td>R$ ".$dados['VALOR']."</td>";
+                                    if($dados['STATUS'] == 'Pago'){
+                                        $tabela .= "<td><span class='label label-success'>".$dados['STATUS']."</span></td>";
+                                    }else if ($dados['STATUS'] == 'Aberto'){
+                                        $tabela .= "<td><span class='label label-warning'>".$dados['STATUS']."</span></td>";
+                                    }else{
+                                        $tabela .= "<td><span class='label label-danger'>".$dados['STATUS']."</span></td>";
+                                    }
+                        }   
+                            $tabela .= "</tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>";
         
         echo $tabela;
 	}

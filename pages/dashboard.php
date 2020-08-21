@@ -41,6 +41,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
     <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
     <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155846840-1"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -90,8 +91,8 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
         ***********************************-->
         <div class="header">
             <div class="nav-control">
-                <div class="hamburger">
-                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                <div class="hamburger is-active">
+                    <span class="toggle-icon"><i class="material-icons">menu</i></span>
                 </div>
             </div>
             <div class="header-content clearfix">
@@ -125,7 +126,7 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
                 <ul class="metismenu" id="menu">
                     <li>
                         <a href="../pages/dashboard.php" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        <i class="material-icons">dashboard</i><span class="nav-text" style="margin-top: 10px;">Dashboard</span>
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">

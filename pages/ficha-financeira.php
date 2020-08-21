@@ -178,59 +178,25 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
             <!-- row -->
 
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-title">
-                                    <h4 style="text-indent: 20px;">Insira a matricula</h4>
-                                </div>
                                 <div class="basic-form">
-                                    <form class="form-inline" id="form_pesquisa" method="post">
-                                        <div class="form-group mx-sm-3 mb-2">
-                                            <label class="sr-only">Numero do contrato</label>
-                                            <input type="text" class="form-control" name="matricula_filtro" id="pesquisa">
+                                    <form class="form-inline offset-md-4" id="form_pesquisa" method="post">
+                                        <div class="input-group mx-sm-3 mb-2">
+                                        <input type="text" class="form-control" placeholder="Numero da matricula" name="matricula_filtro" id="pesquisa">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-dark" type="button" id="limpar-dados">limpar</button>
                                         </div>
-                                        <button type="reset" class="btn btn-dark mb-2" id="limpar-dados" >Limpar</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <h4>Contrato</h4>
-                                </div>
-                                <div class="table-responsive" id="tabela-contrato">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <form id="formulario-aluno">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <h4>Faturas</h4>
-                                </div>
-                                <div class="table-responsive" id="tabela-pagamentos">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="dadosAluno" class='col-lg-3'></div>
+                    <div id="tabela-pagamentos" class='col-lg-9 table-responsive'></div>
                 </div>
             </div>
             <!-- #/ container -->
@@ -285,44 +251,6 @@ $dados_funcionario = mysqli_fetch_array($resultado_funcionario);
     <!-- ChartistJS -->
     <script src="../plugins/chartist/js/chartist.min.js"></script>
     <script src="../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
-    <script type='text/javascript'>
-        $(document).ready(function() {
-            $("input[name='matricula_filtro']").blur(function() {
-                var $nome = $("input[name='nome']");
-                var $telefone = $("input[name='telefone']");
-                var $email = $("input[name='email']");
-                var $responsavel = $("input[name='responsavel']");
-                var $cpf = $("input[name='cpf']");
-                var $rg = $("input[name='rg']");
-                var $data = $("input[name='data']");
-                var $endereco = $("input[name='endereco']");
-                var $cidade = $("input[name='cidade']");
-                var $bairro = $("input[name='bairro']");
-                var $cep = $("input[name='cep']");
-                var $estado = $("input[name='estado']");
-                var $nivel = $("input[name='nivel']");
-                var $status = $("input[name='status']");
-                $.getJSON('../php/filtro_ficha_matricula.php', {
-                    matricula_filtro: $(this).val()
-                }, function(json) {
-                    $nome.val(json.nome);
-                    $telefone.val(json.telefone);
-                    $email.val(json.email);
-                    $responsavel.val(json.responsavel);
-                    $cpf.val(json.cpf);
-                    $rg.val(json.rg);
-                    $data.val(json.data);
-                    $endereco.val(json.endereco);
-                    $cidade.val(json.cidade);
-                    $bairro.val(json.bairro);
-                    $cep.val(json.cep);
-                    $estado.val(json.estado);
-                    $nivel.val(json.nivel);
-                    $status.val(json.status);
-                });
-            });
-        });
-    </script>
     <script type='text/javascript'>
         function limpar() {
             var elements = document.getElementsByTagName("input");
